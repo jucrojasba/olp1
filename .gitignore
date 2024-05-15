@@ -1,2 +1,3 @@
-node_modules
-.env
+olp1-ms/node_modules
+olp1-fr/node_modules
+olp1-ms/.env
