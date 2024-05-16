@@ -1,8 +1,6 @@
-import styles from './home.css';
-import { ReportScene } from '../reports'
+import styles from "./home.css";
 
 export function HomeScene() {
-
   // generate random number between 1 an 10
   const randomNumber = Math.floor(Math.random() * 10) + 1;
 
@@ -23,7 +21,7 @@ export function HomeScene() {
 
   const logic = () => {
     fetch(`https://jsonplaceholder.typicode.com/users/${randomNumber}`)
-      .then(response => response.json())
+      .then((response) => response.json())
       // .then(json => {
       //   // Primero, obtenemos el elemento en dodne deseamos insetar el usuario
       //   const userInfo = document.getElementById('user-info');
@@ -40,18 +38,25 @@ export function HomeScene() {
       //   // Finalmente, mostramos el div
       //   document.getElementById('home_container').classList.remove(styles.hidden);
       // })
-      .then(({
-        id, name, username, email, address: {
-          street, suite, city, zipcode, geo: {
-            lat, lng
-          }
-        },
-        phone, website, company: {
-          name: companyName, catchPhrase, bs
-        }
-      }) => {
-        const userInfo = document.getElementById('user-info');
-        userInfo.innerHTML = `
+      .then(
+        ({
+          id,
+          name,
+          username,
+          email,
+          address: {
+            street,
+            suite,
+            city,
+            zipcode,
+            geo: { lat, lng },
+          },
+          phone,
+          website,
+          company: { name: companyName, catchPhrase, bs },
+        }) => {
+          const userInfo = document.getElementById("user-info");
+          userInfo.innerHTML = `
         <p>User: ${id}</p>
         <p>Name: ${name}</p>
         <p>Username: ${username}</p>
@@ -64,14 +69,17 @@ export function HomeScene() {
         <p>Catch Phrase: ${catchPhrase}</p>
         <p>BS: ${bs}</p>
         `;
-        // Finalmente, ocultamos el loader y mostramos el div
-        document.querySelector(`#loader`).classList.add(styles.hidden);
-        document.getElementById('home_container').classList.remove(styles.hidden);
-      })
+          // Finalmente, ocultamos el loader y mostramos el div
+          document.querySelector(`#loader`).classList.add(styles.hidden);
+          document
+            .getElementById("home_container")
+            .classList.remove(styles.hidden);
+        }
+      );
   };
 
   return {
     pageContent,
-    logic
-  }
+    logic,
+  };
 }
