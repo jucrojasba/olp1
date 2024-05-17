@@ -20,6 +20,9 @@ export function DashboardLayout(
     { href: "/dashboard/forum", name: "Forum" },
     { href: "/dashboard/profile", name: "Profile" },
     { href: "/dashboard/learning-path", name: "Learning Path" },
+    { href: "/dashboard/html", name: "HTML" },
+    { href: "/dashboard/css", name: "CSS" },
+    { href: "/dashboard/javascript", name: "Javascript" },
     { href: "/dashboard/users", name: "Users" },
   ];
 
