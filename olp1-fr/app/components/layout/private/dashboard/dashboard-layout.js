@@ -23,6 +23,7 @@ export function DashboardLayout(
     { href: "/dashboard/html", name: "HTML" },
     { href: "/dashboard/css", name: "CSS" },
     { href: "/dashboard/javascript", name: "Javascript" },
+    { href: "/dashboard/challenges", name: "Challenges" },
     { href: "/dashboard/users", name: "Users" },
   ];
 

@@ -8,6 +8,7 @@ import { LearningPathScene } from "../scenes/private/learning-path";
 import { HtmlScene } from "../scenes/private/html";
 import { CssScene } from "../scenes/private/css";
 import { JavascriptScene } from "../scenes/private/javascript";
+import { ChallengesScene } from "../scenes/private/challenges";
 
 export const routes = {
   private: [
@@ -19,6 +20,7 @@ export const routes = {
     { path: "/dashboard/html", component: HtmlScene },
     { path: "/dashboard/css", component: CssScene },
     { path: "/dashboard/javascript", component: JavascriptScene },
+    { path: "/dashboard/challenges", component: ChallengesScene },
   ],
   public: [
     { path: "/login", component: LoginPage },
