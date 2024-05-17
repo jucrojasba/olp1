@@ -1,10 +1,11 @@
 :root {
   /* Colors */
-  --purple-dark-color: #381b77;
+  --purple-dark-color: #472e7c;
   --orange-color: #dd7d5b;
   --black-color: #160528;
   --purple-light-color: #7748cd;
   --blue-color: #53afde;
+  --owner-purple: #b48aea;
 
   /* Spacing */
   --spacing-1: 0.25rem;
