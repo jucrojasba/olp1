@@ -56,6 +56,7 @@ aside.sidebar-menu > #discover > div.container > button > img {
 }
 aside.sidebar-menu > #discover > div.container > button:hover {
   background-color: white;
+  cursor: pointer;
 }
 
 /* Seccion Courses */
@@ -89,6 +90,7 @@ aside.sidebar-menu > #courses > div.container > button > img {
 }
 aside.sidebar-menu > #courses > div.container > button:hover {
   background-color: white;
+  cursor: pointer;
 }
 
 /* Logout and admin view */
@@ -112,4 +114,5 @@ aside.sidebar-menu > #salida > div.container > button {
 }
 aside.sidebar-menu > #salida > div.container > button:hover {
   background-color: white;
+  cursor: pointer;
 }
