@@ -2,6 +2,7 @@ import { navigateTo } from "../../../../Router";
 import { logOut } from "../../../../helpers";
 import { NavigationBar } from "../../../navigation-bar/navigation-bar";
 import { SidebarMenu } from "../../../sidebar-menu/sidebar-menu";
+import { Footer } from "../../../footer/footer";
 import styles from "./dashboard-layout.css";
 
 export function DashboardLayout(
@@ -42,6 +43,9 @@ export function DashboardLayout(
     </div>
     <div class="${styles.main}">
       ${pageContent}
+    </div>
+    <div class="${styles.footer}">
+    ${Footer()}
     </div>
   </div>
   `;

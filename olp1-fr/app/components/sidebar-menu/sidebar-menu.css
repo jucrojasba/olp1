@@ -1,5 +1,5 @@
 aside.sidebar-menu {
-  background-color: var(--purple-light-color);
+  background-color: var(--purple-dark-color);
   box-shadow: 0 0 3px rgba(253, 253, 253, 0.1);
   height: 100%;
   display: flex;
@@ -107,7 +107,6 @@ aside.sidebar-menu > #salida > div.container > button {
   background-color: var(--owner-purple);
   border: none;
   border-radius: var(--spacing-1);
-  width: fit-content;
   font-size: var(--font-size-md);
   display: flex;
   justify-content: end;
