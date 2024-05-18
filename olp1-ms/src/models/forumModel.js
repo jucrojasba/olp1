@@ -12,4 +12,4 @@ exports.newComment = async (req, res) => {
     const date = new Date();
     const response = await pool.query(query, [comment_id, module_id, content, date, user_id])
     res.json({message: 'Comentario insertado correctamente'})
-   }
+  }
