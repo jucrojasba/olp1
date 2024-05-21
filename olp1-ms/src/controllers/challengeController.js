@@ -1,4 +1,4 @@
-const { getAll, getByLanguage, newChallenge, updateChallenge } = require("../models/challengeModel");
+const { getAll, getByLanguage, newChallenge, updateChallenge, deleteChallenge, findById } = require("../models/challengeModel");
 
 exports.getAll = async (req, res) => {
     try {
@@ -40,20 +40,33 @@ exports.updateChallenge = async (req, res) => {
         const { id } = req.params;
         const { name, content, section_type, period_type, points_to_give, is_random, language_id } = req.body;
 
-        const challenge = async (id) => {
-            const query = 'SELECT * FROM challenges WHERE id = $1'
-            const { rows } = await pool.query(query, [id]);
-            return rows[0];
-        }
-
+        const challenge = await findById(id);
         if (!challenge) {
             return res.status(400).json({message: 'El reto no fue encontrado'})
         }
 
-        const updatedChallenge = await updateChallenge(id, {name, content, section_type, period_type, points_to_give, is_random, language_id});
+        await updateChallenge(id, {name, content, section_type, period_type, points_to_give, is_random, language_id});
         res.status(200).json({message: 'Reto actualizado exitosamente'});
     } catch (err) {
         console.error('Error en updateChallenge: ', err);
         res.status(500).json({message: 'Error en el servidor'});
     }
 }
+
+exports.deleteChallenge = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const challenge = await findById(id);
+        if (!challenge) {
+            return res.status(400).json({message: 'El reto no fue encontrado'})
+        }
+
+        await deleteChallenge(id);
+        res.status(200).json({message: 'Reto eliminado exitosamente'});
+    } catch (err){
+        console.error('Error en deleteChallenge: ', err);
+        res.status(500).json({message: 'Error en el servidor'});
+    }
+}
+

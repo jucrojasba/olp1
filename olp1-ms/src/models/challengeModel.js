@@ -28,4 +28,14 @@ exports.updateChallenge = async (id, data) => {
   return rows;
 }
 
+exports.deleteChallenge = async (id) => {
+  const query = 'DELETE FROM challenges WHERE id = $1';
+  await pool.query(query, [id]);
+}
+
+exports.findById = async (id) => {
+  const query = `SELECT * FROM challenges WHERE id = $1`;
+  const { rows } = await pool.query(query, [id]);
+  return rows[0];
+};
 
