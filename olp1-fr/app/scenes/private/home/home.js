@@ -1,11 +1,14 @@
 import styles from "./home.css";
+import css_icon from "../../../assets/imagenes/Home/sun.png";
 
 export function HomeScene() {
   const pageContent = `
     <div id="${styles["container"]}">
         <ul class="${styles["wrapper"]}">
         <div class="${styles["sun"]}">
-          <div class="${styles["star"]}"></div>
+          <div class="${styles["star"]}">
+          <img src="${css_icon}">
+          </div>
         </div>
         <div class="${styles["mercury"]}">
           <div class="${styles["planet"]}">

@@ -91,8 +91,6 @@ main{
   .sun .star {
     width: 250px;
     height: 250px;
-    background: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.QQRPCxeZ4j-QsMwFGBliVQHaHa%26pid%3DApi&f=1&ipt=7129bc02ff5443ad083f4a8e58e4ef2e990066791b95d6e0a9a87c9b51c75a31&ipo=images) no-repeat;
-    background-size: contain;
     border-radius: 250px;
     margin: 0 auto;
     animation: spinsun 40s infinite linear;
@@ -124,7 +122,7 @@ main{
   .mercury .planet {
     width:15px;
     height:15px;
-    background-image: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.mS6Ffk4ng4ntq1HnlWd9DQHaHa%26pid%3DApi&f=1&ipt=1c493d0cc1c3295889f640d4f31766484b183578aa2e00cf3459ed0a6add4529&ipo=images);
+    background-image: url(http://www.waynedunkley.com/img/solar_system/shadow.png);
     animation: anti-spin 12s infinite linear;
   }
   .mercury .shadow {
