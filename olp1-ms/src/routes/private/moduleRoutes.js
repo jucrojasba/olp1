@@ -1,9 +1,11 @@
 const express = require('express');
-const { newModule } = require('../../models/moduleModel');
+const { getAll, save, getByLanguage, getById } = require('../../controllers/moduleController');
 
 const router = express.Router();
 
-router.post('/newmodule', newModule);
+router.get('/', getAll);
+router.post('/:language_id', save);
+router.get('/:language_id', getByLanguage);
+router.get('/get/:id', getById);
 
 module.exports = router;
-

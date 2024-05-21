@@ -8,7 +8,7 @@ exports.getAll = async () => {
 
 exports.newComment = async (comment_id, module_id, content, user_id) => {
   const query =
-    'INSERT INTO comments (comment_id, module_id, content, user_id) VALUES ($1, $2, $3, $4, $5)';
+    'INSERT INTO comments (comment_id, module_id, content, user_id) VALUES ($1, $2, $3, $4)';
   const response = await pool.query(query, [
     comment_id,
     module_id,
@@ -17,3 +17,5 @@ exports.newComment = async (comment_id, module_id, content, user_id) => {
   ]);
   return response;
 };
+
+

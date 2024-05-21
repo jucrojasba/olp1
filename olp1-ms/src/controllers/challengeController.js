@@ -30,29 +30,13 @@ exports.getByLanguage = async (req, res) => {
 
 exports.save = async (req, res) => {
   try {
-    const {
-      name,
-      content,
-      section_type,
-      period_type,
-      points_to_give,
-      is_random,
-      language_id,
-    } = req.body;
+    const { name, content, section_type, period_type, points_to_give, is_random, language_id } = req.body;
     if (!name || !content) {
       return res
         .status(400)
         .json({ message: 'Todos los campos son requeridos' });
     }
-    await save(
-      name,
-      content,
-      section_type,
-      period_type,
-      points_to_give,
-      is_random,
-      language_id
-    );
+    await save( name, content, section_type, period_type, points_to_give, is_random, language_id );
     return res.status(201).json({ message: 'Reto creado exitosamente' });
   } catch (err) {
     console.error('Error en newChallenge: ', err);
@@ -63,15 +47,7 @@ exports.save = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const { id } = req.params;
-    const {
-      name,
-      content,
-      section_type,
-      period_type,
-      points_to_give,
-      is_random,
-      language_id,
-    } = req.body;
+    const { name, content, section_type, period_type, points_to_give, is_random, language_id } = req.body;
 
     const challenge = await findById(id);
     if (!challenge) {
@@ -85,7 +61,7 @@ exports.update = async (req, res) => {
       period_type,
       points_to_give,
       is_random,
-      language_id,
+      language_id
     });
     res.status(200).json({ message: 'Reto actualizado exitosamente' });
   } catch (err) {
