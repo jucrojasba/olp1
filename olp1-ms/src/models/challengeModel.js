@@ -17,3 +17,15 @@ exports.newChallenge = async (name, content, section_type, period_type, points_t
   const response = await pool.query(query, [name, content, section_type, period_type, points_to_give, is_random, language_id]);
   return response;
 }
+
+exports.updateChallenge = async (id, data) => {
+  const query = `UPDATE challenges
+                 SET name = $1, content = $2, section_type = $3, period_type = $4, points_to_give = $5, is_random = $6, language_id = $7
+                 WHERE id = $8
+                 RETURNING *`;
+  const values = [data.name, data.content, data.section_type, data.period_type, data.points_to_give, data.is_random, data.language_id, id];
+  const { rows } = await pool.query(query, values);
+  return rows;
+}
+
+
