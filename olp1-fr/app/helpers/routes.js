@@ -5,7 +5,7 @@ import { ForumScene } from "../scenes/private/forum";
 import { RegisterPage } from "../scenes/public/register";
 import { ProfileScene } from "../scenes/private/profile";
 import { LearningPathScene } from "../scenes/private/learning-path";
-import { HtmlScene } from "../scenes/private/html";
+import { HtmlScene, CreateModulesScene } from "../scenes/private/html";
 import { CssScene } from "../scenes/private/css";
 import { JavascriptScene } from "../scenes/private/javascript";
 import { ChallengesScene } from "../scenes/private/challenges";
