@@ -1,4 +1,4 @@
-const { findById, update, delete: deleteUser, getAll } = require("../models/userModel");
+const { findById, update, deleteUser, getAll, save } = require("../models/userModel");
 
 exports.getAll = async (req, res) => {
     try {
@@ -49,7 +49,7 @@ exports.update = async (req, res) => {
     }
 }
 
-exports.delete = async (req, res) => {
+exports.deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -66,5 +66,19 @@ exports.delete = async (req, res) => {
     } catch (err) {
         console.error('Error en delete:', err);
         res.status(500).json({ message: 'Error en el servidor' });
+    }
+}
+
+exports.save = async (req, res) => {
+    try {
+        const { username, email, hashedPassword } = req.body;
+        if(!username || !email || !hashedPassword) {
+            return res.status(400).json({message: 'Todos los campos son requeridos'});
+        }
+        await save(username, email, hashedPassword);
+        return res.status(200).json({message: 'Usuario creado con éxito'});
+    } catch (err) {
+        console.error('Error en save user: ', err);
+        return res.status(500).json({message: 'Hubo un error en el servidor'});
     }
 }

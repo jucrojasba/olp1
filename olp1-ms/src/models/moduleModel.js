@@ -6,8 +6,7 @@ exports.getAll = async () => {
   return rows;
 };
 exports.save = async (language_id, name, description, content) => {
-  const query =
-    'INSERT INTO modules (language_id, name, description, content) VALUES ($1, $2, $3, $4)';
+  const query = 'INSERT INTO modules (language_id, name, description, content) VALUES ($1, $2, $3, $4)';
   const response = await pool.query(query, [language_id, name, description, content]);
   return response;
 };
@@ -24,4 +23,13 @@ exports.getById = async (id) => {
   return rows;
 }
 
-// exports.update = async ()
+exports.update = async (name, description, content, id) => {
+  const query = `UPDATE modules SET name = $1, description = $2, content = $3 WHERE id = $4 RETURNING *`;
+  const response = await pool.query(query, [name, description, content, id]);
+  return response;
+}
+
+exports.deleteModule = async (id) => {
+  const query = 'DELETE FROM modules WHERE id = $1';
+  await pool.query(query, [id]);
+}

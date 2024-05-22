@@ -1,4 +1,4 @@
-const { getAll, save, getByLanguage, getById } = require('../models/moduleModel');
+const { getAll, save, getByLanguage, getById, update, deleteModule } = require('../models/moduleModel');
 
 exports.getAll = async (req, res) => {
   try {
@@ -43,5 +43,36 @@ exports.getById = async (req, res) => {
   } catch (err){
     console.error('Error en get module by id: ', err);
     res.status(500).json({message: "Error en el servidor"});
+  }
+}
+
+exports.update = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { name, description, content } = req.body; 
+    const module = await getById(id);
+    if (!module) {
+      return res.status(400).json({message: 'El módulo no fue encontrado'});
+    }
+    await update(name, description, content, id);
+    res.status(200).json({message: 'Módulo modificado con éxito'})
+  } catch (err) {
+    console.error('Error en update module: ', err);
+    res.status(500).json({message: 'Error en el servidor'})
+  }
+}
+
+exports.deleteModule = async (req, res) => {
+  try {
+    const id = req.params.id;    
+    const module = await getById(id);
+    if (!module) {
+      return res.status(400).json({message: 'El módulo no fue encontrado'});
+    }
+    await deleteModule(id);
+    res.status(200).json({message: 'Módulo eliminado'});
+  } catch (err) {
+    console.error('Error en delete module');
+    res.status(200).json({message: 'Error en el servidor'});
   }
 }
