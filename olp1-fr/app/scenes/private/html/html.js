@@ -5,12 +5,12 @@ import { fetchApi } from "../../../helpers/fetch-api";
 
 export function HtmlScene(params) {
   let pageContent = `
-    <section class="${styles["header-challenges"]}">
+    <section class="${styles["header-modules"]}">
         <h2>HTML</h2>
-        <button id="create-challenge">Crear</button>
+        <button id="create-modules">Crear</button>
     </section>  
 
-    <section class="${styles.container}" id="challenges"></section>
+    <section class="${styles.container}" id="modules"></section>
     `;
   let logic = async () => {
     /* Boton Blanco en el sideBar */
@@ -18,8 +18,8 @@ export function HtmlScene(params) {
     $whiteButton.style = "background-color:white";
 
     /* Craer Modulos*/
-    const challenges = document.getElementById("modules");
-    const createChallenge = document.getElementById("create-module");
+    const modules = document.getElementById("modules");
+    const createModule = document.getElementById("create-modules");
 
     const response = await fetchApi("http://localhost:4000/api/challenges", {
       headers: {
@@ -27,29 +27,29 @@ export function HtmlScene(params) {
       },
     });
     console.log(response);
-    challenges.innerHTML = `
+    modules.innerHTML = `
         ${response
           .map(
-            (challenge) => `
-            <div class="${styles["challenge-card"]}">
-                <h2>${challenge.title}</h2>
-                <p>${challenge.description.substring(0, 60)}</p>
-                <button id="challenge-${challenge.id}">Ver</button>
+            (module) => `
+            <div class="${styles["module-card"]}">
+                <h2>${module.title}</h2>
+                <p>${module.description.substring(0, 60)}</p>
+                <button id="module-${module.id}">Ver</button>
             </div>
         `
           )
           .join("")}
        `;
 
-    response.forEach((challenge) => {
-      const button = document.getElementById(`challenge-${challenge.id}`);
+    response.forEach((module) => {
+      const button = document.getElementById(`module-${module.id}`);
       button.addEventListener("click", () => {
-        navigateTo(`/dashboard/html?id=${challenge.id}`);
+        navigateTo(`/dashboard/html?id=${module.id}`);
       });
     });
 
-    createChallenge.addEventListener("click", () => {
-      navigateTo("/dashboard/challenges/create");
+    createModule.addEventListener("click", () => {
+      navigateTo("/dashboard/html/create");
     });
   };
 

@@ -10,51 +10,35 @@ export function CreateModulesScene() {
   // Inicializa el contenedor HTML para el editor y un botón para guardar el contenido
   const editorContent = `<div id="editor" class="${styles.editor}"></div>`;
   const pageContent = `
-    <h1>Crear un nuevo reto</h1>
-    <form id="create-challenge-form">
-        <div class="${styles["challenge_title-container"]}">
-            <label for="title">Título</label>
-            <input type="text" id="title" name="title" class="${
-              styles["challenge_title-input"]
-            }">
-        </div>
-        <div class="${styles["challenge_description-container"]}">
-            <label>Descripción</label>
-            <textarea id="description" name="description" class="${
-              styles["challenge_description-input"]
-            }"></textarea>
-        </div>
-        
-        <div class="${styles["description-container"]}">
-            <label>Descripción del reto</label>
-            <div class="${styles["action-buttons"]}">
-                <button id="saveButton" type="button">Guardar</button>
-                <button type="submit">Publicar</button>
-            </div>
-        </div>
-        ${ToolbarContainer()}
-        ${editorContent}
-    </form>
-    `;
+  <h1>Crear un modulo nuevo</h1>
+  <form id="create-module-form">
+      <div class="${styles["module_title-container"]}">
+          <label for="title">Título</label>
+          <input type="text" id="title" name="title" class="${styles["module_title-input"]}">
+      </div>
+      <div class="${styles["module_description-container"]}">
+          <label>Descripción</label>
+          <textarea id="description" name="description" class="${styles["module_description-input"]}"></textarea>
+      </div>
+      
+      <div class="${styles["description-container"]}">
+          <div class="${styles["action-buttons"]}">
+              <button id="saveButton" type="button">Guardar</button>
+              <button type="submit">Publicar</button>
+          </div>
+      </div>
+      ${ToolbarContainer()}
+      ${editorContent}
+  </form>
+  `;
 
-  const persistContent = (quill) => {
-    const content = quill.getContents(); // Obtén el contenido como Delta
-    localStorage.setItem("quillContent", JSON.stringify(content));
-  };
-
-  // Lógica para inicializar y configurar Quill
   const logic = () => {
-    // Quill.register('modules/formula', MathQuillBlot);
-    // Espera a que el DOM esté completamente cargado
     const quill = new Quill("#editor", {
       modules: {
-        toolbar: "#toolbar-container",
+        toolbar: "#toolbar-container", // Asegúrate de que esto coincida con el ID del contenedor del toolbar
       },
       placeholder: "Crea tu mejor reto aquí...",
       theme: "snow",
-      // modules: {
-      //     formula: true,
-      // }
     });
 
     // Listener para manejar el guardado del contenido
@@ -65,11 +49,9 @@ export function CreateModulesScene() {
 
     // Listener para manejar la publicación del contenido, o sea, enviar a base de datos.
     document
-      .querySelector("#create-challenge-form")
+      .querySelector("#create-module-form")
       .addEventListener("submit", async (e) => {
-        // Evita que el formulario se envíe
         e.preventDefault();
-        // Valida que el título y la descripción no estén vacíos
         const titleValue = document.querySelector("#title").value;
         const descriptionValue = document.querySelector("#description").value;
         if (!titleValue) {
@@ -86,7 +68,6 @@ export function CreateModulesScene() {
           return;
         }
         if (confirm("¿Estás seguro de que deseas publicar el reto?")) {
-          // Aquí va la lógica para enviar el contenido a la base de datos
           try {
             const data = {
               title: titleValue,
@@ -106,8 +87,8 @@ export function CreateModulesScene() {
             );
             console.log(response);
             alert("Reto publicado con éxito");
-            document.querySelector("#create-challenge-form").reset(); // Resetea el formulario
-            navigateTo("/dashboard/challenges");
+            document.querySelector("#create-module-form").reset();
+            navigateTo("/dashboard/html");
           } catch (error) {
             alert(
               "Ha ocurrido un error al publicar el reto. Por favor, inténtalo de nuevo más tarde."

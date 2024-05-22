@@ -3,7 +3,7 @@ import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 
 export function ModulesByIdScene(id) {
   let pageContent = `
-        <h1 id="challenge-title"></h1>
+        <h1 id="modules-title"></h1>
         <div id="editor"></div>
     `;
 
@@ -19,7 +19,7 @@ export function ModulesByIdScene(id) {
         }
       );
       console.log(resp);
-      document.getElementById("challenge-title").innerText = resp.title;
+      document.getElementById("module-title").innerText = resp.title;
 
       const converter = new QuillDeltaToHtmlConverter(
         JSON.parse(resp.content).ops,
@@ -31,7 +31,7 @@ export function ModulesByIdScene(id) {
       console.log(htmlContent);
       editor.innerHTML = htmlContent;
     } catch (error) {
-      console.error(error, "from ChallengeByIdScene");
+      console.error(error, "from ModuleByIdScene");
     }
   };
   return {

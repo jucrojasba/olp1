@@ -18,6 +18,7 @@ export const routes = {
     { path: "/dashboard/profile", component: ProfileScene },
     { path: "/dashboard/learning-path", component: LearningPathScene },
     { path: "/dashboard/html", component: HtmlScene },
+    { path: "/dashboard/html/create", component: CreateModulesScene },
     { path: "/dashboard/css", component: CssScene },
     { path: "/dashboard/javascript", component: JavascriptScene },
     { path: "/dashboard/challenges", component: ChallengesScene },
