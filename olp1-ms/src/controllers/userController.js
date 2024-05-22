@@ -1,4 +1,5 @@
 const { findById, update, deleteUser, getAll, save } = require("../models/userModel");
+const { generateHashedPassword } = require('../helpers/hashed_password')
 
 exports.getAll = async (req, res) => {
     try {
@@ -69,16 +70,18 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
-exports.save = async (req, res) => {
-    try {
-        const { username, email, hashedPassword } = req.body;
-        if(!username || !email || !hashedPassword) {
-            return res.status(400).json({message: 'Todos los campos son requeridos'});
-        }
-        await save(username, email, hashedPassword);
-        return res.status(200).json({message: 'Usuario creado con éxito'});
-    } catch (err) {
-        console.error('Error en save user: ', err);
-        return res.status(500).json({message: 'Hubo un error en el servidor'});
-    }
-}
+// exports.save = async (req, res) => {
+//     try {
+//         const { username, email, password, points } = req.body;
+//         if(!username || !email || !password) {
+//             return res.status(400).json({message: 'Todos los campos son requeridos'});
+//         }
+
+//         const hashedPassword = await generateHashedPassword(password);
+//         await save(username, hashedPassword, email, points);
+//         return res.status(200).json({message: 'Usuario creado con éxito'});
+//     } catch (err) {
+//         console.error('Error en save user: ', err);
+//         return res.status(500).json({message: 'Hubo un error en el servidor'});
+//     }
+// }

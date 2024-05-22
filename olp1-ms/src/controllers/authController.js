@@ -4,7 +4,11 @@ const { save, findByEmail } = require("../models/userModel");
 
 exports.register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { name, email, password, points } = req.body;
+    
+    if(!username || !email || !password) {
+        return res.status(400).json({message: 'Todos los campos son requeridos'});
+    }
 
     // Verificar si el usuario ya existe
     let user = await findByEmail(email);
@@ -17,7 +21,7 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Crear nuevo usuario
-    user = await save(username, email, hashedPassword);
+    user = await save( name, hashedPassword, email, points );
 
     if (!user) {
       return res.status(404).json({ message: "Error al crear el usuario" });

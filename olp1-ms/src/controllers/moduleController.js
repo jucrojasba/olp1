@@ -17,7 +17,7 @@ exports.save = async (req, res) => {
       return res.status(400).json({ message: 'Todos los campos son requeridos' });
     }
     await save(language_id, name, description, content);
-    return res.status(200).json({ message: 'Módulo creado con éxito' });
+    return res.status(201).json({ message: 'Módulo creado con éxito' });
   } catch (err) {
     console.error('Error en saveModule: ', err);
     return res.status(500).json({ message: 'Error en el servidor' });

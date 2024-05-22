@@ -21,7 +21,7 @@ exports.newComment = async (req, res) => {
     }
 
     await newComment(comment_id, module_id, content, user_id);
-    return res.status(200).json({ message: 'Comentario añadido exitosamente' });
+    return res.status(201).json({ message: 'Comentario añadido exitosamente' });
   } catch (err) {
     console.error('Error en newComment: ', err);
     res.status(500).json({ message: 'Error en el servidor' });
