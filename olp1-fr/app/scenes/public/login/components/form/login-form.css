@@ -1,3 +1,10 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -6,30 +13,38 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2)
 }
 
 .label {
     margin-bottom: 5px;
-    color: black;
+    color: white;
 }
 
 .input-email,
 .input-password {
     margin-bottom: 10px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--owner-purple);
     border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.342);
+    color: white;
 }
 
 .button-send {
     padding: 10px;
     border: none;
     border-radius: 3px;
-    background-color: #4caf50;
+    background-color: var(--owner-purple);
     color: white;
     cursor: pointer;
 }
 
 .button-send:hover {
-    background-color: #45a049;
+    background-color: var(--purple-dark-color);
+}
+h2{
+    color: var(--owner-purple);
 }
