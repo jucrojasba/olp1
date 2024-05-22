@@ -115,6 +115,10 @@ export function HomeScene() {
   `;
 
   const logic = () => {
+    /* Boton Blanco en el sideBar */
+    const $whiteButton = document.getElementById("/dashboard");
+    $whiteButton.style="background-color:white";
+
     /* Ventana Modal HTML*/
     const $htmlPlanet = document.querySelector(`.${styles["htmlPlanet"]}`);
     const $modalHtml = document.getElementById("modalHtml");

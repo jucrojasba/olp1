@@ -1,0 +1,922 @@
+/*!*****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/styles/global.css ***!
+  \*****************************************************************************************************/
+:root {
+  /* Colors */
+  --purple-dark-color: #472e7c;
+  --orange-color: #dd7d5b;
+  --black-color: #160528;
+  --purple-light-color: #7748cd;
+  --blue-color: #53afde;
+  --owner-purple: #b48aea;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 1rem;
+  --spacing-4: 1.5rem;
+  --spacing-5: 3rem;
+
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Typography */
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  /* Font weight */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Line height */
+  --line-height-base: 1.5;
+
+  /* Border radius */
+  --border-radius: 0.25rem;
+
+  /* Transition */
+  --transition: all 0.3s ease;
+
+  /*navbar height*/
+  --navbar-height: auto;
+
+  /*sidebar width*/
+  --sidebar-width: 200px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.global__loader___ENU1b {
+  color: yellow;
+}
+
+/*!********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/components/navigation-bar/navigation-bar.css ***!
+  \********************************************************************************************************************************/
+.navigation-bar__container___bR77d {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-2);
+    background-color: #f8f9fa;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    gap: var(--spacing-1);
+    padding: var(--spacing-2) var(--spacing-3) 0 var(--spacing-3);
+}
+h2>span{
+    color: var(--purple-light-color);
+}
+#navigation-bar__navbar___lYV7N{
+    display:flex;
+    gap: var(--spacing-5);
+    padding-right: var(--spacing-5);
+    align-items: center;
+
+}
+#navigation-bar__navbar___lYV7N > nav > ul{
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-4);
+    padding-right: var(--spacing-4);
+}
+#navigation-bar__navbar___lYV7N > nav > ul>li>a{
+    color: var(--black-color);
+    font-size: var(--font-size-md);
+}
+#navigation-bar__navbar___lYV7N > nav > ul>li>a:hover{
+    text-decoration: none;
+    color: var(--purple-light-color);
+}
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/components/sidebar-menu/sidebar-menu.css ***!
+  \****************************************************************************************************************************/
+aside.sidebar-menu__sidebar-menu___Iab29 {
+  background-color: var(--purple-dark-color);
+  box-shadow: 0 0 3px rgba(253, 253, 253, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--spacing-4);
+  position: relative;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > ul {
+  display: none;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__usuario___BmwEl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  align-items: center;
+  padding-bottom: var(--spacing-4);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__usuario___BmwEl > a > img {
+  border-radius: 50%;
+  width: 100px;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__usuario___BmwEl > h3 {
+  font-size: var(--font-size-md);
+  color: white;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing-4);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV > h3 {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-4);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV > div.sidebar-menu__container___Auz2f {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV > div.sidebar-menu__container___Auz2f > button {
+  background-color: var(--owner-purple);
+  border: none;
+  border-radius: var(--spacing-1);
+  width: 170px;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV > div.sidebar-menu__container___Auz2f > button > img {
+  width: 40px;
+  padding: var(--spacing-1) var(--spacing-2);
+  display: flex;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__discover___lQmbV > div.sidebar-menu__container___Auz2f > button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Seccion Courses */
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP {
+  display: flex;
+  flex-direction: column;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP > h3 {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-4);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP > div.sidebar-menu__container___Auz2f {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP > div.sidebar-menu__container___Auz2f > button {
+  background-color: var(--owner-purple);
+  border: none;
+  border-radius: var(--spacing-1);
+  width: 170px;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP > div.sidebar-menu__container___Auz2f > button > img {
+  width: 40px;
+  padding: var(--spacing-1) var(--spacing-2);
+  display: flex;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__courses___BcbOP > div.sidebar-menu__container___Auz2f > button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Logout and admin view */
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__salida___iXMjO > div.sidebar-menu__container___Auz2f {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: var(--spacing-1);
+  position: absolute;
+  bottom: var(--spacing-2);
+  right: var(--spacing-2);
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__salida___iXMjO > div.sidebar-menu__container___Auz2f > button {
+  background-color: var(--owner-purple);
+  border: none;
+  border-radius: var(--spacing-1);
+  font-size: var(--font-size-md);
+  display: flex;
+  justify-content: end;
+}
+aside.sidebar-menu__sidebar-menu___Iab29 > #sidebar-menu__salida___iXMjO > div.sidebar-menu__container___Auz2f > button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/components/footer/footer.css ***!
+  \****************************************************************************************************************/
+.footer__container___YMLAo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-2);
+    background-color: var(--purple-dark-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    gap: var(--spacing-1);
+    padding: var(--spacing-2) var(--spacing-4) var(--spacing-2) var(--spacing-2);
+}
+h5{
+    color: white
+}
+p{
+    color:white;
+    font-size: var(font-size-xs);
+}
+.footer__contacto___tGCb9{
+    display: flex;
+    flex-direction: column;
+    padding-right: var(--spacing-5);
+    gap: var(--spacing-1);
+}
+/*!********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/components/layout/private/dashboard/dashboard-layout.css ***!
+  \********************************************************************************************************************************************/
+.dashboard-layout__container___HVcMF {
+    display: grid;
+    grid-template-areas: "sidebar navbar"
+                        "sidebar main"
+                        "sidebar footer";
+    grid-template-columns: minmax(var(--sidebar-width), auto) 1fr;
+    grid-auto-rows: var(--navbar-height) 1fr;
+    height: 100vh;
+}
+
+.dashboard-layout__sidebar___fzjL5 {
+    grid-area: sidebar;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dashboard-layout__navbar___HU09G {
+    grid-area: navbar;
+}
+
+.dashboard-layout__main___QZI5g {
+    grid-area: main;
+    padding: var(--spacing-3);
+}
+.dashboard-layout__footer___cPpr1{
+    grid-area: footer;
+}
+/*!*****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/public/login/login.css ***!
+  \*****************************************************************************************************************/
+
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/public/login/components/form/login-form.css ***!
+  \**************************************************************************************************************************************/
+.login-form__form___bB5Rm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form__label___AgjZG {
+    margin-bottom: 5px;
+    color: black;
+}
+
+.login-form__input-email___O3nUJ,
+.login-form__input-password___HhgbT {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-form__button-send___JlmM6 {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.login-form__button-send___JlmM6:hover {
+    background-color: #45a049;
+}
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/home/home.css ***!
+  \****************************************************************************************************************/
+body {
+  background: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Facegif.com%2Fwp-content%2Fuploads%2Fgif%2Fouterspace-70.gif&f=1&nofb=1&ipt=36e9907271cc7ee30a55a22744165645ce64e5ffeeec50755ae984c5846838b8&ipo=images)
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Animaciones sistema solar */
+
+@keyframes home__spinsun___viD88 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes home__orbitearth___Drw11 {
+  0% {
+    z-index: 4;
+    transform: rotateY(0);
+  }
+  49% {
+    z-index: 4;
+  }
+  50% {
+    z-index: -4;
+  }
+  99% {
+    z-index: -4;
+  }
+  100% {
+    z-index: 4;
+    transform: rotateY(360deg);
+  }
+}
+@keyframes home__orbitmars___yvbtn {
+  0% {
+    z-index: 6;
+    transform: rotateY(0);
+  }
+  49% {
+    z-index: 6;
+  }
+  50% {
+    z-index: -6;
+  }
+  99% {
+    z-index: -6;
+  }
+  100% {
+    z-index: 6;
+    transform: rotateY(360deg);
+  }
+}
+@keyframes home__orbitjupiter___qoFZ9 {
+  0% {
+    z-index: 8;
+    transform: rotateY(270);
+  }
+  49% {
+    z-index: 8;
+  }
+  50% {
+    z-index: -8;
+  }
+  99% {
+    z-index: -8;
+  }
+  100% {
+    z-index: 8;
+    transform: rotateY(360deg);
+  }
+}
+/* Keep planet image flat */
+@keyframes home__anti-spin___d4g7F {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes home__anti-spin-rings___dtUGm {
+  from {
+    transform: rotateY(0) rotateX(73deg);
+  }
+  to {
+    transform: rotateY(-360deg) rotateX(73deg);
+  }
+}
+/* scene wrapper */
+.home__container___lQqAw{
+  position: relative;
+}
+.home__wrapper___kiSJZ {
+  position: relative;
+  margin: 10% auto;
+  display: block;
+  perspective: 1000px;
+  perspective-origin: 60% 50%;
+  transform: rotate(-10deg);
+}
+.home__wrapper___kiSJZ > div {
+  position: relative;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  height: 0px;
+}
+.home__sun___JOs2U {
+  width: 400px;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  height: 125px !important;
+}
+.home__sun___JOs2U .home__star___Ytef7 {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: home__spinsun___viD88 40s infinite linear;
+  box-shadow: rgba(252, 252, 252, 0.17) 0px -23px 25px 0px inset,
+    rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset,
+    rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset,
+    rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px,
+    rgba(255, 255, 255, 0.09) 0px 8px 4px,
+    rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.home__planet___tEvUJ {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  animation-iteration-count: infinite;
+  overflow: hidden;
+  transform: rotate(-10deg);
+}
+.home__planet___tEvUJ:hover {
+  scale: 1.1;
+}
+.home__shadow___Phs7g {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+}
+.home__htmlPlanet____LLJR {
+  position: absolute;
+  width: 610px;
+  z-index: 4;
+  animation: home__orbitearth___Drw11 20s infinite linear;
+  top: -20px;
+}
+.home__htmlPlanet____LLJR .home__planet___tEvUJ {
+  width: 200px;
+  height: 200px;
+  animation: home__anti-spin___d4g7F 20s infinite linear;
+}
+.home__htmlPlanet____LLJR .home__shadow___Phs7g {
+  animation: home__shadow___Phs7g 20s infinite linear;
+}
+.home__css___vUAiu {
+  position: absolute;
+  width: 706px;
+  z-index: 6;
+  animation: home__orbitmars___yvbtn 30s infinite linear;
+  top: -60px;
+}
+.home__css___vUAiu .home__planet___tEvUJ {
+  width: 200px;
+  height: 200px;
+  animation: home__anti-spin___d4g7F 30s infinite linear;
+}
+.home__css___vUAiu .home__shadow___Phs7g {
+  animation: home__shadow___Phs7g 30s infinite linear;
+}
+.home__javascript___LcJHY {
+  position: absolute;
+  width: 1100px;
+  z-index: 8;
+  animation: home__orbitjupiter___qoFZ9 50s infinite linear;
+  top: -80px;
+}
+.home__javascript___LcJHY .home__planet___tEvUJ {
+  width: 200px;
+  height: 200px;
+  animation: home__anti-spin___d4g7F 50s infinite linear;
+}
+.home__javascript___LcJHY .home__shadow___Phs7g {
+  animation: home__shadow___Phs7g 50s infinite linear;
+}
+
+/* Ventanas Modal */
+.home__modal___Qv2sa {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--purple-dark-color);
+  border-radius: 40px;
+  position: relative;
+  align-items: center;
+  padding: var(--spacing-3);
+  gap: var(--spacing-2);
+  top: 33%;
+  left: 40%;
+  position: fixed;
+}
+
+.home__modal___Qv2sa > .home__imageContainer___NyN3S {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(252, 252, 252, 0.17) 0px -23px 25px 0px inset,
+    rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset,
+    rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset,
+    rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px,
+    rgba(255, 255, 255, 0.09) 0px 8px 4px,
+    rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 50%;
+}
+
+.home__modal___Qv2sa > .home__imageContainer___NyN3S > img {
+  scale: 2;
+  animation: home__spinsun___viD88 40s infinite linear;
+}
+
+.home__modal___Qv2sa .home__info___r4YLW {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-3);
+}
+.home__modal___Qv2sa .home__info___r4YLW h2 {
+  color: white;
+}
+.home__modal___Qv2sa .home__info___r4YLW > p {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.home__modal___Qv2sa .home__info___r4YLW .home__progreso___KhZSy {
+  background-color: white;
+  border-radius: 40px;
+}
+
+.home__loader___HFUcP {
+  background-color: var(--purple-light-color);
+  border-radius: 40px;
+  width: 50%;
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding-left: var(--spacing-1);
+}
+
+.home__loader___HFUcP:after {
+  content: "...";
+  position: absolute;
+  top: 0;
+  right: 25px;
+  animation: home__dots___ELFdV 1s steps(4, end) infinite;
+}
+
+@keyframes home__dots___ELFdV {
+  0%,
+  100% {
+    content: "...";
+  }
+  25% {
+    content: "..";
+  }
+  50% {
+    content: ".";
+  }
+  75% {
+    content: "";
+  }
+}
+.home__modal___Qv2sa .home__botones___VcvvT {
+  display: flex;
+  gap: var(--spacing-4);
+  align-self: end;
+}
+.home__modal___Qv2sa .home__info___r4YLW button {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  background-color: var(--owner-purple);
+  border-radius: 5px;
+  font-size: var(--font-size-md);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.home__modal___Qv2sa .home__info___r4YLW button img {
+  width: 25px;
+  height: 25px;
+}
+/* Ventana modal Javascript */
+#home__exceptionJavascript___FtGIS {
+  scale: 1.3;
+}
+
+/* Bienvenida */
+#home__saludo___FS3KK{
+  position: absolute;
+  top:180px;
+  padding-left: var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  gap:var(--spacing-3);
+}
+#home__saludo___FS3KK h1{
+  color: white;
+}
+#home__saludo___FS3KK h1 span{
+  color: var(--purple-light-color);
+}
+/*!******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/users/users.css ***!
+  \******************************************************************************************************************/
+.users__page-title___tJxg4 {
+    font-size: var(--font-size-base);
+    color: var(--info-color);
+    margin-bottom: 20px;
+}
+
+.users__hidden___jtqMf {
+    display: none;
+}
+
+.users__loader___Piosb {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0); /* Esto significa que el texto se va a mostrar de 3 en 3 caracteres */
+    animation: users__l4___t6mPb 1s steps(4) infinite;
+}
+
+.users__loader___Piosb:before {
+    content: "Cargando..."
+}
+
+@keyframes users__l4___t6mPb {
+    to {
+        clip-path: inset(0 -1ch 0 0)
+    }
+}
+
+.users__user-info___pqMtM {
+    margin-top: 20px;
+}
+
+.users__user-table___GIv61, .users__user-details-table___oZ7hJ {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.users__user-table___GIv61 th, .users__user-table___GIv61 td, .users__user-details-table___oZ7hJ th, .users__user-details-table___oZ7hJ td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.users__user-table___GIv61 th, .users__user-details-table___oZ7hJ th {
+    background-color: var(--info-color);
+    color: white;
+}
+
+.users__user-table___GIv61 tr:nth-child(even), .users__user-details-table___oZ7hJ tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.users__user-table___GIv61 tr:hover, .users__user-details-table___oZ7hJ tr:hover {
+    background-color: #ddd;
+}
+
+.users__user-table___GIv61 th, .users__user-details-table___oZ7hJ th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.users__btn-see-more___uDxV_ {
+    background-color: var(--info-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.users__btn-see-more___uDxV_:hover {
+    background-color: darken(var(--info-color), 10%);
+}
+
+/*!******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/forum/forum.css ***!
+  \******************************************************************************************************************/
+.forum__container___GOWay {
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.forum__bg-red___FMJ8t {
+    background-color: red;
+}
+
+.forum__bg-green____5G2O {
+    background-color: green;
+}
+/*!**********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/profile/profile.css ***!
+  \**********************************************************************************************************************/
+
+
+@keyframes profile__spinsun___tEGXS {
+    0% { transform: rotate(0); }
+    100%   { transform: rotate(-360deg); }
+  }
+
+.profile__container___ZOo3k {
+    display: flex;
+    gap: 10rem;
+    width: 90%;
+    height: 90%;
+    grid-template-columns: (5, 1fr);
+    grid-template-rows: (3, 1fr);
+    color: white;
+}
+
+
+.profile__profile-picture___cxhea {
+  margin-left: 5rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.profile__planets___BsjaT {
+    width: 200px;
+    animation: profile__spinsun___tEGXS 40s infinite linear;
+}
+.profile__planets___BsjaT:hover {
+    scale: 1.1;
+}
+
+.profile__planetAndInformation____yAEV{
+    display: flex;
+    align-items: center;
+}
+
+.profile__progress___W76Di {
+    background-color: white;
+    border-radius: 50px;
+    height: 1.5rem;
+}
+
+.profile__progressSpace___n9uzt {
+    margin-left: 15px;
+}
+.profile__percentageSpace___NGJtI {
+    margin-right: 5px;
+}
+
+.profile__complete1___JPLk7 {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 50%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.profile__complete2___DfDdm {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 45%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.profile__complete3___N9ZZH {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 90%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.profile__profile___migih {
+    margin-left: 30px;
+   
+}
+
+.profile__challenges___Ajvew {
+   display: flex;
+   flex-direction: column;
+   gap: 45px;
+}
+
+td {
+  height: 35px;
+  width: 150px;
+}
+
+.profile__titles___Fx57b {
+    color: var(--blue-color);
+    font-style: bolder;
+}
+
+.profile__expand___k3Wle {
+    color: #D3D3D3;
+}
+
+tr:hover {
+    background-color: var(--purple-dark-color);
+}
+
+table {
+    border-collapse: collapse;
+}
+/*!**********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/learning-path/learning-path.css ***!
+  \**********************************************************************************************************************************/
+
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/html/html.css ***!
+  \****************************************************************************************************************/
+
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/css/css.css ***!
+  \**************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/javascript/javascript.css ***!
+  \****************************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./app/scenes/private/challenges/challenges.css ***!
+  \****************************************************************************************************************************/
+

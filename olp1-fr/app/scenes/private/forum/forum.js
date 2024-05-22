@@ -2,16 +2,13 @@ import styles from './forum.css';
 
 export function ForumScene(){
     const pageContent = `
-    <h2 class=${styles.container} id="my-h2">Forum</h2>
-    <p class=${styles["bg-red"]}>Welcome to the home view.</p>
-    <em class="${styles["bg-green"]}">Hola mundo</em>
+    <h2>Forum</h2>
   `;
 
   const logic = () => {
-    const h2 = document.getElementById('my-h2');
-    h2.addEventListener('click', () => {
-      alert('Hello, World!');
-    });
+    /* Boton Blanco en el sideBar */
+    const $whiteButton = document.getElementById("/dashboard/forum");
+    $whiteButton.style="background-color:white";
   };
 
   return {
