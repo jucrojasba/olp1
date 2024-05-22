@@ -1,0 +1,120 @@
+
+
+@keyframes spinsun {
+    0% { transform: rotate(0); }
+    100%   { transform: rotate(-360deg); }
+  }
+
+.container {
+    display: flex;
+    gap: 10rem;
+    width: 90%;
+    height: 90%;
+    grid-template-columns: (5, 1fr);
+    grid-template-rows: (3, 1fr);
+    color: white;
+}
+
+
+.profile-picture {
+  margin-left: 5rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.planets {
+    width: 200px;
+    animation: spinsun 40s infinite linear;
+}
+.planets:hover {
+    scale: 1.1;
+}
+
+.planetAndInformation{
+    display: flex;
+    align-items: center;
+}
+
+.progress {
+    background-color: white;
+    border-radius: 50px;
+    height: 1.5rem;
+}
+
+.progressSpace {
+    margin-left: 15px;
+}
+.percentageSpace {
+    margin-right: 5px;
+}
+
+.complete1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 50%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.complete2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 45%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.complete3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 90%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.profile {
+    margin-left: 30px;
+   
+}
+
+.challenges {
+   display: flex;
+   flex-direction: column;
+   gap: 45px;
+}
+
+td {
+  height: 35px;
+  width: 150px;
+}
+
+.titles {
+    color: var(--blue-color);
+    font-style: bolder;
+}
+
+.expand {
+    color: #D3D3D3;
+}
+
+tr:hover {
+    background-color: var(--purple-dark-color);
+}
+
+table {
+    border-collapse: collapse;
+}
