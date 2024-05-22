@@ -1,5 +1,5 @@
 main {
-  background: url(https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-galaxia-9.gif)
+  background: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Facegif.com%2Fwp-content%2Fuploads%2Fgif%2Fouterspace-70.gif&f=1&nofb=1&ipt=36e9907271cc7ee30a55a22744165645ce64e5ffeeec50755ae984c5846838b8&ipo=images)
     no-repeat;
   background-size: cover;
   background-position: center;
@@ -90,9 +90,12 @@ main {
   }
 }
 /* scene wrapper */
+.container{
+  position: relative;
+}
 .wrapper {
   position: relative;
-  margin: 10vh auto;
+  margin: 10% auto;
   display: block;
   perspective: 1000px;
   perspective-origin: 60% 50%;
@@ -150,8 +153,8 @@ main {
   top: -20px;
 }
 .htmlPlanet .planet {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   animation: anti-spin 20s infinite linear;
 }
 .htmlPlanet .shadow {
@@ -162,11 +165,11 @@ main {
   width: 706px;
   z-index: 6;
   animation: orbitmars 30s infinite linear;
-  top: -11px;
+  top: -60px;
 }
 .css .planet {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   animation: anti-spin 30s infinite linear;
 }
 .css .shadow {
@@ -177,11 +180,11 @@ main {
   width: 1100px;
   z-index: 8;
   animation: orbitjupiter 50s infinite linear;
-  top: -64px;
+  top: -80px;
 }
 .javascript .planet {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   animation: anti-spin 50s infinite linear;
 }
 .javascript .shadow {
@@ -193,7 +196,7 @@ main {
   display: none;
   width: fit-content;
   height: fit-content;
-  background-color: var(--owner-purple);
+  background-color: var(--purple-dark-color);
   border-radius: 40px;
   position: relative;
   align-items: center;
@@ -296,4 +299,24 @@ main {
 .modal .info button img {
   width: 25px;
   height: 25px;
+}
+/* Ventana modal Javascript */
+#exceptionJavascript {
+  scale: 1.3;
+}
+
+/* Bienvenida */
+#saludo{
+  position: absolute;
+  top:180px;
+  padding-left: var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  gap:var(--spacing-3);
+}
+#saludo h1{
+  color: white;
+}
+#saludo h1 span{
+  color: var(--purple-light-color);
 }
