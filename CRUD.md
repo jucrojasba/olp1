@@ -30,7 +30,7 @@ npm install
 
 ```env
 PORT = 4000
-DATABASE_URL=postgres://default:pMGZQUc0h1vt@ep-polished-term-a4mniado-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
+DATABASE_URL=postgres://default:u7BGtvg3qNiJ@ep-lingering-lab-a4hlf0r5-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
 JWT_SECRET=mySecretKey
 ```
 
