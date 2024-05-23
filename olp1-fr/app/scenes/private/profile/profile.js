@@ -10,25 +10,25 @@ export function ProfileScene() {
       <div class="${styles.profile}">
         <img class="${styles["profile-picture"]}" src="https://randomuser.me/api/portraits/men/75.jpg">
         <br><br><br><br>
-        <table>
-         <tr>
+        <table class="${styles.tableProfile}">
+         <tr id="mostrar">
           <td>Name:</td>
-          <td>Nicolas Picon</td>
+          <td class="tagUpdate">Nicolas Picon</td>
           <td class="${styles.expand}">></td>
          </tr>
-         <tr>
+         <tr id="mostrar">
           <td>Username:</td>
-          <td>@username</td>
+          <td class="tagUpdate">@username</td>
           <td class="${styles.expand}">></td>
          </tr>
-         <tr>
+         <tr id="mostrar">
           <td>Email:</td>
-          <td>@username.com</td>
+          <td class="tagUpdate">@username.com</td>
           <td class="${styles.expand}">></td>
          </tr>
-         <tr>
+         <tr id="mostrar">
           <td>Rol:</td>
-          <td>Frontend</td>
+          <td class="tagUpdate">Frontend</td>
           <td class="${styles.expand}">></td>
          </tr>
         </table>
@@ -87,10 +87,87 @@ export function ProfileScene() {
       </div>
     </div>
     
+    <dialog id="modal" class="${styles.modal}">
+      <form>
+        <label for="name">Nuevo Nombre </label>
+        <input type="text" id="name">
+      </form>
+      <button id="cambiar">Cambiar</button>
+      <button id="cerrarModal">Cerrar</button>
+    </dialog>
+
+    <dialog id="modal" class="${styles.modal}">
+      <form>
+        <label for="name">Nuevo Username </label>
+        <input type="text" id="name">
+      </form>
+      <button id="cambiar">Cambiar</button>
+      <button id="cerrarModal">Cerrar</button>
+    </dialog>
+
+    <dialog id="modal" class="${styles.modal}">
+      <form>
+        <label for="name">Nuevo Email </label>
+        <input type="text" id="name">
+      </form>
+      <button id="cambiar">Cambiar</button>
+      <button id="cerrarModal">Cerrar</button>
+    </dialog>
+
+    <dialog id="modal" class="${styles.modal}">
+      <form>
+        <label for="name">Cambiar Rol </label><br>
+        <input type="radio" name="rol" id="radio1"><span>Frontend</span>
+        <input type="radio" name="rol" id="radio2"><span>Backend</span>
+      </form>
+      <button id="cambiar">Cambiar</button>
+      <button id="cerrarModal">Cerrar</button>
+    </dialog>
   `;
 
 
-  const logic = () => {};
+  const logic = () => {
+     const $valuesModal = Object.values(document.querySelectorAll('#modal'));
+     const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
+     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
+     const $valuesChange = Object.values(document.querySelectorAll('#cambiar'));
+     const $valuesInput = Object.values(document.querySelectorAll('#name'));
+     const $valuesUpdate = Object.values(document.querySelectorAll('.tagUpdate'));
+     
+    
+      
+
+      for(let i = 0; i < $valuesModal.length; i++){
+        $valuesMostrar[i].addEventListener('click', () => 
+            $valuesModal[i].showModal()  
+          )
+        $valuesCerrar[i].addEventListener('click', () => {
+          $valuesModal[i].close()
+        })
+        $valuesChange[i].addEventListener('click', () => {
+          if(i < 3){
+            $valuesUpdate[i].innerHTML = $valuesInput[i].value
+          } else {
+            if(document.getElementById('radio1').checked){
+              $valuesUpdate[i].innerHTML = 'Frontend';
+            } else if(document.getElementById('radio2').checked){
+              $valuesUpdate[i].innerHTML = 'Backend';
+            }
+          }
+          
+        })
+      }
+    
+    //  abrirModal.addEventListener('click', () => 
+    //     modal.showModal()  
+    //  )
+    //  cerrarModal.addEventListener('click', () => {
+    //     modal.close()
+    //  })
+    //  change.addEventListener('click',() => 
+    //     document.getElementById('nameProfile').innerHTML = document.getElementById('name').value
+    //  )
+  };
   return {
     pageContent,
     logic,

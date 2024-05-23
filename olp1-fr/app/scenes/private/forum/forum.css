@@ -1,12 +1,86 @@
 .container {
-    max-width: 1200px;
-    padding: 0 15px;
+  max-width: 1200px;
+  padding: 0 15px;
 }
 
 .bg-red {
-    background-color: red;
+  background-color: red;
 }
 
 .bg-green {
-    background-color: green;
+  background-color: green;
+}
+
+.title-forum {
+  color: var(--owner-purple);
+}
+
+.flexWrapper {
+  display: flex;
+  gap: 85px;
+}
+
+.posts {
+    margin-left:30px;
+}
+
+.tableForum {
+  border-collapse: collapse;
+  background-color: var(--owner-purple);
+  border-radius: 11px;
+  width: 100%;
+}
+
+.tdUser {
+  border-bottom: 1px solid gray;
+}
+
+.imageTable {
+  width: 35px;
+  border-radius: 25px;
+}
+
+
+.publish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    width: 90%;
+    background-color: white;
+    border-radius: 12.5px;
+    border: 2px solid gray;
+}
+
+.publish button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 100px;
+    height: 32.5px;
+}
+
+.publish span {
+    color: gray;
+}
+
+.discussions {
+  background-color: var(--owner-purple);
+  border-radius: 45px;
+  padding: 25px;
+  width: 400px;
+}
+
+.imgDiscussion {
+    display: block;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+}
+
+.discussionsFlex {
+    display: flex;
+    gap: 15px;
 }
