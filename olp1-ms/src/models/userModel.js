@@ -6,11 +6,11 @@ exports.getAll = async () => {
   return rows;
 };
 
-exports.save = async (username, email, hashedPassword) => {
-  const query = `INSERT INTO users (username, email, password)
-                 VALUES ($1, $2, $3)
-                 RETURNING id, username, email`;
-  const values = [username, email, hashedPassword];
+exports.save = async (name, hashedPassword, email, points) => {
+  const query = `INSERT INTO users (name, password, email, points)
+                 VALUES ($1, $2, $3, $4)
+                 RETURNING *`;
+  const values = [name, hashedPassword, email, points];
   const { rows } = await pool.query(query, values);
   return rows[0];
 };
@@ -25,7 +25,7 @@ exports.update = async (id, data) => {
   return rows[0];
 };
 
-exports.delete = async (id) => {
+exports.deleteUser = async (id) => {
   const query = `DELETE FROM users WHERE id = $1`;
   await pool.query(query, [id]);
 };

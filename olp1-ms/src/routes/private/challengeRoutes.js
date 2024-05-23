@@ -1,15 +1,18 @@
 const express = require('express');
-const { getAll } = require('../../controllers/challengeController');
-const { pool } = require('../../config/database')
+const {
+  getAll,
+  getByLanguage,
+  save,
+  update,
+  deleteChallenge,
+} = require('../../controllers/challengeController');
 
 const router = express.Router();
 
-router.get('/', getAll)
-router.get('/:language_id', async (req, res) => {
-    const query = 'SELECT * FROM challenges WHERE language_id = $1';
-    const { language_id } = req.params;
-    const response = await pool.query(query, [language_id]);    
-    res.status(200).json(response.rows);
-})
+router.get('/', getAll);
+router.get('/:language_id', getByLanguage);
+router.post('/', save);
+router.put('/:id', update);
+router.delete('/:id', deleteChallenge);
 
 module.exports = router;
