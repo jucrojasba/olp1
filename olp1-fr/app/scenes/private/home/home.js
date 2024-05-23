@@ -88,7 +88,7 @@ export function HomeScene() {
     </div>
     <div class="${styles["modal"]}" id="modalJavascript" style="display:none;">
       <div class="${styles["imageContainer"]}">
-        <img src="${planet3}" id="${styles['exceptionJavascript']}">
+        <img src="${planet3}" id="${styles["exceptionJavascript"]}">
       </div>
       <div class="${styles["info"]}">
         <h2>JAVASCRIPT</h2>
@@ -108,16 +108,31 @@ export function HomeScene() {
         </div>
       </div>
     </div>
-    <div id="${styles['saludo']}">
-      <h1>Bienvenido <span>Nicolas Picon</span></h1>
+    <div id="${styles["saludo"]}">
+      <h1>Bienvenido <span id="username"></span></h1>
       <p>¿Preparado para vivir esta aventura?</p>
     </div>
   `;
 
-  const logic = () => {
+  const logic = async () => {
+    /*Traer el nombre del usuario de la base de datos */
+    const welcomeUser = localStorage.getItem("welcomeUser");
+    const response = await fetch(
+      `http://localhost:4000/api/users/${welcomeUser}`
+    );
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`Error ${response.status}: ${errorMessage}`);
+    }
+    const data = await response.json();
+    const user = document.getElementById("username");
+    user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
+      .substr(1)
+      .toLowerCase()}`;
+
     /* Boton Blanco en el sideBar */
     const $whiteButton = document.getElementById("/dashboard");
-    $whiteButton.style="background-color:white";
+    $whiteButton.style = "background-color:white";
 
     /* Ventana Modal HTML*/
     const $htmlPlanet = document.querySelector(`.${styles["htmlPlanet"]}`);
@@ -139,46 +154,48 @@ export function HomeScene() {
         $modalHtml.style.display = "none";
       }
     });
-     /* Ventana Modal CSS*/
-     const $cssPlanet = document.querySelector(`.${styles["css"]}`);
-     const $modalCss = document.getElementById("modalCss");
-     const $cerrarCss = document.getElementById("cerrarCss");
-     $cssPlanet.addEventListener("click", () => {
-       $modalCss.style.display = "flex";
-     });
- 
-     $cerrarCss.addEventListener("click", () => {
-       $modalCss.style.display = "none";
-     });
-     document.addEventListener("click", (event) => {
-       if (
-         $modalCss.style.display === "flex" &&
-         !$modalCss.contains(event.target) &&
-         !$cssPlanet.contains(event.target)
-       ) {
-         $modalCss.style.display = "none";
-       }
-     });
-     /* Ventana Modal JAVASCRIPT*/
-     const $javascriptPlanet = document.querySelector(`.${styles["javascript"]}`);
-     const $modalJavascript = document.getElementById("modalJavascript");
-     const $cerrarJavascript = document.getElementById("cerrarJavascript");
-     $javascriptPlanet.addEventListener("click", () => {
-       $modalJavascript.style.display = "flex";
-     });
- 
-     $cerrarJavascript.addEventListener("click", () => {
-       $modalJavascript.style.display = "none";
-     });
-     document.addEventListener("click", (event) => {
-       if (
-         $modalJavascript.style.display === "flex" &&
-         !$modalJavascript.contains(event.target) &&
-         !$javascriptPlanet.contains(event.target)
-       ) {
-         $modalJavascript.style.display = "none";
-       }
-     });
+    /* Ventana Modal CSS*/
+    const $cssPlanet = document.querySelector(`.${styles["css"]}`);
+    const $modalCss = document.getElementById("modalCss");
+    const $cerrarCss = document.getElementById("cerrarCss");
+    $cssPlanet.addEventListener("click", () => {
+      $modalCss.style.display = "flex";
+    });
+
+    $cerrarCss.addEventListener("click", () => {
+      $modalCss.style.display = "none";
+    });
+    document.addEventListener("click", (event) => {
+      if (
+        $modalCss.style.display === "flex" &&
+        !$modalCss.contains(event.target) &&
+        !$cssPlanet.contains(event.target)
+      ) {
+        $modalCss.style.display = "none";
+      }
+    });
+    /* Ventana Modal JAVASCRIPT*/
+    const $javascriptPlanet = document.querySelector(
+      `.${styles["javascript"]}`
+    );
+    const $modalJavascript = document.getElementById("modalJavascript");
+    const $cerrarJavascript = document.getElementById("cerrarJavascript");
+    $javascriptPlanet.addEventListener("click", () => {
+      $modalJavascript.style.display = "flex";
+    });
+
+    $cerrarJavascript.addEventListener("click", () => {
+      $modalJavascript.style.display = "none";
+    });
+    document.addEventListener("click", (event) => {
+      if (
+        $modalJavascript.style.display === "flex" &&
+        !$modalJavascript.contains(event.target) &&
+        !$javascriptPlanet.contains(event.target)
+      ) {
+        $modalJavascript.style.display = "none";
+      }
+    });
   };
 
   return {
