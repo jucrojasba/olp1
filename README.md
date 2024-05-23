@@ -33,3 +33,6 @@ CodeQuest addresses the challenge of making learning programming languages acces
 CodeQuest is an online learning platform designed to teach programming languages like HTML, CSS, and JavaScript through gamification. The platform provides users with a series of games and hands-on coding exercises that allow them to learn by developing small programs directly within the web interface. Each programming language module is structured to progressively build the user's skills, starting from basic concepts and moving to more advanced topics. By completing challenges and earning rewards, users stay motivated and can track their progress throughout their learning journey.
 
 CodeQuest's future vision includes the addition of more programming languages and the implementation of advanced gamification techniques to further enhance user engagement and learning outcomes. The platform's ultimate goal is to make coding education accessible, enjoyable, and effective for learners of all levels.
+
+##Protype
+Know more about our mockup version in: https://www.figma.com/design/ZaxjkfUiaNcFyQGUS0p5HV/UntitlVista-Home-proyecto-(Copy)?node-id=0-1&t=o41pRJZc43CNJnyk-0
