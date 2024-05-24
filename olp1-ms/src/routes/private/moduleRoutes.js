@@ -7,8 +7,8 @@ router.get('/', getAll);
 router.post('/:language_id', save);
 router.get('/:language_id', getByLanguage);
 router.get('/id/:id', getById);
-router.put('/', update);
-router.delete('/', deleteModule);
+router.put('/:id', update);
+router.delete('/:id', deleteModule);
 
 
 module.exports = router;
