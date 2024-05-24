@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', getAll);
 router.post('/:language_id', save);
 router.get('/:language_id', getByLanguage);
-router.get('/get/:id', getById);
+router.get('/id/:id', getById);
 router.put('/', update);
 router.delete('/', deleteModule);
 
