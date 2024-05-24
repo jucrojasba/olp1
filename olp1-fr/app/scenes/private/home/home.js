@@ -9,6 +9,10 @@ import logojavascript from "../../../assets/imagenes/Home/javascript-vertical.sv
 
 export function HomeScene() {
   const pageContent = `
+    <section class="${styles["header-home"]}">
+        <button id="create-challenge">Frontend</button>
+        <button id="create-challenge">Backend</button>
+    </section>  
     <div class="${styles["container"]}">
       <ul class="${styles["wrapper"]}">
         <div class="${styles["sun"]}">
@@ -88,7 +92,7 @@ export function HomeScene() {
     </div>
     <div class="${styles["modal"]}" id="modalJavascript" style="display:none;">
       <div class="${styles["imageContainer"]}">
-        <img src="${planet3}" id="${styles['exceptionJavascript']}">
+        <img src="${planet3}" id="${styles["exceptionJavascript"]}">
       </div>
       <div class="${styles["info"]}">
         <h2>JAVASCRIPT</h2>
@@ -108,7 +112,7 @@ export function HomeScene() {
         </div>
       </div>
     </div>
-    <div id="${styles['saludo']}">
+    <div id="${styles["saludo"]}">
       <h1>Bienvenido <span>Nicolas Picon</span></h1>
       <p>¿Preparado para vivir esta aventura?</p>
     </div>
@@ -117,7 +121,8 @@ export function HomeScene() {
   const logic = () => {
     /* Boton Blanco en el sideBar */
     const $whiteButton = document.getElementById("/dashboard");
-    $whiteButton.style="background-color:white";
+    $whiteButton.style = "background-color:white";
+    
 
     /* Ventana Modal HTML*/
     const $htmlPlanet = document.querySelector(`.${styles["htmlPlanet"]}`);

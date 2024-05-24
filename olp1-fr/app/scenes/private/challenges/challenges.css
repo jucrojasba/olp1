@@ -1,0 +1,32 @@
+.header-challenges{
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-challenges > h1{
+  color: var(--purple-light-color);
+  font-size: 50px;
+}
+
+.header-challenges > button{
+  width: 150px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: var(--purple-light-color);
+  box-shadow: 15px 10px 5px 0px rgba(0,0,0,0.75);
+  border: none;
+}
+
+.header-challenges > button:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+
+}
+
+
+.card {
+  border: 1px solid #eeeded;
+  padding: 10px;
+  margin-bottom: 10px;
+}

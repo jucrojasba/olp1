@@ -320,3 +320,18 @@ body {
 #saludo h1 span{
   color: var(--purple-light-color);
 }
+.header-home{
+  display: flex;
+  justify-content: flex-end;
+  padding-right:100px ;
+  padding-top: 30px;
+  gap: 50px;
+}
+
+.header-home > button{
+  width: 150px;
+  height: 50px;
+  background-color: var(--purple-light-color);
+  border: none;
+  border-radius: 10px;
+}
