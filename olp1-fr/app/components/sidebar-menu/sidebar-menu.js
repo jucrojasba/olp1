@@ -1,7 +1,6 @@
 import styles from "./sidebar-menu.css";
 import home_icon from "../../assets/imagenes/Home/home_icon.png";
 import forum_icon from "../../assets/imagenes/Home/icon_forum.png";
-import learning_icon from "../../assets/imagenes/Home/icon_cohete.png";
 import challenges_icon from "../../assets/imagenes/Home/icon_challenge.png";
 import html_icon from "../../assets/imagenes/Home/w3_html5-icon.svg";
 import css_icon from "../../assets/imagenes/Home/w3_css-icon.svg";
@@ -28,7 +27,6 @@ export function SidebarMenu(data = []) {
     <div class="${styles["container"]}">
     <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
     <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
-    <button id="${"/dashboard/learning-path"}" type="button"><img src="${learning_icon}">Learning Path</button>
     <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button></div>
     </div>
     <div id="${styles["courses"]}">
