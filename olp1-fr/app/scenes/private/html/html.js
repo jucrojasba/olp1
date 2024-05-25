@@ -1,17 +1,21 @@
-import styles from "./html.css";
-import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
-import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
+import { navigateTo } from "../../../Router";
 import planet1 from "../../../assets/imagenes/Home/planet1.png";
 import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
+import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
+import styles from "./html.css";
 
 export function HtmlScene() {
   let pageContent = `
-    <header>
-      <h2>HTML<div class="${styles.lenguaje}"> <img src="${logohtml}"></div> </h2>
-      <button id="create-module">Crear</button>
-    </header>
+    <div class=${styles.title}>
+      <h2>HTML</h2>
+      <div class = ${styles["crear-modulo"]}>
+        <img id="crearModulo" src="${logohtml}">
+      </div>
+    </div>
     <div class="${styles.contenido}">
     <div class="${styles.planet}">
+    <div class="${styles["luna-lenguaje"]}"> <img src="${logohtml}"></div>
     <img src="${planet1}"></div>
     <section class="${styles.container}" id="modulos"></section>
     <section class="${styles.container}" id="modulosModales"></section>
@@ -64,14 +68,21 @@ export function HtmlScene() {
     
     // Selecciona correctamente los elementos generados dinámicamente
     document.querySelectorAll(`.${styles.modulo}`).forEach(e => {
-    startCoordX = getRandomValue(mainRect.width);
-    startCoordY = getRandomValue(mainRect.height);
-    endCoordX = getRandomValue(mainRect.width);
-    endCoordY = getRandomValue(mainRect.height);
+    startCoordX = getRandomValue(mainRect.width-100);
+      startCoordY = getRandomValue(mainRect.height-100);
+    endCoordX = getRandomValue(mainRect.width-100);
+    endCoordY = getRandomValue(mainRect.height-100);
       e.style.setProperty('--start-x', startCoordX);
       e.style.setProperty('--start-y', startCoordY);
       e.style.setProperty('--end-x', endCoordX);
       e.style.setProperty('--end-y', endCoordY);
+
+    });
+
+    //Crear Modulos
+    const $crearModulo = document.getElementById('crearModulo');
+    $crearModulo.addEventListener('click', ()=>{
+      navigateTo('/dashboard/html/create');
     });
   };
 

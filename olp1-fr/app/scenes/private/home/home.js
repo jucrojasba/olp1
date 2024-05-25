@@ -1,11 +1,11 @@
-import styles from "./home.css";
-import sun from "../../../assets/imagenes/Home/sun.png";
+import logojavascript from "../../../assets/imagenes/Home/javascript-vertical.svg";
 import planet1 from "../../../assets/imagenes/Home/planet1.png";
 import planet2 from "../../../assets/imagenes/Home/planet2.png";
 import planet3 from "../../../assets/imagenes/Home/planet3.png";
-import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import sun from "../../../assets/imagenes/Home/sun.png";
 import logocss from "../../../assets/imagenes/Home/w3_css-icon.svg";
-import logojavascript from "../../../assets/imagenes/Home/javascript-vertical.svg";
+import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import styles from "./home.css";
 
 export function HomeScene() {
   const pageContent = `
