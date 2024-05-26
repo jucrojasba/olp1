@@ -3,6 +3,7 @@ import styles from "./create-modules.css";
 import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
 import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
 import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import { navigateTo } from "../../../Router";
 
 export function CreateModuloScene() {
     const pageContent = `
@@ -71,7 +72,7 @@ export function CreateModuloScene() {
             //Crear la informacion que se enviara a base de datos
             const modulo = {
                 id,
-                language_id: 1,
+                language_id: 2,
                 name: titleValue,
                 description: descriptionValue,
                 content: contentValue
@@ -79,11 +80,12 @@ export function CreateModuloScene() {
             if (confirm("¿Estás seguro de que deseas publicar el modulo?")) {
                 // Aquí va la lógica para enviar el contenido a la base de datos
                 try {
-                    const response = await fetch('http://localhost:4000/api/modules', {
+                    const response = await fetch('http://localhost:4000/api/modules/1', {
                         method: 'POST',
                         body: JSON.stringify(modulo),
                         headers: {
                             'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
                         }
                     });
                     console.log(response);
