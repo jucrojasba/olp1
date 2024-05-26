@@ -1,5 +1,5 @@
 import { ChallengesScene } from "../scenes/private/challenges";
-import { CssScene } from "../scenes/private/css";
+import { CreateModuloSceneCss, CssScene } from "../scenes/private/css";
 import { ForumScene } from "../scenes/private/forum";
 import { HomeScene } from "../scenes/private/home";
 import { CreateModuloScene, HtmlScene } from "../scenes/private/html";
@@ -18,6 +18,7 @@ export const routes = {
     { path: "/dashboard/html", component: HtmlScene },
     { path: "/dashboard/html/create", component: CreateModuloScene },
     { path: "/dashboard/css", component: CssScene },
+    { path: "/dashboard/css/create", component: CreateModuloSceneCss },
     { path: "/dashboard/javascript", component: JavascriptScene },
     { path: "/dashboard/challenges", component: ChallengesScene },
   ],

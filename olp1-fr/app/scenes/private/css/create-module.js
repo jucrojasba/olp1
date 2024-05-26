@@ -2,10 +2,10 @@ import spacialBase from "../../../assets/imagenes/moduloHTML/ovni.png";
 import styles from "./create-modules.css";
 import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
 import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
-import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import logohtml from "../../../assets/imagenes/Home/w3_css-icon.svg";
 import { navigateTo } from "../../../Router";
 
-export function CreateModuloScene() {
+export function CreateModuloSceneCss() {
     const pageContent = `
         <div class=${styles.contenido}>
             <div class=${styles.animacion}>
@@ -15,8 +15,8 @@ export function CreateModuloScene() {
                 </div>
                 <div class=${styles.starship}>
                     <img src="${spacialBase}">
-                    <a href="/dashboard/html">
-                        <img src="${logohtml}">HTML
+                    <a href="/dashboard/css">
+                        <img src="${logohtml}">CSS
                     </a>
                 </div>
             </div>
@@ -47,7 +47,7 @@ export function CreateModuloScene() {
     `;
     const logic = () => {
         /* Boton Blanco en el sideBar */
-        const $whiteButton = document.getElementById("/dashboard/html");
+        const $whiteButton = document.getElementById("/dashboard/css");
         $whiteButton.style = "background-color:white";
         
         /*Crear modulo*/
@@ -59,7 +59,7 @@ export function CreateModuloScene() {
             const contentValue = document.getElementById('content').value;
 
             //Obtener el ultimo ID
-            const responseVerModulos = await fetch("http://localhost:4000/api/modules/1");
+            const responseVerModulos = await fetch("http://localhost:4000/api/modules/2");
             if (!responseVerModulos.ok) {
             const errorMessage = await responseVerModulos.text();
             throw new Error(`Error ${responseVerModulos.status}: ${errorMessage}`);
@@ -72,7 +72,7 @@ export function CreateModuloScene() {
             //Crear la informacion que se enviara a base de datos
             const modulo = {
                 id,
-                language_id: 1,
+                language_id: 2,
                 name: titleValue,
                 description: descriptionValue,
                 content: contentValue
@@ -80,7 +80,7 @@ export function CreateModuloScene() {
             if (confirm("¿Estás seguro de que deseas publicar el modulo?")) {
                 // Aquí va la lógica para enviar el contenido a la base de datos
                 try {
-                    const response = await fetch('http://localhost:4000/api/modules/1', {
+                    const response = await fetch('http://localhost:4000/api/modules/2', {
                         method: 'POST',
                         body: JSON.stringify(modulo),
                         headers: {
@@ -91,7 +91,7 @@ export function CreateModuloScene() {
                     console.log(response);
                     alert('Modulo publicado con éxito');
                     document.querySelector('#create-module-form').reset(); // Resetea el formulario
-                    navigateTo('/dashboard/html');
+                    navigateTo('/dashboard/css');
                 } catch (error) {
                     alert('Ha ocurrido un error al publicar el reto. Por favor, inténtalo de nuevo más tarde.');
                     console.error('Error al publicar el reto:', error);
