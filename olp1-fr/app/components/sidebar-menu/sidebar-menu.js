@@ -39,7 +39,6 @@ export function SidebarMenu(data = []) {
     </div>
     <div id="${styles["salida"]}">
     <div class="${styles["container"]}">
-    <button id="${"/dashboard/users"}" type="button">Users</button>
     <button id="logout" type="button">Logout</button>
     </div>
     </div>

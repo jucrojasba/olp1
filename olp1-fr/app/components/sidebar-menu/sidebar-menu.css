@@ -110,6 +110,7 @@ aside.sidebar-menu > #salida > div.container > button {
   font-size: var(--font-size-md);
   display: flex;
   justify-content: end;
+  padding: 5px 20px;
 }
 aside.sidebar-menu > #salida > div.container > button:hover {
   background-color: white;
