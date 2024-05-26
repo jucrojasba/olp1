@@ -31,7 +31,7 @@ export function HtmlScene() {
     /* Mostrar Modulos */
     const $modulos = document.getElementById("modulos");
     const $modulosModales = document.getElementById("modulosModales");
-    const responseVerModulos = await fetch("http://localhost:4000/api/modules/2");
+    const responseVerModulos = await fetch("http://localhost:4000/api/modules/1");
     if (!responseVerModulos.ok) {
       const errorMessage = await responseVerModulos.text();
       throw new Error(`Error ${responseVerModulos.status}: ${errorMessage}`);
@@ -66,7 +66,6 @@ export function HtmlScene() {
     let endCoordX = getRandomValue(mainRect.width);
     let endCoordY = getRandomValue(mainRect.height);
     
-    // Selecciona correctamente los elementos generados dinámicamente
     document.querySelectorAll(`.${styles.modulo}`).forEach(e => {
     startCoordX = getRandomValue(mainRect.width-100);
       startCoordY = getRandomValue(mainRect.height-100);

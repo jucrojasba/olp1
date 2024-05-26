@@ -1,24 +1,39 @@
 .contenido{
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100%;
 }
 @keyframes spinsun {
   0% {
-    transform: rotate(0);
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
   }
   100% {
-    transform: rotate(-360deg);
+    transform: rotate(0deg);
   }
 }
-.contenido > .starship{
+.animacion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+.contenido .animacion .starship{
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: spinsun 40s infinite linear;
+  animation: spinsun 30s infinite linear;
   width: 500px;
   height: 500px;
   box-shadow: rgba(252, 252, 252, 0.17) 0px -23px 25px 0px inset,
@@ -45,7 +60,14 @@
     content: "";
   }
 }
-
+@keyframes vibrate {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-2px, -2px) rotate(-2deg); }
+  40% { transform: translate(2px, 2px) rotate(2deg); }
+  60% { transform: translate(-2px, 2px) rotate(-2deg); }
+  80% { transform: translate(2px, -2px) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
 .loader {
   color: var(--owner-purple);
   display: inline-block;
@@ -56,8 +78,84 @@
 .loader:after {
   content: "...";
   position: absolute;
-  top: 5px;
+  top: -5px;
   right: -25px;
   animation: dots 1s steps(4, end) infinite;
   font-size: var(--font-size-lg);
+}
+.contenido .create-module-form{
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+  height: 76%;
+  background-color: rgba(0, 0, 0, 0.541);
+  border-radius: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+}
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--owner-purple);
+}
+.title>img{
+  width: 80px;
+  height: 80px;
+  animation: vibrate 0.5s infinite;
+}
+
+.contenido form .container-input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.contenido form >.container-input label{
+  color: var(--owner-purple)
+}
+
+.create-module-form textarea{
+  background-color: transparent;
+  color: var(--owner-purple);
+  border-radius: var(--spacing-2);
+}
+.create-module-form > .container-input>  input{
+  background-color: transparent;
+  color: var(--owner-purple);
+  border-radius: var(--spacing-1);
+  width: 300px;
+}
+.actionButton{
+  display: flex;
+  gap: var(--spacing-5);
+}
+#lastship{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform-origin: center;
+  animation: flyAway 15s infinite alternate;
+}
+
+@keyframes flyAway {
+  0%, 100% {
+    transform: translate(0, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(100%, -50%) scale(0.1);
+    opacity: 0;
+  }
+}
+.button-publicar{
+  background-color: transparent;
+  border-radius: var(--spacing-1);
+  color: var(--owner-purple);
+  cursor: pointer;
 }
