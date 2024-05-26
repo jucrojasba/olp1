@@ -18,8 +18,7 @@ export function HtmlScene() {
     <div class="${styles["luna-lenguaje"]}"> <img src="${logohtml}"></div>
     <img src="${planet1}"></div>
     <section class="${styles.container}" id="modulos"></section>
-    <section class="${styles.container}" id="modulosModales"></section>
-    <section class="${styles["container-crear"]}" id="crear-modulo"></section>
+    <section class="${styles.containerModal}" id="modulosModales"></section>
     </div>
     `;
 
@@ -30,7 +29,6 @@ export function HtmlScene() {
 
     /* Mostrar Modulos */
     const $modulos = document.getElementById("modulos");
-    const $modulosModales = document.getElementById("modulosModales");
     const responseVerModulos = await fetch("http://localhost:4000/api/modules/1");
     if (!responseVerModulos.ok) {
       const errorMessage = await responseVerModulos.text();
@@ -82,6 +80,41 @@ export function HtmlScene() {
     const $crearModulo = document.getElementById('crearModulo');
     $crearModulo.addEventListener('click', ()=>{
       navigateTo('/dashboard/html/create');
+    });
+
+    //Ver Modulos
+    const $modulosModales = document.getElementById("modulosModales");
+    const modulos = document.querySelectorAll(`.${styles.modulo}`);
+    modulos.forEach(modulo => {
+      modulo.addEventListener('click', () => {
+        // Obtener el id del modulo click
+        const id = modulo.id.replace('modulo', ''); // Eliminamos "modulo" del id
+
+        // Buscar el modulo en modulosdb
+        const moduloSeleccionado = modulosdb.find(modulo => modulo.id === parseInt(id));
+
+        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        if (moduloSeleccionado) {
+          $modulosModales.innerHTML = `
+            <div>
+              <h2>${moduloSeleccionado.name}</h2>
+              <h4>${moduloSeleccionado.description}</h4>
+              <hr>
+              <p>${moduloSeleccionado.content}</p>
+              <button id="cerrar" type="button">Cerrar</button>
+            </div>
+          `;
+        } else {
+          $modulosModales.innerHTML = `<p>No se encontró información para el módulo seleccionado.</p>`;
+        }
+      });
+    });    
+    document.addEventListener('click', (event) => {
+      // Verificar si el clic ocurrió en el botón "cerrar"
+      if (event.target && event.target.id === 'cerrar') {
+        // Cerrar el modal eliminando su contenido
+        $modulosModales.innerHTML = '';
+      }
     });
   };
 
