@@ -16,13 +16,13 @@ ENDPOINTS
 	*post* create new module: http://localhost:4000/api/modules/:language_id
 	*get* modules by language: http://localhost:4000/api/modules/:language_id
 	*get* modules by id: http://localhost:4000/api/modules/id/:id
-	*put* updtate module: http://localhost:4000/api/modules
-	*delete* delete module: http://localhost:4000/api/modules
+	*put* updtate module: http://localhost:4000/api/modules/:id
+	*delete* delete module: http://localhost:4000/api/modules/:id
 
 4. Users
 	*get* all users: http://localhost:4000/api/users
 	*get* user by id: http://localhost:4000/api/users/:id
 	*post* new user: http://localhost:4000/api/auth/register
-	*put* update user: http://localhost:4000/api/users
-	*delete* delete user: http://localhost:4000/api/users	
+	*put* update user: http://localhost:4000/api/users/:id
+	*delete* delete user: http://localhost:4000/api/users/:id	
 	
