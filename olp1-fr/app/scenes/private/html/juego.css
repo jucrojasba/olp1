@@ -1,0 +1,98 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex; /* Inicializamos el display en flex */
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  position: relative;
+}
+
+.target-image {
+  width: 200px;
+  height: 200px;
+  z-index: 100;
+  animation: spinplanet 30s infinite linear;
+}
+#spaceBase {
+  width: 250px;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  animation: vibrateSpace 15s infinite;
+}
+
+#planetLife {
+  width: 500px;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  animation: spinplanet 120s infinite linear;
+}
+
+#spaceShip {
+  width: 100px;
+  position: absolute;
+  top: 45%;
+  left: 2%;
+  animation: vibrate 10s infinite;
+}
+/*Animaciones*/
+
+@keyframes spinplanet {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes vibrate {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  60% {
+    transform: translate(-2px, 2px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(2px, -2px) rotate(2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes vibrateSpace {
+  0% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+  20% {
+    transform: translate(-10px, -10px) rotate(-10deg);
+  }
+  40% {
+    transform: translate(10px, 10px) rotate(10deg);
+  }
+  60% {
+    transform: translate(-10px, 10px) rotate(-10deg);
+  }
+  80% {
+    transform: translate(10px, -10px) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+}

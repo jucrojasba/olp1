@@ -1,4 +1,4 @@
-.contenido{
+.contenido {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
     top: var(--start-y); /* volver a la coordenada inicial */
   }
 }
-.contenido > .planet{
+.contenido > .planet {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,17 +44,17 @@
     rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px,
     rgba(255, 255, 255, 0.09) 0px 8px 4px,
     rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    border-radius: 50%;
+  border-radius: 50%;
 }
-.contenido > .planet>img{
-scale: 1.7;
+.contenido > .planet > img {
+  scale: 1.7;
 }
 
 .modulo {
   position: absolute;
   left: var(--start-x);
   top: var(--start-y);
-  animation: randomMovement 15s infinite; 
+  animation: randomMovement 15s infinite;
   width: 100px;
   height: 100px;
   display: flex;
@@ -62,39 +62,38 @@ scale: 1.7;
   align-items: center;
   z-index: 100;
 }
-.modulo h3{
+.modulo h3 {
   color: white;
   text-align: center;
   font-size: var(--font-size-md);
 }
-.modulo img{
+.modulo img {
   width: 120px;
   height: 120px;
 }
 
-.title{
+.title {
   display: flex;
   gap: var(--spacing-3);
   align-items: center;
   padding: var(--spacing-5);
   position: absolute;
   font-size: 2rem;
-
 }
-.title img{
+.title img {
   width: 60px;
   height: 60px;
 }
-.title>.crear-modulo{
+.title > .crear-modulo {
   z-index: 2;
 }
-.title>.crear-modulo:hover{
+.title > .crear-modulo:hover {
   scale: 1.5;
   cursor: pointer;
 }
 
 /* Contenedor de Modales para ver informacion relacionada con un modulo */
-.containerModal div {
+.containerModal .show-module-window {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -110,19 +109,25 @@ scale: 1.7;
   border-radius: var(--spacing-2);
   z-index: 100;
 }
-.containerModal > div> h2{
+.containerModal > .show-module-window > h2 {
   text-align: center;
 }
-.containerModal > div>h4 {
+.containerModal > .show-module-window > h4 {
   text-align: center;
   color: white;
 }
-.containerModal > div> hr{
+.containerModal > .show-module-window > hr {
   width: 350px;
 }
-.containerModal > div> button{
+.containerModal > .show-module-window > .action-buttons-info > button {
   width: fit-content;
   color: white;
   background-color: transparent;
   align-self: center;
+}
+.action-buttons-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-3);
 }

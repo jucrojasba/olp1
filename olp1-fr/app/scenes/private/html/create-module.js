@@ -6,7 +6,7 @@ import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
 import { navigateTo } from "../../../Router";
 
 export function CreateModuloScene() {
-    const pageContent = `
+  const pageContent = `
         <div class=${styles.contenido}>
             <div class=${styles.animacion}>
                 <div class=${styles.title}>
@@ -45,65 +45,73 @@ export function CreateModuloScene() {
         </div>
         <img src="${spaceship2}" id="${styles.lastship}">
     `;
-    const logic = () => {
-        /* Boton Blanco en el sideBar */
-        const $whiteButton = document.getElementById("/dashboard/html");
-        $whiteButton.style = "background-color:white";
-        
-        /*Crear modulo*/
-        // Listener para enviar info a base de datos
-        document.getElementById('create-module-form').addEventListener('submit', async(e)=>{
-            e.preventDefault();
-            const titleValue = document.getElementById('name').value;
-            const descriptionValue = document.getElementById('description').value;
-            const contentValue = document.getElementById('content').value;
+  const logic = () => {
+    /* Boton Blanco en el sideBar */
+    const $whiteButton = document.getElementById("/dashboard/html");
+    $whiteButton.style = "background-color:white";
 
-            //Obtener el ultimo ID
-            const responseVerModulos = await fetch("http://localhost:4000/api/modules/1");
-            if (!responseVerModulos.ok) {
-            const errorMessage = await responseVerModulos.text();
-            throw new Error(`Error ${responseVerModulos.status}: ${errorMessage}`);
-            }
-            const modulosdb = await responseVerModulos.json();
-            const ids = modulosdb.reduce(function(maxId, diccionario) {
-                return Math.max(maxId, diccionario.id);
-            }, 0);
-            let id = parseFloat(ids)+1;
-            //Crear la informacion que se enviara a base de datos
-            const modulo = {
-                id,
-                language_id: 1,
-                name: titleValue,
-                description: descriptionValue,
-                content: contentValue
-            }
-            if (confirm("¿Estás seguro de que deseas publicar el modulo?")) {
-                // Aquí va la lógica para enviar el contenido a la base de datos
-                try {
-                    const response = await fetch('http://localhost:4000/api/modules/1', {
-                        method: 'POST',
-                        body: JSON.stringify(modulo),
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${localStorage.getItem('token')}`
-                        }
-                    });
-                    console.log(response);
-                    alert('Modulo publicado con éxito');
-                    document.querySelector('#create-module-form').reset(); // Resetea el formulario
-                    navigateTo('/dashboard/html');
-                } catch (error) {
-                    alert('Ha ocurrido un error al publicar el reto. Por favor, inténtalo de nuevo más tarde.');
-                    console.error('Error al publicar el reto:', error);
-                }
-            }
-        });
+    /*Crear modulo*/
+    // Listener para enviar info a base de datos
+    document
+      .getElementById("create-module-form")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const titleValue = document.getElementById("name").value;
+        const descriptionValue = document.getElementById("description").value;
+        const contentValue = document.getElementById("content").value;
 
-        
-
-    };
-    return {
-        pageContent,
-        logic,
-    };
+        //Obtener el ultimo ID
+        const responseVerModulos = await fetch(
+          "http://localhost:4000/api/modules/1"
+        );
+        if (!responseVerModulos.ok) {
+          const errorMessage = await responseVerModulos.text();
+          throw new Error(
+            `Error ${responseVerModulos.status}: ${errorMessage}`
+          );
+        }
+        const modulosdb = await responseVerModulos.json();
+        const ids = modulosdb.reduce(function (maxId, diccionario) {
+          return Math.max(maxId, diccionario.id);
+        }, 0);
+        let id = parseFloat(ids) + 1;
+        //Crear la informacion que se enviara a base de datos
+        const modulo = {
+          id,
+          language_id: 1,
+          name: titleValue,
+          description: descriptionValue,
+          content: contentValue,
+        };
+        if (confirm("¿Estás seguro de que deseas publicar el modulo?")) {
+          // Aquí va la lógica para enviar el contenido a la base de datos
+          try {
+            const response = await fetch(
+              "http://localhost:4000/api/modules/1",
+              {
+                method: "POST",
+                body: JSON.stringify(modulo),
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
+            console.log(response);
+            alert("Modulo publicado con éxito");
+            document.querySelector("#create-module-form").reset(); // Resetea el formulario
+            navigateTo("/dashboard/html");
+          } catch (error) {
+            alert(
+              "Ha ocurrido un error al publicar el reto. Por favor, inténtalo de nuevo más tarde."
+            );
+            console.error("Error al publicar el reto:", error);
+          }
+        }
+      });
+  };
+  return {
+    pageContent,
+    logic,
+  };
 }
