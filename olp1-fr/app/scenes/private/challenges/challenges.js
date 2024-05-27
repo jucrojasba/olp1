@@ -27,7 +27,7 @@ export function ChallengesScene() {
     const $whiteButton = document.getElementById("/dashboard/challenges");
     $whiteButton.style = "background-color:white";
 
-    /* Mostrar Modulos */
+    /* Mostrar Retos */
     const $retos = document.getElementById("retos");
     const responseVerRetos = await fetch("http://localhost:4000/api/challenges");
     if (!responseVerRetos.ok) {
@@ -50,7 +50,7 @@ export function ChallengesScene() {
       .join("")}
     `;
 
-    /* Movimiento Aleatorio de los modulos */
+    /* Movimiento Aleatorio de los retos */
     function getRandomValue(max) {
       return Math.floor(Math.random() * max) + 'px';
     }
@@ -77,18 +77,18 @@ export function ChallengesScene() {
     });
 
 
-    //Ver Modulos
+    //Ver Retos
     const $retosModales = document.getElementById("retosModales");
     const retos = document.querySelectorAll(`.${styles.reto}`);
     retos.forEach(reto => {
       reto.addEventListener('click', () => {
-        // Obtener el id del modulo click
-        const id = reto.id.replace('reto', ''); // Eliminamos "modulo" del id
+        // Obtener el id del reto click
+        const id = reto.id.replace('reto', ''); // Eliminamos "reto" del id
 
-        // Buscar el modulo en modulosdb
+        // Buscar el modulo en retosdb
         const retoSeleccionado = retosdb.find(reto => reto.id === parseInt(id));
 
-        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        // Actualizar el contenido de retos con la información del reto seleccionado
         if (retoSeleccionado) {
           $retosModales.innerHTML = `
             <div>
