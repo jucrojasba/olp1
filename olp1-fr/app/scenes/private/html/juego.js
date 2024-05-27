@@ -28,7 +28,7 @@ export function juegoScene() {
             <img src="${spaceBase}" id=${styles["spaceBase"]}>
             <img src="${planetLife}" id=${styles["planetLife"]}>
             <img src="${spaceship1}" id=${styles["spaceShip"]}>
-        
+            <div id="modal" class=${styles["modal"]}></div>
         </div>
     </div>
     `;
@@ -36,12 +36,11 @@ export function juegoScene() {
     /* Boton Blanco en el sideBar */
     const $whiteButton = document.getElementById("/dashboard/html");
     $whiteButton.style = "background-color:white";
-
     const justifyContentSelect = document.getElementById("justifyContent");
     const alignItemsSelect = document.getElementById("alignItems");
     const imageContainer = document.getElementById("image-container");
-    const $planetLife = document.getElementById(`${styles["spaceShip"]}`);
-    console.log($planetLife);
+    const $planetLife = document.getElementById(`${styles["planetLife"]}`);
+    const $modal = document.getElementById("modal");
 
     // Función para actualizar los estilos de la imagen
     const updateStyles = () => {
@@ -51,9 +50,17 @@ export function juegoScene() {
       //controladores
       if (
         justifyContentSelect.value === "center" &&
-        alignItemsSelect.value === "center"
+        (alignItemsSelect.value === "center" ||
+          alignItemsSelect.value === "flex-end")
       ) {
-        $planetLife.style.animation = "vibrate 0.5s infinite";
+        $planetLife.classList.add(`${styles["vibrate"]}`);
+        $modal.innerHTML = `<div>
+        <h2>Destruiste el planeta!</h2>
+      </div>;`;
+      $planetLife.classList.add(`${styles["vibrate"]}`);
+      } else {
+        $planetLife.classList.remove(`${styles["vibrate"]}`);
+        $modal.innerHTML = ``;
       }
     };
 

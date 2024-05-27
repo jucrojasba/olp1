@@ -46,7 +46,18 @@
   left: 2%;
   animation: vibrate 10s infinite;
 }
+.modal {
+  z-index: 110;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
 /*Animaciones*/
+.vibrate {
+  animation: vibrate 0.5s infinite !important;
+}
 
 @keyframes spinplanet {
   0% {
