@@ -109,7 +109,7 @@ export function HomeScene() {
       </div>
     </div>
     <div id="${styles["saludo"]}">
-      <h1>Bienvenido <span id="username"></span></h1>
+      <h1>Bienvenido <span id="userNameWelcome"></span></h1>
       <p>¿Preparado para vivir esta aventura?</p>
     </div>
   `;
@@ -125,8 +125,8 @@ export function HomeScene() {
       throw new Error(`Error ${response.status}: ${errorMessage}`);
     }
     const data = await response.json();
-    const user = document.getElementById("username");
-    user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
+    const $user = document.getElementById("userNameWelcome");
+    $user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
       .substr(1)
       .toLowerCase()}`;
 
