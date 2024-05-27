@@ -13,6 +13,7 @@
 
 .title-forum {
   color: var(--owner-purple);
+  padding: var(--spacing-3) 0;
 }
 
 .flexWrapper {
@@ -26,7 +27,7 @@
 
 .tableForum {
   border-collapse: collapse;
-  background-color: var(--owner-purple);
+  background-color: #b48aea63;
   border-radius: 11px;
   width: 100%;
 }
@@ -66,7 +67,7 @@
 }
 
 .discussions {
-  background-color: var(--owner-purple);
+  background-color: #b48aea63;
   border-radius: 45px;
   padding: 25px;
   width: 400px;
