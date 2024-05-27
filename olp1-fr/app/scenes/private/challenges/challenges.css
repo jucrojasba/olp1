@@ -1,0 +1,122 @@
+.contenido{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  
+}
+.retoModal {
+  display: none;
+}
+@keyframes spinsun {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes randomMovement {
+  0% {
+    left: var(--start-x); /* coordenada inicial */
+    top: var(--start-y); /* coordenada inicial */
+  }
+  50% {
+    left: var(--end-x); /* coordenada final */
+    top: var(--end-y); /* coordenada final */
+  }
+  100% {
+    left: var(--start-x); /* volver a la coordenada inicial */
+    top: var(--start-y); /* volver a la coordenada inicial */
+  }
+}
+.contenido > .planet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spinsun 40s infinite linear;
+  width: 400px;
+  height: 400px;
+}
+.contenido > .planet>img{
+scale: 1.1;
+}
+
+.reto {
+  position: absolute;
+  left: var(--start-x);
+  top: var(--start-y);
+  animation: randomMovement 15s infinite; 
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+.reto h3{
+  color: white;
+  text-align: center;
+  font-size: var(--font-size-md);
+}
+.reto img{
+  width: 120px;
+  height: 120px;
+}
+
+.title{
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  padding: var(--spacing-5);
+  position: absolute;
+  font-size: 2rem;
+  
+}
+ 
+
+.title img{
+  width: 60px;
+  height: 60px;
+}
+.title>.crear-modulo{
+  z-index: 2;
+}
+.title>.crear-modulo:hover{
+  scale: 1.5;
+  cursor: pointer;
+}
+/* Contenedor de Modales para ver informacion relacionada con un modulo */
+.containerModal div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  text-align: justify;
+  background-color: var(--black-color);
+  border-radius: var(--spacing-2);
+  z-index: 100;
+}
+.containerModal > div> h2{
+  text-align: center;
+}
+.containerModal > div>h4 {
+  text-align: center;
+  color: white;
+}
+.containerModal > div> hr{
+  width: 350px;
+}
+.containerModal > div> button{
+  width: fit-content;
+  color: white;
+  background-color: transparent;
+  align-self: center;
+}
