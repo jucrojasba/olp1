@@ -14,7 +14,7 @@ export function NavigationBar(
   <ul>
     <li><a href="/dashboard">Home</a></li>
     <li><a href="/dashboard/forum">Forum</a></li>
-    <li><a href="/dashboard/learning-path">Learning Path</a></li>
+    <li><a href="/dashboard/challenges">Challenges</a></li>
   </ul>
   </nav>
   <img src="${lightlogo}">

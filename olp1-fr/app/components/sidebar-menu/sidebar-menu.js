@@ -16,11 +16,28 @@ export function SidebarMenu(data = []) {
     }
   });
 
+  const logic = async () => {
+    /*Traer el nombre del usuario de la base de datos */
+    const welcomeUser = localStorage.getItem("welcomeUser");
+    const response = await fetch(
+      `http://localhost:4000/api/users/${welcomeUser}`
+    );
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`Error ${response.status}: ${errorMessage}`);
+    }
+    const data = await response.json();
+    const user = document.getElementById("username");
+    user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
+      .substr(1)
+      .toLowerCase()}`;
+    }
+
   return `
     <aside class="${styles["sidebar-menu"]}">
     <div id="${styles["usuario"]}">
     <a href="/dashboard/profile"><img src="https://randomuser.me/api/portraits/men/75.jpg"></a>
-    <h3>Nicolas Picon</h3>
+    <h3 id="username">${logic()}</h3>
     </div>
     <div id="${styles["discover"]}">
     <h3>Discover</h3>
