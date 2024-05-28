@@ -1,129 +1,133 @@
-.contenido{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.moduloModal {
+  display: none;
+}
+@keyframes spinsun {
+  0% {
+    transform: rotate(0);
   }
-  .moduloModal {
-    display: none;
+  100% {
+    transform: rotate(-360deg);
   }
-  @keyframes spinsun {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(-360deg);
-    }
+}
+@keyframes randomMovement {
+  0% {
+    left: var(--start-x); /* coordenada inicial */
+    top: var(--start-y); /* coordenada inicial */
   }
-  @keyframes randomMovement {
-    0% {
-      left: var(--start-x); /* coordenada inicial */
-      top: var(--start-y); /* coordenada inicial */
-    }
-    50% {
-      left: var(--end-x); /* coordenada final */
-      top: var(--end-y); /* coordenada final */
-    }
-    100% {
-      left: var(--start-x); /* volver a la coordenada inicial */
-      top: var(--start-y); /* volver a la coordenada inicial */
-    }
+  50% {
+    left: var(--end-x); /* coordenada final */
+    top: var(--end-y); /* coordenada final */
   }
-  .contenido > .planet{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: spinsun 40s infinite linear;
-    width: 400px;
-    height: 400px;
-    box-shadow: rgba(252, 252, 252, 0.17) 0px -23px 25px 0px inset,
-      rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset,
-      rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset,
-      rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px,
-      rgba(255, 255, 255, 0.09) 0px 8px 4px,
-      rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-      border-radius: 50%;
+  100% {
+    left: var(--start-x); /* volver a la coordenada inicial */
+    top: var(--start-y); /* volver a la coordenada inicial */
   }
-  .contenido > .planet>img{
+}
+.contenido > .planet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spinsun 40s infinite linear;
+  width: 400px;
+  height: 400px;
+  box-shadow: rgba(252, 252, 252, 0.17) 0px -23px 25px 0px inset,
+    rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset,
+    rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset,
+    rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(255, 255, 255, 0.09) 0px 4px 2px,
+    rgba(255, 255, 255, 0.09) 0px 8px 4px,
+    rgba(255, 255, 255, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 50%;
+}
+.contenido > .planet > img {
   scale: 1.7;
-  }
-  
-  .modulo {
-    position: absolute;
-    left: var(--start-x);
-    top: var(--start-y);
-    animation: randomMovement 15s infinite; 
-    width: 100px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
-  }
-  .modulo h3{
-    color: white;
-    text-align: center;
-    font-size: var(--font-size-md);
-  }
-  .modulo img{
-    width: 120px;
-    height: 120px;
-  }
-  
-  .title{
-    display: flex;
-    gap: var(--spacing-3);
-    align-items: center;
-    padding: var(--spacing-5);
-    position: absolute;
-    font-size: 2rem;
-  
-  }
-  .title img{
-    width: 60px;
-    height: 60px;
-  }
-  .title>.crear-modulo{
-    z-index: 2;
-  }
-  .title>.crear-modulo:hover{
-    scale: 1.5;
-    cursor: pointer;
-  }
-  
-  /* Contenedor de Modales para ver informacion relacionada con un modulo */
-  .containerModal div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: fit-content;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3);
-    text-align: justify;
-    background-color: var(--black-color);
-    border-radius: var(--spacing-2);
-    z-index: 100;
-  }
-  .containerModal > div> h2{
-    text-align: center;
-  }
-  .containerModal > div>h4 {
-    text-align: center;
-    color: white;
-  }
-  .containerModal > div> hr{
-    width: 350px;
-  }
-  .containerModal > div> button{
-    width: fit-content;
-    color: white;
-    background-color: transparent;
-    align-self: center;
-  }
-  
+}
+
+.modulo {
+  position: absolute;
+  left: var(--start-x);
+  top: var(--start-y);
+  animation: randomMovement 15s infinite;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+.modulo h3 {
+  color: white;
+  text-align: center;
+  font-size: var(--font-size-md);
+}
+.modulo img {
+  width: 120px;
+  height: 120px;
+}
+
+.title {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  padding: var(--spacing-5);
+  position: absolute;
+  font-size: 2rem;
+}
+.title img {
+  width: 60px;
+  height: 60px;
+}
+.title > .crear-modulo {
+  z-index: 2;
+}
+.title > .crear-modulo:hover {
+  scale: 1.5;
+  cursor: pointer;
+}
+
+/* Contenedor de Modales para ver informacion relacionada con un modulo */
+.containerModal .show-module-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  text-align: justify;
+  background-color: var(--black-color);
+  border-radius: var(--spacing-2);
+  z-index: 100;
+}
+.containerModal > .show-module-window > h2 {
+  text-align: center;
+}
+.containerModal > .show-module-window > h4 {
+  text-align: center;
+  color: white;
+}
+.containerModal > .show-module-window > hr {
+  width: 350px;
+}
+.containerModal > .show-module-window > .action-buttons-info > button {
+  width: fit-content;
+  color: white;
+  background-color: transparent;
+  align-self: center;
+}
+.action-buttons-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-3);
+}

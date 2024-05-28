@@ -95,12 +95,15 @@ export function JavascriptScene(){
         // Actualizar el contenido de modulosModales con la información del modulo seleccionado
         if (moduloSeleccionado) {
           $modulosModales.innerHTML = `
-            <div>
+            <div class="${styles["show-module-window"]}">
               <h2>${moduloSeleccionado.name}</h2>
               <h4>${moduloSeleccionado.description}</h4>
               <hr>
               <p>${moduloSeleccionado.content}</p>
-              <button id="cerrar" type="button">Cerrar</button>
+              <div class="${styles["action-buttons-info"]}">
+                <button id="jugar" type="button">Jugar</button>
+                <button id="cerrar" type="button">Cerrar</button>
+              </div>
             </div>
           `;
         } else {
@@ -115,7 +118,12 @@ export function JavascriptScene(){
         $modulosModales.innerHTML = '';
       }
     });
-
+     //Jugar
+     document.addEventListener("click", (event) => {
+      if (event.target && event.target.id === "jugar") {
+        navigateTo("/dashboard/javascript/juego");
+      }
+    });
     };
     return {
         pageContent,

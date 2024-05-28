@@ -94,36 +94,41 @@
   }
   
   /* Contenedor de Modales para ver informacion relacionada con un modulo */
-  .containerModal div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: fit-content;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3);
-    text-align: justify;
-    background-color: var(--black-color);
-    border-radius: var(--spacing-2);
-    z-index: 100;
-  }
-  .containerModal > div> h2{
-    text-align: center;
-  }
-  .containerModal > div>h4 {
-    text-align: center;
-    color: white;
-  }
-  .containerModal > div> hr{
-    width: 350px;
-  }
-  .containerModal > div> button{
-    width: fit-content;
-    color: white;
-    background-color: transparent;
-    align-self: center;
-  }
- 
+.containerModal .show-module-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  text-align: justify;
+  background-color: var(--black-color);
+  border-radius: var(--spacing-2);
+  z-index: 100;
+}
+.containerModal > .show-module-window > h2 {
+  text-align: center;
+}
+.containerModal > .show-module-window > h4 {
+  text-align: center;
+  color: white;
+}
+.containerModal > .show-module-window > hr {
+  width: 350px;
+}
+.containerModal > .show-module-window > .action-buttons-info > button {
+  width: fit-content;
+  color: white;
+  background-color: transparent;
+  align-self: center;
+}
+.action-buttons-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-3);
+}
