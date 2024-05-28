@@ -225,12 +225,12 @@ export function ForumScene() {
           </div> 
       </div>
       <div class="${styles.publish}">
-          <span>Publish Discussion</span><button>Publish</button>
+          <span>Publish Discussion</span><button id="toPublish">Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">
         <div class="">
-          <h2>Discussions</h2>
+          <h2 class="${styles.titleDiscuss}">Another Discussions</h2>
           <br><br>
           <div class="${styles.discussionsFlex}">
             <div class="${styles.imgDiscussion}"></div>
@@ -258,8 +258,14 @@ export function ForumScene() {
         </div>
       </aside>
         `;
+        document.getElementById("toPublish").addEventListener('click', (e) => {
+            
+
+        });
     };
   }
+
+  
 
   return {
     pageContent,

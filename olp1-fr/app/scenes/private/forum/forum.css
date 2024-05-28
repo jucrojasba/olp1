@@ -199,15 +199,19 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  padding: 5px;
-  width: 300px;
+  padding: 15px;
+  width: 250px;
   height: 400px;
   top: 150px;
-  left: 1590px;
+  left: 1580px;
   border-radius: 45px;
   background-color: var(--owner-purple);
 }
 
 .tableRankings h2 {
   color: black;
+}
+
+.titleDiscuss{
+  text-align: center;
 }
