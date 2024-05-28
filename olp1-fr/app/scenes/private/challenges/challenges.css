@@ -83,6 +83,7 @@ scale: 1.1;
   background-color:var(--purple-light-color) ;
   width: 90px;
   height: 40px;
+  color: white;
   border-radius: 15px;
   border: transparent;
 }
