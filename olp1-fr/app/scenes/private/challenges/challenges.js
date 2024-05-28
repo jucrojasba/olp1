@@ -11,6 +11,9 @@ export function ChallengesScene() {
       <div>
         <h2>Challenges</h2>
       </div>
+      <div class="${styles.crearReto}">
+        <button id="crearReto">Create</button>
+      </div>
       
     </div>
     <div class="${styles.contenido}">
@@ -49,6 +52,12 @@ export function ChallengesScene() {
       )
       .join("")}
     `;
+
+    //Crear Reto
+    const $crearReto = document.getElementById('crearReto');
+    $crearReto.addEventListener('click', ()=>{
+      navigateTo('/dashboard/challenges/create');
+    });
 
     /* Movimiento Aleatorio de los retos */
     function getRandomValue(max) {

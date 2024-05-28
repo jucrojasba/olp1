@@ -54,7 +54,7 @@ scale: 1.1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 100;
+  z-index: 5;
 }
 .reto h3{
   color: white;
@@ -68,27 +68,29 @@ scale: 1.1;
 
 .title{
   display: flex;
+  width: 85%;
   gap: var(--spacing-3);
   align-items: center;
   padding: var(--spacing-5);
   position: absolute;
   font-size: 2rem;
-  
+  justify-content: space-between;
+  z-index: 8;
 }
  
 
-.title img{
-  width: 60px;
-  height: 60px;
+.title>.crearReto>button{
+  background-color:var(--purple-light-color) ;
+  width: 90px;
+  height: 40px;
+  border-radius: 15px;
+  border: transparent;
 }
-.title>.crear-modulo{
-  z-index: 2;
-}
-.title>.crear-modulo:hover{
+.title>.crearReto:hover{
   scale: 1.5;
   cursor: pointer;
 }
-/* Contenedor de Modales para ver informacion relacionada con un modulo */
+/* Contenedor de Modales para ver informacion relacionada con un reto */
 .containerModal div {
   position: fixed;
   top: 50%;

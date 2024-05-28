@@ -1,2 +1,2 @@
 export * from "./challenges";
-export * from "./createChallenges";
+export * from "./createChallenge";
