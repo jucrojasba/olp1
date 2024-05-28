@@ -18,7 +18,6 @@ export function ChallengesScene() {
     </div>
     <div class="${styles.contenido}">
     <div class="${styles.planet}">
-    <div class="${styles["luna-lenguaje"]}"> <img src="${logohtml}"></div>
     <img src="${planet1}"></div>
     <section class="${styles.container}" id="retos"></section>
     <section class="${styles.containerModal}" id="retosModales"></section>
@@ -102,7 +101,7 @@ export function ChallengesScene() {
           $retosModales.innerHTML = `
             <div>
               <h2>${retoSeleccionado.name}</h2>
-              <h4>${retoSeleccionado.description}</h4>
+              <h4>${retoSeleccionado.points_to_give}</h4>
               <hr>
               <p>${retoSeleccionado.content}</p>
               <button id="cerrar" type="button">Cerrar</button>
