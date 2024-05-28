@@ -83,7 +83,7 @@
     animation: dots 1s steps(4, end) infinite;
     font-size: var(--font-size-lg);
   }
-  .contenido .create-module-form{
+  .contenido .create-challenges-form{
     position: absolute;
     top: 20%;
     left: 15%;
