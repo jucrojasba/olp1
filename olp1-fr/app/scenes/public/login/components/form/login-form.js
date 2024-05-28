@@ -28,14 +28,16 @@ export async function LoginFormComponent() {
       alert("Please fill in all fields");
       return;
     }
-    const data = await login(email, password);
-    const token = data.token;
-    const welcomeUser = data.user.id;
-    if (token) {
-      localStorage.setItem("token", token);
-      localStorage.setItem("welcomeUser", welcomeUser);
-      navigateTo("/dashboard");
-    } else {
+    try{
+      const data = await login(email, password);
+      const token = data.token;
+      if (token) {   
+        const welcomeUser = data.user.id;
+        localStorage.setItem("token", token);
+        localStorage.setItem("welcomeUser", welcomeUser);
+        navigateTo("/dashboard");
+      };
+    }catch(error){
       alert("Invalid credentials");
     }
   });
