@@ -46,6 +46,7 @@
   top: 45%;
   left: 2%;
   animation: vibrate 10s infinite;
+  scale: 2;
 }
 .modal {
   z-index: 110;
@@ -179,4 +180,9 @@
 }
 .game-title >p> span{
   color: var(--owner-purple);
+}
+/*Estilos upper bar info game*/
+.upper-info{
+  display: flex;
+  justify-content: space-between;
 }
