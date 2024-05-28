@@ -96,8 +96,6 @@
 }
 
 .imgDiscussion {
-  display: block;
-  background-color: white;
   width: 35px;
   height: 35px;
   border-radius: 25px;
@@ -105,7 +103,7 @@
 
 .discussionsFlex {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   padding: 10px;
   border-bottom: 1px solid gray;
 }
