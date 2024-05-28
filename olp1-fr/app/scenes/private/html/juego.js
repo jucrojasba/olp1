@@ -6,22 +6,31 @@ import styles from "./juego.css";
 
 export function juegoScene() {
   const pageContent = `
-    <h2>Juego de Prueba: salvanos del ovni con el asteroide flexbox</h2>
-    <p>Misión: Destruye <spam>el ovni</spam> usando los controles para mover el <span>asteroide</span></p>
+    <div class=${styles["game-title"]}>
+      <h2>Juego de Prueba: salvanos del ovni con el asteroide flexbox</h2>
+      <p>Misión: Destruye <span>el ovni</span> usando los controles para mover el <span>asteroide</span></p>
+    </div>
     <div class=${styles["game-container"]}>
-        <div class=${styles["controls"]}>
-            <label for="justifyContent">justify-content:</label>
+        <div class=${styles["panel-control"]}>
+          <h3>Controles</h3>
+          <div class=${styles["controls"]}>
+            <div class=${styles["info-game"]}>
+              <label for="justifyContent">justify-content</label>
             <select id="justifyContent">
                 <option value="flex-start">flex-start</option>
                 <option value="center">center</option>
                 <option value="flex-end">flex-end</option>
             </select>
-            <label for="alignItems">align-items:</label>
+            </div>
+            <div class=${styles["info-game"]}>
+              <label for="alignItems">align-items</label>
             <select id="alignItems">
                 <option value="flex-start">flex-start</option>
                 <option value="center">center</option>
                 <option value="flex-end">flex-end</option>
             </select>
+          </div>
+        </div>
         </div>
         <div class=${styles["image-container"]} id="image-container">
             <div id="modalBase" class=${styles["modal"]}></div>

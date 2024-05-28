@@ -1,9 +1,9 @@
-import styles from '../challenges/createChallenge.css'
-import spacialBase from "../../../assets/imagenes/moduloHTML/ovni.png";
-import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
-import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
-import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
 import { navigateTo } from "../../../Router";
+import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
+import spacialBase from "../../../assets/imagenes/moduloHTML/ovni.png";
+import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
+import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
+import styles from '../challenges/createChallenge.css';
 
 export function CreateChallengesScene() {
     const pageContent = `
