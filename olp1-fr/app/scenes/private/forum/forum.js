@@ -1,5 +1,7 @@
 import { navigateTo } from "../../../Router";
 import styles from "./forum.css";
+import crown_icon from "../../../assets/logos/king.png";
+import medal_icon from "../../../assets/logos/medals.png";
 
 export function ForumScene() {
   const params = new URLSearchParams(window.location.search);
@@ -9,32 +11,8 @@ export function ForumScene() {
 
       <div id="posts" class="${styles.posts}"></div>
 
-      <div class="${styles.discussions}">
-        <h2>Ranking Table</h2>
-        <br><br>
-        <div class="${styles.discussionsFlex}">
-          <div class="${styles.imgDiscussion}"></div>
-          <strong>Lorem ipsum?</strong>
-          <span>04/03/2024</span>
-        </div>
-        <br>
-        <div class="${styles.discussionsFlex}">
-          <div class="${styles.imgDiscussion}"></div>
-          <strong>Lorem ipsum?</strong>
-          <span>04/03/2024</span>
-        </div>
-        <br>
-        <div class="${styles.discussionsFlex}">
-          <div class="${styles.imgDiscussion}"></div>
-          <strong>Lorem ipsum?</strong>
-          <span>04/03/2024</span>
-        </div>
-        <br>
-        <div class="${styles.discussionsFlex}">
-          <div class="${styles.imgDiscussion}"></div>
-          <strong>Lorem ipsum?</strong>
-          <span>04/03/2024</span>
-        </div>
+      <div id="rankingTable" class="${styles.discussions}">
+        
       </div>
       
     </div>
@@ -45,13 +23,17 @@ export function ForumScene() {
     const $whiteButton = document.getElementById("/dashboard/forum");
     $whiteButton.style = "background-color:white";
 
-    const respUsers = await fetch("https://jsonplaceholder.typicode.com/users");
+    const respUsers = await fetch("http://localhost:4000/api/users");
     const respPosts = await fetch("https://jsonplaceholder.typicode.com/posts");
     const respImages = await fetch("https://jsonplaceholder.typicode.com/photos");
     const users = await respUsers.json();
     const usersPosts = await respPosts.json();
     const usersImages = await respImages.json();
     const posts = document.getElementById("posts");
+    const tableRanking = document.getElementById("rankingTable");
+    const ranking = users.sort((a,b) => b.points -a.points);
+    const podium = ranking.slice(0, 4);
+    
 
     posts.innerHTML = `
                   <div class="${styles.tableWrapper}">
@@ -72,7 +54,8 @@ export function ForumScene() {
                 
                                 return `<tr class="${styles.filaTable}" id="${user.id}"> 
                                             <td class="${styles.tdUser}" text-align="left">
-                                              <img src="${$userFound.url}" class="${styles.imageTable}"><div>${user.name}</div>
+                                              <img src="${$userFound.url}" class="${styles.imageTable}">
+                                              <div>${user.name}</div>
                                             </td>
                                             <td class="${styles.tdUser}" text-align="left">
                                               <h4>${$postFound.title}</h4><div>Publicado el 30 de marzo de 2023</div>
@@ -99,7 +82,37 @@ export function ForumScene() {
         true
       );
     });
-  };
+
+    tableRanking.innerHTML = `<h2>Ranking Table</h2>
+                              <br><br>
+                              
+                              <table>
+                                ${podium.map((user,index) => {
+                                  const $userFound = usersImages.find((image) => user.id === image.id);
+                                  if(index == 0){
+                                      return `<tr class="${styles.discussionsFlex}">
+                                                <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
+                                                <td><img src="${crown_icon}" class="${styles.imageTable}"></td>
+                                                <td><strong>${user.name}</strong></td>
+                                                <td><span>${user.points} points</span></td>
+                                              </tr>`
+                                  } else {
+                                    return `<tr class="${styles.discussionsFlex}">
+                                              <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
+                                              <td><img src="${medal_icon}" class="${styles.imageTable}"></td>
+                                              <td><strong>${user.name}</strong></td>
+                                              <td><span>${user.points} points</span></td>
+                                            </tr>`
+                        }
+                                  }
+                                 
+                                ).join('')}
+                              </table>
+
+    `;
+};
+
+ 
 
   if (params.get("id")) {
     const idUser = params.get("id");
