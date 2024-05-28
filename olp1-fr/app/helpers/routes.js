@@ -1,4 +1,4 @@
-import { ChallengesScene } from "../scenes/private/challenges";
+import { ChallengesScene, CreateChallengesScene } from "../scenes/private/challenges";
 import { CreateModuloSceneCss, CssScene } from "../scenes/private/css";
 import { ForumScene } from "../scenes/private/forum";
 import { HomeScene } from "../scenes/private/home";
@@ -33,6 +33,7 @@ export const routes = {
       component: CreateModuloSceneJavascript,
     },
     { path: "/dashboard/challenges", component: ChallengesScene },
+    { path: "/dashboard/challenges/create", component: CreateChallengesScene },
   ],
   public: [
     { path: "/login", component: LoginPage },
