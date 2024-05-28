@@ -3,17 +3,13 @@
   padding: 0 15px;
 }
 
-.bg-red {
-  background-color: red;
-}
-
-.bg-green {
-  background-color: green;
-}
-
 .title-forum {
   color: var(--owner-purple);
-  padding: var(--spacing-3) 0;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .flexWrapper {
@@ -21,15 +17,29 @@
   gap: 85px;
 }
 
+.postUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  margin-left: 300px;
+  gap: 25px;
+  border: 2px solid var(--owner-purple);
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.336);
+  height: 700px;
+  overflow: scroll;
+}
+
 .posts {
-    margin-left:30px;
+  margin-left: 280px;
 }
 
 .tableForum {
   border-collapse: collapse;
-  background-color: #b48aea63;
-  border-radius: 11px;
+  background-color: #b48aea50;
   width: 100%;
+  overflow: hidden;
 }
 
 .tdUser {
@@ -41,47 +51,165 @@
   border-radius: 25px;
 }
 
-
 .publish {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    width: 90%;
-    background-color: white;
-    border-radius: 12.5px;
-    border: 2px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 300px;
+  padding: 0.5rem;
+  width: 1000px;
+  background-color: white;
+  border-radius: 12.5px;
+  border: 2px solid gray;
 }
 
 .publish button {
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    border: 1px solid black;
-    width: 100px;
-    height: 32.5px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 100px;
+  height: 32.5px;
+}
+
+.discussions h2 {
+  color: black;
 }
 
 .publish span {
-    color: gray;
+  color: gray;
 }
 
 .discussions {
-  background-color: #b48aea63;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding: 5px;
+  width: 300px;
+  height: 400px;
+  top: 240px;
+  left: 1520px;
   border-radius: 45px;
-  padding: 25px;
-  width: 400px;
+  background-color: #b48aea68;
 }
 
 .imgDiscussion {
-    display: block;
-    background-color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 25px;
+  display: block;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 25px;
 }
 
 .discussionsFlex {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.filaTable {
+  border-radius: 11px;
+  
+}
+.filaTable:hover {
+  transform: scale(1.02);
+  transition: 0.5s;
+  
+}
+.postBody {
+  background-color: var(--owner-purple);
+  height: 70px;
+}
+.postAnswers {
+  background-color: var(--owner-purple);
+}
+
+.postHeader {
+  display: flex;
+}
+
+.imageUserPost {
+  width: 65px;
+  border-radius: 25px;
+}
+
+.postUserImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #d3d3d3;
+  width: 200px;
+  padding: 10px;
+}
+
+.eachPost {
+  border: 3px solid black;
+}
+
+.titlePost {
+  color: black;
+}
+
+.boxTitle {
+  padding: 25px;
+  background-color: white;
+  width: 100%;
+}
+
+.largeButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+}
+
+.tableWrapper {
+  position: relative;
+}
+
+.tableScroll {
+  overflow: auto;
+  height: 500px;
+  margin-top: 100px;
+  border-radius: 11px;
+}
+
+.tableWrapper table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #472e7c;
+  height: 50px;
+  border-radius: 11px;
+}
+
+.tableWrapper table tfoot tr {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tableRankings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding: 5px;
+  width: 300px;
+  height: 400px;
+  top: 150px;
+  left: 1590px;
+  border-radius: 45px;
+  background-color: var(--owner-purple);
+}
+
+.tableRankings h2 {
+  color: black;
 }

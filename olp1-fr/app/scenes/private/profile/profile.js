@@ -1,7 +1,7 @@
-import styles from "./profile.css";
-import img_javascript from "../../../assets/imagenes/Home/planet3.png";
-import img_css from "../../../assets/imagenes/Home/planet2.png";
 import img_html from "../../../assets/imagenes/Home/planet1.png";
+import img_css from "../../../assets/imagenes/Home/planet2.png";
+import img_javascript from "../../../assets/imagenes/Home/planet3.png";
+import styles from "./profile.css";
 
 
 export function ProfileScene() {
@@ -13,14 +13,10 @@ export function ProfileScene() {
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
-          <td class="tagUpdate">Nicolas Picon</td>
-          <td class="${styles.expand}">></td>
+          <td id="usernameprofile" class="tagUpdate"></td>
+          <td class="${styles.expand}"></td>
          </tr>
-         <tr id="mostrar">
-          <td>Username:</td>
-          <td class="tagUpdate">@username</td>
-          <td class="${styles.expand}">></td>
-         </tr>
+
          <tr id="mostrar">
           <td>Email:</td>
           <td class="tagUpdate">@username.com</td>
@@ -88,88 +84,110 @@ export function ProfileScene() {
     </div>
     
     <dialog id="modal" class="${styles.modal}">
-      <form>
-        <label for="name">Nuevo Nombre </label>
-        <input type="text" id="name">
+      <form class="${styles.form}">
+        <div>
+          <label for="name">Nuevo Nombre </label>
+          <input type="text" id="name">
+        </div>
+        <div>
+          <button id="cambiar">Cambiar</button>
+          <button id="cerrarModal">Cerrar</button>
+        </div> 
       </form>
-      <button id="cambiar">Cambiar</button>
-      <button id="cerrarModal">Cerrar</button>
+    </dialog>
+
+
+    <dialog id="modal" class="${styles.modal}">
+      <form class="${styles.form}">
+        <div>
+          <label for="name">Nuevo Email </label>
+          <input type="text" id="name">
+        </div>
+        <div>
+          <button id="cambiar">Cambiar</button>
+          <button id="cerrarModal">Cerrar</button>
+        </div>
+      </form>
     </dialog>
 
     <dialog id="modal" class="${styles.modal}">
-      <form>
-        <label for="name">Nuevo Username </label>
-        <input type="text" id="name">
+      <form class="${styles.form}">
+        <div>
+          <label for="name">Cambiar Rol </label><br>
+          <input type="radio" name="rol" id="radio1"><span>Frontend</span>
+          <input type="radio" name="rol" id="radio2"><span>Backend</span>
+        </div>
+        <div>
+          <button id="cambiar">Cambiar</button>
+          <button id="cerrarModal">Cerrar</button>
+        </div>
       </form>
-      <button id="cambiar">Cambiar</button>
-      <button id="cerrarModal">Cerrar</button>
-    </dialog>
-
-    <dialog id="modal" class="${styles.modal}">
-      <form>
-        <label for="name">Nuevo Email </label>
-        <input type="text" id="name">
-      </form>
-      <button id="cambiar">Cambiar</button>
-      <button id="cerrarModal">Cerrar</button>
-    </dialog>
-
-    <dialog id="modal" class="${styles.modal}">
-      <form>
-        <label for="name">Cambiar Rol </label><br>
-        <input type="radio" name="rol" id="radio1"><span>Frontend</span>
-        <input type="radio" name="rol" id="radio2"><span>Backend</span>
-      </form>
-      <button id="cambiar">Cambiar</button>
-      <button id="cerrarModal">Cerrar</button>
+      
     </dialog>
   `;
 
 
-  const logic = () => {
-     const $valuesModal = Object.values(document.querySelectorAll('#modal'));
-     const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
-     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
-     const $valuesChange = Object.values(document.querySelectorAll('#cambiar'));
-     const $valuesInput = Object.values(document.querySelectorAll('#name'));
-     const $valuesUpdate = Object.values(document.querySelectorAll('.tagUpdate'));
+  const logic = async () => {
+    const $valuesModal = Object.values(document.querySelectorAll('#modal'));
+    const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
+    const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
+    const $valuesChange = Object.values(document.querySelectorAll('#cambiar'));
+    const $valuesInput = Object.values(document.querySelectorAll('#name'));
+    const $valuesUpdate = Object.values(document.querySelectorAll('.tagUpdate'));
      
     
       
 
-      for(let i = 0; i < $valuesModal.length; i++){
-        $valuesMostrar[i].addEventListener('click', () => 
-            $valuesModal[i].showModal()  
-          )
-        $valuesCerrar[i].addEventListener('click', () => {
-          $valuesModal[i].close()
-        })
-        $valuesChange[i].addEventListener('click', () => {
-          if(i < 3){
-            $valuesUpdate[i].innerHTML = $valuesInput[i].value
+    for (let i = 0; i < $valuesModal.length; i++) {
+      $valuesMostrar[i].addEventListener('click', () =>
+        $valuesModal[i].showModal()
+      )
+      $valuesCerrar[i].addEventListener('click', () => {
+        $valuesModal[i].close()
+      })
+      $valuesChange[i].addEventListener('click', () => {
+        if (i < 2) {
+          if ($valuesInput[i].value === '') {
+            alert('Tienes que rellenar el campo')
           } else {
-            if(document.getElementById('radio1').checked){
-              $valuesUpdate[i].innerHTML = 'Frontend';
-            } else if(document.getElementById('radio2').checked){
-              $valuesUpdate[i].innerHTML = 'Backend';
+            if (i == 0) {
+              $valuesUpdate[i].innerHTML = $valuesInput[i].value
+            } else {
+              $valuesUpdate[i].innerHTML = $valuesInput[i].value
             }
           }
+            
+        } else {
+          if (document.getElementById('radio1').checked) {
+            $valuesUpdate[i].innerHTML = 'Frontend';
+          } else if (document.getElementById('radio2').checked) {
+            $valuesUpdate[i].innerHTML = 'Backend';
+          }
+        }
           
-        })
-      }
+      })
+    }
     
-    //  abrirModal.addEventListener('click', () => 
-    //     modal.showModal()  
-    //  )
-    //  cerrarModal.addEventListener('click', () => {
-    //     modal.close()
-    //  })
-    //  change.addEventListener('click',() => 
-    //     document.getElementById('nameProfile').innerHTML = document.getElementById('name').value
-    //  )
+    /*Traer el nombre del usuario de la base de datos */
+    const welcomeUser = localStorage.getItem("welcomeUser");
+    const response = await fetch(
+      `http://localhost:4000/api/users/${welcomeUser}`
+    );
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`Error ${response.status}: ${errorMessage}`);
+    }
+    const data = await response.json();
+    const user = document.getElementById("usernameprofile");
+    console.log(user)
+    user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
+      .substr(1)
+      .toLowerCase()}`;
+  
   };
+  
   return {
     pageContent,
-    logic,
+    logic
   };
 }

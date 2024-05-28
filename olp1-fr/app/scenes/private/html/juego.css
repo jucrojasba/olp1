@@ -29,6 +29,7 @@
   bottom: 10%;
   right: 0;
   animation: vibrateSpace 15s infinite;
+  z-index: 2;
 }
 
 #planetLife {
