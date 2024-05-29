@@ -6,14 +6,15 @@ export async function LoginFormComponent() {
   const root = document.getElementById("root");
 
   root.innerHTML = `
+      
       <div class="${style.container}">
         <form id="loginForm" class="${style.form}">
-        <h2>Login</h2>
-        <label for="email" class="${style.label}">Email:</label>
-        <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
-        <label for="password" class="${style.label}">Password:</label>
-        <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
-        <div class="${style.flexButtons}">
+          <h2>Login</h2>
+          <label for="email" class="${style.label}">Email:</label>
+          <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
+          <label for="password" class="${style.label}">Password:</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
+          <div class="${style.flexButtons}">
             <button type="submit" class="${style["button-send"]}">Login</button>
             <button type="button" class="${style["register-button"]}" id="registerButton">Register</button>
           </div>

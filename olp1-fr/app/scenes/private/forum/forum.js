@@ -115,6 +115,7 @@ export function ForumScene() {
   if (params.get("id")) {
     const idUser = params.get("id");
     console.log(idUser);
+
     function getRandomUser1(idUser) {
       let randomNumber;
       do {
@@ -132,9 +133,7 @@ export function ForumScene() {
     }
 
     const randomUser1 = getRandomUser1(idUser);
-    console.log(randomUser1);
     const randomUser2 = getRandomUser2(idUser, randomUser1);
-    console.log(randomUser2);
     
     pageContent = `
         <div class="${styles.postUser}" id="userPost"></div>
@@ -143,6 +142,7 @@ export function ForumScene() {
     logic = async () => {
       const $whiteButton = document.getElementById("/dashboard/forum");
       $whiteButton.style = "background-color:white";
+
 
       const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
       const respUser1 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
@@ -223,7 +223,11 @@ export function ForumScene() {
           </div> 
       </div>
       <div class="${styles.publish}">
-          <span>Publish Discussion</span><button>Publish</button>
+          <div class="${styles.divPublishPost}" id="divpublish">
+            <input type="text" class="${styles.inputPost}" id="inputMessage">
+            <span id="spanPublish">Publish Discussion</span>
+          </div>
+          <button class="${styles.buttonPublish}">Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">
@@ -256,11 +260,17 @@ export function ForumScene() {
         </div>
       </aside>
         `;
+        document.getElementById('divpublish').addEventListener('click',() => {
+          document.getElementById('spanPublish').style.display = 'none';
+          const inputPublicar = document.getElementById('inputMessage');
+          inputPublicar.style.display = 'block';
+          inputPublicar.focus();
+        });
     };
   }
 
   return {
     pageContent,
-    logic,
+    logic
   };
 }

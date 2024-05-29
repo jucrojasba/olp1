@@ -64,6 +64,6 @@ h2 {
 
 .flexButtons {
   display: flex;
-  gap: 10px;
+  gap: 50px;
   align-items: center;
 }

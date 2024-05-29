@@ -13,18 +13,19 @@ export function ProfileScene() {
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
-          <td id="usernameprofile" class="tagUpdate"></td>
-          <td class="${styles.expand}"></td>
+          <td id="usernameprofile" class="tagUpdateName"></td>
+          <td class="${styles.expand}">></td>
          </tr>
 
          <tr id="mostrar">
           <td>Email:</td>
-          <td class="tagUpdate">@username.com</td>
+          <td id ="useremail" class="tagUpdateEmail"></td>
           <td class="${styles.expand}">></td>
          </tr>
+
          <tr id="mostrar">
           <td>Rol:</td>
-          <td class="tagUpdate">Frontend</td>
+          <td id="tagUpdateRol">Frontend</td>
           <td class="${styles.expand}">></td>
          </tr>
         </table>
@@ -84,27 +85,27 @@ export function ProfileScene() {
     </div>
     
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}">
+      <form class="${styles.form}" id="form1">
         <div>
           <label for="name">Nuevo Nombre </label>
-          <input type="text" id="name">
+          <input type="text" id="name" name="name">
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
-          <button id="cerrarModal">Cerrar</button>
+          <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
+          <button type="button" id="cerrarModal">Cerrar</button>
         </div> 
       </form>
     </dialog>
 
 
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}">
+      <form class="${styles.form}" id="form2">
         <div>
           <label for="name">Nuevo Email </label>
-          <input type="text" id="name">
+          <input type="text" id="email" name="email">
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
+          <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
           <button id="cerrarModal">Cerrar</button>
         </div>
       </form>
@@ -118,7 +119,7 @@ export function ProfileScene() {
           <input type="radio" name="rol" id="radio2"><span>Backend</span>
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
+          <button id="cambiarRol">Cambiar</button>
           <button id="cerrarModal">Cerrar</button>
         </div>
       </form>
@@ -128,48 +129,98 @@ export function ProfileScene() {
 
 
   const logic = async () => {
+    const welcomeUser = localStorage.getItem("welcomeUser");
     const $valuesModal = Object.values(document.querySelectorAll('#modal'));
     const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
-    const $valuesChange = Object.values(document.querySelectorAll('#cambiar'));
-    const $valuesInput = Object.values(document.querySelectorAll('#name'));
-    const $valuesUpdate = Object.values(document.querySelectorAll('.tagUpdate'));
-     
-    
+    const $form1 = document.getElementById("form1");
+    const $form2 = document.getElementById("form2");
+    const $buttonCambiarRol = document.getElementById("cambiarRol");
+    const $updateTextRol = document.getElementById("tagUpdateRol");
+   
+
+    $form1.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const $name = document.getElementById("name").value;
+      if($name){
+          const updateUserName = {
+            name: $name,
+            password: 'password123',
+            email: 'julian@gmail.com',
+            points: 15
+          }
+          
+          try{
+            await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
+                method: 'PUT',
+                body: JSON.stringify(updateUserName),
+                headers: {
+                    'Content-Type':'application/json'
+                }
+            })
+            alert('Los cambios se hicieron correctamente');
+            
+          } catch (error){
+              alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
+              console.error('Error al tratar de actualizar el nombre de usuario:', error);
+          }
+      } else {
+        alert('Tienes que rellenar el campo');
+      }
+    })
+
+    $form2.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const $email = document.getElementById('email').value;
+      if($email){
+        const updateUserEmail = {
+          name: document.getElementById("name").value,
+          password: 'password123',
+          email: $email,
+          points: 15
+        }
+        
+        try{
+          await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
+              method: 'PUT',
+              body: JSON.stringify(updateUserEmail),
+              headers: {
+                  'Content-Type':'application/json'
+              }
+          })
+          alert('Los cambios se hicieron correctamente');
+          
+        } catch (error){
+          alert('Ha ocurrido un error al tratar de cambiar tu email en el servidor');
+          console.error('Error al tratar de actualizar el email del usuario:', error);
+        }
+      } else {
+        alert('Tienes que rellenar el campo');
+      }
+    });  
       
+    $buttonCambiarRol.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(document.getElementById('radio1').checked){
+        $updateTextRol.innerHTML = 'Frontend';
+      } else if(document.getElementById('radio2').checked){
+        $updateTextRol.innerHTML = 'Backend';
+      }
+    })
 
     for (let i = 0; i < $valuesModal.length; i++) {
-      $valuesMostrar[i].addEventListener('click', () =>
+      $valuesMostrar[i].addEventListener('click', (e) =>{
+        e.preventDefault();
         $valuesModal[i].showModal()
-      )
-      $valuesCerrar[i].addEventListener('click', () => {
+      })
+      $valuesCerrar[i].addEventListener('click', (e) => {
+        e.preventDefault();
         $valuesModal[i].close()
       })
-      $valuesChange[i].addEventListener('click', () => {
-        if (i < 2) {
-          if ($valuesInput[i].value === '') {
-            alert('Tienes que rellenar el campo')
-          } else {
-            if (i == 0) {
-              $valuesUpdate[i].innerHTML = $valuesInput[i].value
-            } else {
-              $valuesUpdate[i].innerHTML = $valuesInput[i].value
-            }
-          }
-            
-        } else {
-          if (document.getElementById('radio1').checked) {
-            $valuesUpdate[i].innerHTML = 'Frontend';
-          } else if (document.getElementById('radio2').checked) {
-            $valuesUpdate[i].innerHTML = 'Backend';
-          }
-        }
-          
-      })
     }
+
     
     /*Traer el nombre del usuario de la base de datos */
-    const welcomeUser = localStorage.getItem("welcomeUser");
     const response = await fetch(
       `http://localhost:4000/api/users/${welcomeUser}`
     );
@@ -179,10 +230,13 @@ export function ProfileScene() {
     }
     const data = await response.json();
     const user = document.getElementById("usernameprofile");
-    console.log(user)
+    const emailUser = document.getElementById("useremail");
+
     user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
       .substr(1)
       .toLowerCase()}`;
+    
+    emailUser.textContent = `${data.email}`;
   
   };
   

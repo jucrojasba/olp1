@@ -1,5 +1,4 @@
 import { navigateTo } from "../../../Router";
-import { formValidator } from "../../../helpers";
 import style from "./register.css";
 
 export async function RegisterPage() {
@@ -22,10 +21,7 @@ export async function RegisterPage() {
     const userEmail= document.getElementById('email');
     const userPassword = document.getElementById('password');
     const userNombre = document.getElementById('nombre');
-    register(userNombre ,userEmail,userPassword)    
-    }
-    
-    
+    register(userNombre,userEmail,userPassword)    
 
 async function register(nombre, mail, passworduser) {
     
@@ -54,12 +50,12 @@ async function register(nombre, mail, passworduser) {
                 navigateTo('/login')
             } catch (error){
                 alert('Ha ocurrido un error al registrarte. Por favor, inténtalo de nuevo más tarde.');
-                console.error('Error al publicar el reto:', error);
+                console.error('Error al tratar de registrarte:', error);
             }
         } else {
             alert('Por favor, llena todos los campos');
         }
         
     })
-    
 }
+
