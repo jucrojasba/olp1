@@ -174,7 +174,6 @@ export function ProfileScene() {
       const $email = document.getElementById('email').value;
       if($email){
         const updateUserEmail = {
-          id: welcomeUser.id,
           name: document.getElementById("name").value,
           password: 'password123',
           email: $email,
