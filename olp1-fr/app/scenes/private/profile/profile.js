@@ -14,12 +14,12 @@ export function ProfileScene() {
          <tr id="mostrar">
           <td>Name:</td>
           <td id="usernameprofile" class="tagUpdate"></td>
-          <td class="${styles.expand}"></td>
+          <td class="${styles.expand}">></td>
          </tr>
 
          <tr id="mostrar">
           <td>Email:</td>
-          <td class="tagUpdate">@username.com</td>
+          <td id ="useremail" class="tagUpdate"></td>
           <td class="${styles.expand}">></td>
          </tr>
          <tr id="mostrar">
@@ -179,10 +179,13 @@ export function ProfileScene() {
     }
     const data = await response.json();
     const user = document.getElementById("usernameprofile");
-    console.log(user)
+    const emailUser = document.getElementById("useremail");
+
     user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
       .substr(1)
       .toLowerCase()}`;
+    
+    emailUser.textContent = `${data.email}`;
   
   };
   

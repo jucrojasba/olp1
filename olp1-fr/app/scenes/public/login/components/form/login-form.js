@@ -36,9 +36,12 @@ export async function LoginFormComponent() {
     const data = await login(email, password);
     const token = data.token;
     const welcomeUser = data.user.id;
+    // const emailUser = data.user.email;
+    
     if (token) {
       localStorage.setItem("token", token);
       localStorage.setItem("welcomeUser", welcomeUser);
+      // localStorage.setItem("welcomeUserEmail", emailUser);
       navigateTo("/dashboard");
     } else {
       alert("Invalid credentials");
