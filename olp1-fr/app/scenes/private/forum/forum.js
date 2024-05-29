@@ -31,7 +31,7 @@ export function ForumScene() {
     const usersImages = await respImages.json();
     const posts = document.getElementById("posts");
     const tableRanking = document.getElementById("rankingTable");
-    const ranking = users.sort((a,b) => b.points -a.points);
+    const ranking = users.sort((a,b) => b.points - a.points);
     const podium = ranking.slice(0, 4);
     
 
@@ -105,14 +105,12 @@ export function ForumScene() {
                                             </tr>`
                         }
                                   }
-                                 
                                 ).join('')}
                               </table>
 
     `;
 };
 
- 
 
   if (params.get("id")) {
     const idUser = params.get("id");
@@ -225,12 +223,12 @@ export function ForumScene() {
           </div> 
       </div>
       <div class="${styles.publish}">
-          <span>Publish Discussion</span><button id="toPublish">Publish</button>
+          <span>Publish Discussion</span><button>Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">
         <div class="">
-          <h2 class="${styles.titleDiscuss}">Another Discussions</h2>
+          <h2>Discussions</h2>
           <br><br>
           <div class="${styles.discussionsFlex}">
             <div class="${styles.imgDiscussion}"></div>
@@ -258,14 +256,8 @@ export function ForumScene() {
         </div>
       </aside>
         `;
-        document.getElementById("toPublish").addEventListener('click', (e) => {
-            
-
-        });
     };
   }
-
-  
 
   return {
     pageContent,

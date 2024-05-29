@@ -14,7 +14,10 @@
 
 .flexWrapper {
   display: flex;
-  gap: 85px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 135px;
 }
 
 .postUsers {
@@ -29,10 +32,6 @@
   background-color: rgba(255, 255, 255, 0.336);
   height: 700px;
   overflow: scroll;
-}
-
-.posts {
-  margin-left: 280px;
 }
 
 .tableForum {
@@ -85,7 +84,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
   padding: 5px;
   width: 300px;
   height: 400px;
@@ -170,12 +168,12 @@
 
 .tableWrapper {
   position: relative;
+
 }
 
 .tableScroll {
   overflow: auto;
   height: 500px;
-  margin-top: 100px;
   border-radius: 11px;
 }
 
@@ -199,19 +197,15 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  padding: 15px;
-  width: 250px;
+  padding: 5px;
+  width: 300px;
   height: 400px;
   top: 150px;
-  left: 1580px;
+  left: 1590px;
   border-radius: 45px;
   background-color: var(--owner-purple);
 }
 
 .tableRankings h2 {
   color: black;
-}
-
-.titleDiscuss{
-  text-align: center;
 }
