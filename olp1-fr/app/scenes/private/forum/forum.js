@@ -227,7 +227,7 @@ export function ForumScene() {
             <input type="text" class="${styles.inputPost}" id="inputMessage">
             <span id="spanPublish">Publish Discussion</span>
           </div>
-          <button>Publish</button>
+          <button class="${styles.buttonPublish}">Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">

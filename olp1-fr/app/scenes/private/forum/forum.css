@@ -64,13 +64,20 @@
   border: 2px solid gray;
 }
 
-.publish button {
+.buttonPublish {
   background-color: black;
   color: white;
   border-radius: 5px;
   border: 1px solid black;
   width: 100px;
   height: 32.5px;
+}
+
+.buttonPublish:hover {
+  background-color: var(--owner-purple);
+  color: white;
+  transform: scale(1.02);
+  transition: 0.5s;
 }
 
 .discussions h2 {
@@ -114,7 +121,6 @@
 .filaTable:hover {
   transform: scale(1.02);
   transition: 0.5s;
-  
 }
 .postBody {
   background-color: var(--owner-purple);
@@ -156,15 +162,6 @@
   padding: 25px;
   background-color: white;
   width: 100%;
-}
-
-.largeButton {
-  width: 100px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid black;
-  background-color: black;
-  color: white;
 }
 
 .tableWrapper {
