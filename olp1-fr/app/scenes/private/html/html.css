@@ -1,3 +1,4 @@
+/*Estilos sobre el contenedor principal*/
 .contenido {
   position: relative;
   display: flex;
@@ -6,6 +7,7 @@
   justify-content: center;
   height: 100%;
 }
+
 .moduloModal {
   display: none;
 }

@@ -8,16 +8,18 @@ import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
 export function JavascriptScene(){
     const pageContent = `
         <div class=${styles.title}>
-            <h2>JAVASCRIPT</h2>
-        <div class = ${styles["crear-modulo"]}>
-        <img id="crearModulo" src="${logojavascript}">
-        </div>
+          <h2>JAVASCRIPT</h2>
+          <!-- Boton para crear modulos, redirige a la escena de crear modulos en Javascript -->
+          <div class = ${styles["crear-modulo"]}>
+            <img id="crearModulo" src="${logojavascript}">
+          </div>
         </div>
         <div class="${styles.contenido}">
         <div class="${styles.planet}">
-        <div class="${styles["luna-lenguaje"]}"> <img src="${logojavascript}"></div>
         <img src="${planet1}"></div>
+        <!-- Seccion donde se insertan todos los modulos de Javascript de la base de datos  -->
         <section class="${styles.container}" id="modulos"></section>
+        <!-- Seccion donde se muestra la ventana modal asociada al modulo al cual se le da click  -->
         <section class="${styles.containerModal}" id="modulosModales"></section>
         </div>
     `;
@@ -92,7 +94,7 @@ export function JavascriptScene(){
         // Buscar el modulo en modulosdb
         const moduloSeleccionado = modulosdb.find(modulo => modulo.id === parseInt(id));
 
-        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        // Actualizar el contenido de las ventanas modales con la información del modulo seleccionado
         if (moduloSeleccionado) {
           $modulosModales.innerHTML = `
             <div class="${styles["show-module-window"]}">
