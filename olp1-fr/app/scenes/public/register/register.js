@@ -58,4 +58,4 @@ async function register(nombre, mail, passworduser) {
         
     })
 }
-
+}
