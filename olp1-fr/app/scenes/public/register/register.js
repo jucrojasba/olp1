@@ -30,7 +30,7 @@ async function register(nombre, mail, passworduser) {
         const $name = nombre.value;
         const $mail = mail.value;
         const $password = passworduser.value;
-        if(nombre && mail && passworduser){
+        if($name && $mail && $password){
             const user = {
                 name: $name,
                 password: $password,

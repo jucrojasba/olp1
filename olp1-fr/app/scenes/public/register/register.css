@@ -28,8 +28,12 @@
     padding: 10px;
     border: none;
     border-radius: 3px;
-    background-color: var(--owner-purple);
+    background-color: var(--purple-dark-color);
     color: white;
+    cursor: pointer;
+}
+.button-register:hover{
+    background-color: var(--owner-purple);
     cursor: pointer;
 }
 
