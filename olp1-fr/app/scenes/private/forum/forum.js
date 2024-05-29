@@ -31,7 +31,7 @@ export function ForumScene() {
     const usersImages = await respImages.json();
     const posts = document.getElementById("posts");
     const tableRanking = document.getElementById("rankingTable");
-    const ranking = users.sort((a,b) => b.points -a.points);
+    const ranking = users.sort((a,b) => b.points - a.points);
     const podium = ranking.slice(0, 4);
     
 
@@ -105,14 +105,12 @@ export function ForumScene() {
                                             </tr>`
                         }
                                   }
-                                 
                                 ).join('')}
                               </table>
 
     `;
 };
 
- 
 
   if (params.get("id")) {
     const idUser = params.get("id");

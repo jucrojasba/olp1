@@ -13,7 +13,10 @@ export async function LoginFormComponent() {
         <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
         <label for="password" class="${style.label}">Password:</label>
         <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
-        <button type="submit" class="${style["button-send"]}">Login</button>
+        <div class="${style.flexButtons}">
+            <button type="submit" class="${style["button-send"]}">Login</button>
+            <button type="button" class="${style["register-button"]}" id="registerButton">Register</button>
+          </div>
         </form>
       </div>
     `;
@@ -40,6 +43,11 @@ export async function LoginFormComponent() {
     }catch(error){
       alert("Invalid credentials");
     }
+  });
+  /*Acceder a la escena de registro de usuario */
+  const registerButton = document.getElementById("registerButton");
+  registerButton.addEventListener("click", () => {
+    navigateTo("/register");
   });
 }
 

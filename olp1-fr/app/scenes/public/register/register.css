@@ -1,0 +1,44 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-register {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.button-register {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--owner-purple);
+    color: white;
+    cursor: pointer;
+}
+
+.input-email,
+.input-password {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid var(--owner-purple);
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.342);
+  color: white;
+}
