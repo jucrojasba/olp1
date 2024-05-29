@@ -24,7 +24,7 @@ export function ProfileScene() {
          </tr>
          <tr id="mostrar">
           <td>Rol:</td>
-          <td class="tagUpdate">Frontend</td>
+          <td class="tagUpdateRol">Frontend</td>
           <td class="${styles.expand}">></td>
          </tr>
         </table>
@@ -84,27 +84,27 @@ export function ProfileScene() {
     </div>
     
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}">
+      <form class="${styles.form}" id="formModal">
         <div>
           <label for="name">Nuevo Nombre </label>
-          <input type="text" id="name">
+          <input type="text" id="name" name="name">
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
-          <button id="cerrarModal">Cerrar</button>
+          <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
+          <button type="button" id="cerrarModal">Cerrar</button>
         </div> 
       </form>
     </dialog>
 
 
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}">
+      <form class="${styles.form}" id="formModal">
         <div>
           <label for="name">Nuevo Email </label>
           <input type="text" id="name">
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
+          <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
           <button id="cerrarModal">Cerrar</button>
         </div>
       </form>
@@ -118,7 +118,7 @@ export function ProfileScene() {
           <input type="radio" name="rol" id="radio2"><span>Backend</span>
         </div>
         <div>
-          <button id="cambiar">Cambiar</button>
+          <button id="cambiarRol">Cambiar</button>
           <button id="cerrarModal">Cerrar</button>
         </div>
       </form>
@@ -128,48 +128,96 @@ export function ProfileScene() {
 
 
   const logic = async () => {
+    const welcomeUser = localStorage.getItem("welcomeUser");
     const $valuesModal = Object.values(document.querySelectorAll('#modal'));
     const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
-    const $valuesChange = Object.values(document.querySelectorAll('#cambiar'));
+    const $valuesForms = Object.values(document.querySelectorAll('#formModal'));
     const $valuesInput = Object.values(document.querySelectorAll('#name'));
-    const $valuesUpdate = Object.values(document.querySelectorAll('.tagUpdate'));
-     
+
+    const $updateTextRol = document.querySelector('.tagUpdateRol');
+    const $buttonChangeRol = document.querySelector('#cambiarRol');
     
       
 
     for (let i = 0; i < $valuesModal.length; i++) {
-      $valuesMostrar[i].addEventListener('click', () =>
+      $valuesMostrar[i].addEventListener('click', (e) =>{
+        e.preventDefault();
         $valuesModal[i].showModal()
-      )
-      $valuesCerrar[i].addEventListener('click', () => {
+      })
+      $valuesCerrar[i].addEventListener('click', (e) => {
+        e.preventDefault();
         $valuesModal[i].close()
       })
-      $valuesChange[i].addEventListener('click', () => {
-        if (i < 2) {
-          if ($valuesInput[i].value === '') {
-            alert('Tienes que rellenar el campo')
+      if(i == 0){
+        $valuesForms[i].addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const $name = $valuesInput[i].value;
+          console.log($name);
+          if($name){
+              const updateUserName = {
+                id: welcomeUser.id,
+                name: $name
+              }
+             
+              try{
+                await fetch(`http://localhost:4000/api/users/${welcomeUser.id}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify(updateUserName),
+                    headers: {
+                        'Content-Type':'application/json'
+                    }
+                })
+                alert('Los cambios se hicieron correctamente');
+                
+              } catch (error){
+                alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
+                console.error('Error al tratar de actualizar el nombre de usuario:', error);
+              }
           } else {
-            if (i == 0) {
-              $valuesUpdate[i].innerHTML = $valuesInput[i].value
+            alert('Tienes que rellenar el campo');
+          }
+        })
+      } else if(i == 1){
+          $valuesForms[i].addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const $email = $valuesInput[i].value;
+            if($email){
+                const updateUserEmail = {
+                  email: $email
+                }
+                try{
+                  await fetch(`http://localhost:4000/api/users/${welcomeUser.id}`, {
+                      method: 'PATCH',
+                      body: JSON.stringify(updateUserEmail),
+                      headers: {
+                          'Content-Type':'application/json'
+                      }
+                  })
+                  alert('Los cambios se hicieron correctamente');
+                  
+              } catch (error){
+                  alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
+                  console.error('Error al tratar de actualizar el nombre de usuario:', error);
+              }
             } else {
-              $valuesUpdate[i].innerHTML = $valuesInput[i].value
+              alert('Tienes que rellenar el campo');
             }
+          })
+      } else {
+        $buttonChangeRol.addEventListener('click', (e) => {
+          e.preventDefault();
+          if(document.getElementById('radio1').checked){
+            $updateTextRol.innerHTML = 'Frontend';
+          } else if(document.getElementById('radio2').checked){
+            $updateTextRol.innerHTML = 'Backend';
           }
-            
-        } else {
-          if (document.getElementById('radio1').checked) {
-            $valuesUpdate[i].innerHTML = 'Frontend';
-          } else if (document.getElementById('radio2').checked) {
-            $valuesUpdate[i].innerHTML = 'Backend';
-          }
-        }
-          
-      })
+        })
+        
+      }
     }
     
     /*Traer el nombre del usuario de la base de datos */
-    const welcomeUser = localStorage.getItem("welcomeUser");
     const response = await fetch(
       `http://localhost:4000/api/users/${welcomeUser}`
     );

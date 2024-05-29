@@ -261,6 +261,6 @@ export function ForumScene() {
 
   return {
     pageContent,
-    logic,
+    logic
   };
 }
