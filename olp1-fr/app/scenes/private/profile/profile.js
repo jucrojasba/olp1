@@ -13,18 +13,19 @@ export function ProfileScene() {
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
-          <td id="usernameprofile" class="tagUpdate"></td>
+          <td id="usernameprofile" class="tagUpdateName"></td>
           <td class="${styles.expand}">></td>
          </tr>
 
          <tr id="mostrar">
           <td>Email:</td>
-          <td id ="useremail" class="tagUpdate"></td>
+          <td id ="useremail" class="tagUpdateEmail"></td>
           <td class="${styles.expand}">></td>
          </tr>
+
          <tr id="mostrar">
           <td>Rol:</td>
-          <td class="tagUpdateRol">Frontend</td>
+          <td id="tagUpdateRol">Frontend</td>
           <td class="${styles.expand}">></td>
          </tr>
         </table>
@@ -84,7 +85,7 @@ export function ProfileScene() {
     </div>
     
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}" id="formModal">
+      <form class="${styles.form}" id="form1">
         <div>
           <label for="name">Nuevo Nombre </label>
           <input type="text" id="name" name="name">
@@ -98,10 +99,10 @@ export function ProfileScene() {
 
 
     <dialog id="modal" class="${styles.modal}">
-      <form class="${styles.form}" id="formModal">
+      <form class="${styles.form}" id="form2">
         <div>
           <label for="name">Nuevo Email </label>
-          <input type="text" id="name">
+          <input type="text" id="email" name="email">
         </div>
         <div>
           <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
@@ -132,13 +133,81 @@ export function ProfileScene() {
     const $valuesModal = Object.values(document.querySelectorAll('#modal'));
     const $valuesMostrar = Object.values(document.querySelectorAll('#mostrar'));
     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
-    const $valuesForms = Object.values(document.querySelectorAll('#formModal'));
-    const $valuesInput = Object.values(document.querySelectorAll('#name'));
+    const $form1 = document.getElementById("form1");
+    const $form2 = document.getElementById("form2");
+    const $buttonCambiarRol = document.getElementById("cambiarRol");
+    const $updateTextRol = document.getElementById("tagUpdateRol");
+   
 
-    const $updateTextRol = document.querySelector('.tagUpdateRol');
-    const $buttonChangeRol = document.querySelector('#cambiarRol');
-    
+    $form1.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const $name = document.getElementById("name").value;
+      if($name){
+          const updateUserName = {
+            name: $name,
+            password: 'password123',
+            email: 'julian@gmail.com',
+            points: 15
+          }
+          
+          try{
+            await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
+                method: 'PUT',
+                body: JSON.stringify(updateUserName),
+                headers: {
+                    'Content-Type':'application/json'
+                }
+            })
+            alert('Los cambios se hicieron correctamente');
+            
+          } catch (error){
+              alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
+              console.error('Error al tratar de actualizar el nombre de usuario:', error);
+          }
+      } else {
+        alert('Tienes que rellenar el campo');
+      }
+    })
+
+    $form2.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const $email = document.getElementById('email').value;
+      if($email){
+        const updateUserEmail = {
+          id: welcomeUser.id,
+          name: document.getElementById("name").value,
+          password: 'password123',
+          email: $email,
+          points: 15
+        }
+        
+        try{
+          await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
+              method: 'PUT',
+              body: JSON.stringify(updateUserEmail),
+              headers: {
+                  'Content-Type':'application/json'
+              }
+          })
+          alert('Los cambios se hicieron correctamente');
+          
+        } catch (error){
+          alert('Ha ocurrido un error al tratar de cambiar tu email en el servidor');
+          console.error('Error al tratar de actualizar el email del usuario:', error);
+        }
+      } else {
+        alert('Tienes que rellenar el campo');
+      }
+    });  
       
+    $buttonCambiarRol.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(document.getElementById('radio1').checked){
+        $updateTextRol.innerHTML = 'Frontend';
+      } else if(document.getElementById('radio2').checked){
+        $updateTextRol.innerHTML = 'Backend';
+      }
+    })
 
     for (let i = 0; i < $valuesModal.length; i++) {
       $valuesMostrar[i].addEventListener('click', (e) =>{
@@ -149,73 +218,8 @@ export function ProfileScene() {
         e.preventDefault();
         $valuesModal[i].close()
       })
-      if(i == 0){
-        $valuesForms[i].addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const $name = $valuesInput[i].value;
-          console.log($name);
-          if($name){
-              const updateUserName = {
-                id: welcomeUser.id,
-                name: $name
-              }
-             
-              try{
-                await fetch(`http://localhost:4000/api/users/${welcomeUser.id}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify(updateUserName),
-                    headers: {
-                        'Content-Type':'application/json'
-                    }
-                })
-                alert('Los cambios se hicieron correctamente');
-                
-              } catch (error){
-                alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
-                console.error('Error al tratar de actualizar el nombre de usuario:', error);
-              }
-          } else {
-            alert('Tienes que rellenar el campo');
-          }
-        })
-      } else if(i == 1){
-          $valuesForms[i].addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const $email = $valuesInput[i].value;
-            if($email){
-                const updateUserEmail = {
-                  email: $email
-                }
-                try{
-                  await fetch(`http://localhost:4000/api/users/${welcomeUser.id}`, {
-                      method: 'PATCH',
-                      body: JSON.stringify(updateUserEmail),
-                      headers: {
-                          'Content-Type':'application/json'
-                      }
-                  })
-                  alert('Los cambios se hicieron correctamente');
-                  
-              } catch (error){
-                  alert('Ha ocurrido un error al tratar de cambiar tu nombre usuario en el servidor');
-                  console.error('Error al tratar de actualizar el nombre de usuario:', error);
-              }
-            } else {
-              alert('Tienes que rellenar el campo');
-            }
-          })
-      } else {
-        $buttonChangeRol.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(document.getElementById('radio1').checked){
-            $updateTextRol.innerHTML = 'Frontend';
-          } else if(document.getElementById('radio2').checked){
-            $updateTextRol.innerHTML = 'Backend';
-          }
-        })
-        
-      }
     }
+
     
     /*Traer el nombre del usuario de la base de datos */
     const response = await fetch(
