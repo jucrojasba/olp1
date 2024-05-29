@@ -1,27 +1,21 @@
-.contenido{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
+@keyframes spinsun {
+  0% {
+    transform: rotate(0deg);
   }
-  @keyframes spinsun {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(-10deg);
-    }
-    50% {
-      transform: rotate(10deg);
-    }
-    75% {
-      transform: rotate(-10deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
+  25% {
+    transform: rotate(-10deg);
   }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
   .animacion{
     display: flex;
     flex-direction: column;
@@ -60,6 +54,7 @@
       content: "";
     }
   }
+  /* keyframe para que las imagenes  */
   @keyframes vibrate {
     0% { transform: translate(0, 0) rotate(0deg); }
     20% { transform: translate(-2px, -2px) rotate(-2deg); }
@@ -83,20 +78,15 @@
     animation: dots 1s steps(4, end) infinite;
     font-size: var(--font-size-lg);
   }
-  .contenido .create-challenges-form{
-    position: absolute;
-    top: 20%;
-    left: 15%;
+
+  .contenido{
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 35%;
-    height: 76%;
-    background-color: rgba(0, 0, 0, 0.541);
-    border-radius: var(--spacing-3);
-    padding: var(--spacing-2) 0;
+    justify-content: space-evenly;
+    height: 100%;
   }
+
   .title{
     display: flex;
     align-items: center;
@@ -118,6 +108,21 @@
   
   .contenido form >.container-input label{
     color: var(--owner-purple)
+  }
+
+   .contenido .create-challenges-form{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 35%;
+    height: 76%;
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: var(--spacing-3);
+    padding: var(--spacing-2) 0;
   }
   
   .create-module-form textarea{
