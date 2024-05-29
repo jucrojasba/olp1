@@ -5,7 +5,7 @@ import spaceship1 from "../../../assets/imagenes/moduloHTML/spaceship1.png";
 import styles from "./juego.css";
 import { navigateTo } from "../../../Router";
 
-export function juegoScene() {
+export function juegoSceneJS() {
   const pageContent = `
     <div class="${styles["upper-info"]}">
       <div class=${styles["game-title"]}>
@@ -48,7 +48,7 @@ export function juegoScene() {
     `;
   const logic = () => {
     /* Boton Blanco en el sideBar */
-    const $whiteButton = document.getElementById("/dashboard/html");
+    const $whiteButton = document.getElementById("/dashboard/javascript");
     $whiteButton.style = "background-color:white";
     const justifyContentSelect = document.getElementById("justifyContent");
     const alignItemsSelect = document.getElementById("alignItems");
@@ -77,7 +77,7 @@ export function juegoScene() {
       </div>;`;
       setTimeout(function() {
         alert("Misión cumplida");
-        navigateTo("/dashboard/html");
+        navigateTo("/dashboard/javascript");
     }, 500);
       } else {
         $spaceShip.classList.remove(`${styles["fly-away"]}`);

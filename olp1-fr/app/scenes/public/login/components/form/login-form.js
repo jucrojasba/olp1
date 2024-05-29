@@ -18,7 +18,6 @@ export async function LoginFormComponent() {
             <button type="submit" class="${style["button-send"]}">Login</button>
             <button type="button" class="${style["register-button"]}" id="registerButton">Register</button>
           </div>
-          
         </form>
       </div>
     `;
@@ -33,26 +32,24 @@ export async function LoginFormComponent() {
       alert("Please fill in all fields");
       return;
     }
-    const data = await login(email, password);
-    const token = data.token;
-    const welcomeUser = data.user.id;
-    // const emailUser = data.user.email;
-    
-    if (token) {
-      localStorage.setItem("token", token);
-      localStorage.setItem("welcomeUser", welcomeUser);
-      // localStorage.setItem("welcomeUserEmail", emailUser);
-      navigateTo("/dashboard");
-    } else {
+    try{
+      const data = await login(email, password);
+      const token = data.token;
+      if (token) {   
+        const welcomeUser = data.user.id;
+        localStorage.setItem("token", token);
+        localStorage.setItem("welcomeUser", welcomeUser);
+        navigateTo("/dashboard");
+      };
+    }catch(error){
       alert("Invalid credentials");
     }
   });
-
+  /*Acceder a la escena de registro de usuario */
   const registerButton = document.getElementById("registerButton");
   registerButton.addEventListener("click", () => {
     navigateTo("/register");
   });
-
 }
 
 async function login(email, password) {

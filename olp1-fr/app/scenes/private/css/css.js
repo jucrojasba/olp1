@@ -8,16 +8,18 @@ import spaceship2 from "../../../assets/imagenes/moduloHTML/spaceship2.png";
 export function CssScene(){
     const pageContent = `
         <div class=${styles.title}>
-            <h2>CSS</h2>
-        <div class = ${styles["crear-modulo"]}>
-        <img id="crearModulo" src="${logocss}">
-        </div>
+          <h2>CSS</h2>
+          <!-- Boton para crear modulos, redirige a la escena de crear modulos en CSS -->
+          <div class = ${styles["crear-modulo"]}>
+            <img id="crearModulo" src="${logocss}">
+          </div>
         </div>
         <div class="${styles.contenido}">
         <div class="${styles.planet}">
-        <div class="${styles["luna-lenguaje"]}"> <img src="${logocss}"></div>
         <img src="${planet1}"></div>
+        <!-- Seccion donde se insertan todos los modulos de CSS de la base de datos  -->
         <section class="${styles.container}" id="modulos"></section>
+        <!-- Seccion donde se muestra la ventana modal asociada al modulo al cual se le da click  -->
         <section class="${styles.containerModal}" id="modulosModales"></section>
         </div>
     `;
@@ -92,15 +94,18 @@ export function CssScene(){
         // Buscar el modulo en modulosdb
         const moduloSeleccionado = modulosdb.find(modulo => modulo.id === parseInt(id));
 
-        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        // Actualizar el contenido de las ventanas modales con la información del modulo seleccionado
         if (moduloSeleccionado) {
           $modulosModales.innerHTML = `
-            <div>
+            <div class="${styles["show-module-window"]}">
               <h2>${moduloSeleccionado.name}</h2>
               <h4>${moduloSeleccionado.description}</h4>
               <hr>
               <p>${moduloSeleccionado.content}</p>
-              <button id="cerrar" type="button">Cerrar</button>
+              <div class="${styles["action-buttons-info"]}">
+                <button id="jugar" type="button">Jugar</button>
+                <button id="cerrar" type="button">Cerrar</button>
+              </div>
             </div>
           `;
         } else {
@@ -113,6 +118,12 @@ export function CssScene(){
       if (event.target && event.target.id === 'cerrar') {
         // Cerrar el modal eliminando su contenido
         $modulosModales.innerHTML = '';
+      }
+    });
+    //Jugar
+    document.addEventListener("click", (event) => {
+      if (event.target && event.target.id === "jugar") {
+        navigateTo("/dashboard/css/juego");
       }
     });
 

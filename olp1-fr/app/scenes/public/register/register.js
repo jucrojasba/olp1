@@ -9,11 +9,11 @@ export async function RegisterPage() {
                 <form id="registerForm" class="${style["form-register"]}">
                     <h2>Register</h2>
                     <label for="nombre" class="${style.label}">Nombre: </label>
-                    <input type="text" id="nombre" name="nombre" autocomplete="nombre" class="${style["input-email"]}">
+                    <input type="text" id="nombre" name="nombre" autocomplete="nombre" class="${style["input-email"]} required">
                     <label for="email" class="${style.label}">Email:</label>
-                    <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
+                    <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]} required">
                     <label for="password" class="${style.label}">Password:</label>
-                    <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
+                    <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]} required">
                     <button type="submit" class="${style["button-register"]}">Register</button>
                 </form>
             </div>
@@ -22,9 +22,6 @@ export async function RegisterPage() {
     const userPassword = document.getElementById('password');
     const userNombre = document.getElementById('nombre');
     register(userNombre,userEmail,userPassword)    
-    }
-    
-    
 
 async function register(nombre, mail, passworduser) {
     
@@ -60,5 +57,5 @@ async function register(nombre, mail, passworduser) {
         }
         
     })
-    
 }
+

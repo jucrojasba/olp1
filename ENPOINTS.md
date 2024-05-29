@@ -24,5 +24,6 @@ ENDPOINTS
 	*get* user by id: http://localhost:4000/api/users/:id
 	*post* new user: http://localhost:4000/api/auth/register
 	*put* update user: http://localhost:4000/api/users/:id
-	*delete* delete user: http://localhost:4000/api/users/:id	
+	*delete* delete user: http://localhost:4000/api/users/:id
+	*patch* update one column user: http://localhost:4000/api/users/:id	
 	

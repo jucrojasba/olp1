@@ -58,12 +58,16 @@ html {
 *::after {
   box-sizing: inherit;
 }
-
+/*Estilos al body de todas las escenas de la pagina web*/
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   background-color: #f0f0f0;
   overflow-x: hidden;
+  background: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Facegif.com%2Fwp-content%2Fuploads%2Fgif%2Fouterspace-70.gif&f=1&nofb=1&ipt=36e9907271cc7ee30a55a22744165645ce64e5ffeeec50755ae984c5846838b8&ipo=images)
+      no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 h1,

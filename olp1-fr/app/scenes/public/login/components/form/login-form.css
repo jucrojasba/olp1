@@ -54,6 +54,10 @@
 .button-send:hover {
   background-color: var(--purple-dark-color);
 }
+
+.register-button:hover {
+  background-color: var(--purple-dark-color);
+}
 h2 {
   color: var(--owner-purple);
 }

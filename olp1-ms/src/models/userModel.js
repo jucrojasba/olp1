@@ -17,10 +17,10 @@ exports.save = async (name, hashedPassword, email, points) => {
 
 exports.update = async (id, data) => {
   const query = `UPDATE users
-                 SET username = $1, email = $2, password = $3
-                 WHERE id = $4
-                 RETURNING id, username, email`;
-  const values = [data.username, data.email, data.password, id];
+                 SET name = $1, password = $2, email = $3, points = $4
+                 WHERE id = $5
+                 RETURNING *`;
+  const values = [data.name, data.password, data.email, data.points, id];
   const { rows } = await pool.query(query, values);
   return rows[0];
 };
@@ -41,3 +41,13 @@ exports.findById = async (id) => {
   const { rows } = await pool.query(query, [id]);
   return rows[0];
 };
+
+exports.updateSome = async (id, key, newValue) => {
+  const validColumns = ['name', 'email', 'password', 'points']; 
+  if (!validColumns.includes(key)) {
+    throw new Error('Nombre de columna no válido');
+  }
+  const query = `UPDATE users SET ${key} = $1 WHERE id = $2`;
+  const { rows } = await pool.query(query, [newValue, id]);
+  return rows;
+}

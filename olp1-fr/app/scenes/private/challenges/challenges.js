@@ -11,11 +11,13 @@ export function ChallengesScene() {
       <div>
         <h2>Challenges</h2>
       </div>
+      <div class="${styles.crearReto}">
+        <button id="crearReto">Create</button>
+      </div>
       
     </div>
     <div class="${styles.contenido}">
     <div class="${styles.planet}">
-    <div class="${styles["luna-lenguaje"]}"> <img src="${logohtml}"></div>
     <img src="${planet1}"></div>
     <section class="${styles.container}" id="retos"></section>
     <section class="${styles.containerModal}" id="retosModales"></section>
@@ -27,7 +29,7 @@ export function ChallengesScene() {
     const $whiteButton = document.getElementById("/dashboard/challenges");
     $whiteButton.style = "background-color:white";
 
-    /* Mostrar Modulos */
+    /* Mostrar Retos */
     const $retos = document.getElementById("retos");
     const responseVerRetos = await fetch("http://localhost:4000/api/challenges");
     if (!responseVerRetos.ok) {
@@ -50,7 +52,13 @@ export function ChallengesScene() {
       .join("")}
     `;
 
-    /* Movimiento Aleatorio de los modulos */
+    //Crear Reto
+    const $crearReto = document.getElementById('crearReto');
+    $crearReto.addEventListener('click', ()=>{
+      navigateTo('/dashboard/challenges/create');
+    });
+
+    /* Movimiento Aleatorio de los retos */
     function getRandomValue(max) {
       return Math.floor(Math.random() * max) + 'px';
     }
@@ -77,23 +85,23 @@ export function ChallengesScene() {
     });
 
 
-    //Ver Modulos
+    //Ver Retos
     const $retosModales = document.getElementById("retosModales");
     const retos = document.querySelectorAll(`.${styles.reto}`);
     retos.forEach(reto => {
       reto.addEventListener('click', () => {
-        // Obtener el id del modulo click
-        const id = reto.id.replace('reto', ''); // Eliminamos "modulo" del id
+        // Obtener el id del reto click
+        const id = reto.id.replace('reto', ''); // Eliminamos "reto" del id
 
-        // Buscar el modulo en modulosdb
+        // Buscar el modulo en retosdb
         const retoSeleccionado = retosdb.find(reto => reto.id === parseInt(id));
 
-        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        // Actualizar el contenido de retos con la información del reto seleccionado
         if (retoSeleccionado) {
           $retosModales.innerHTML = `
             <div>
               <h2>${retoSeleccionado.name}</h2>
-              <h4>${retoSeleccionado.description}</h4>
+              <h4>${retoSeleccionado.points_to_give}</h4>
               <hr>
               <p>${retoSeleccionado.content}</p>
               <button id="cerrar" type="button">Cerrar</button>
