@@ -1,4 +1,5 @@
 import styles from './navigation-bar.css';
+import lightlogo from '../../assets/logos/light_logo.png'
 
 export function NavigationBar(
   { user, userImage } =
@@ -7,8 +8,17 @@ export function NavigationBar(
 
   return `
   <div class="${styles.container}">
-    <p>${user}</p>
-    <img src="${userImage}" alt="User image">
+  <h2>Code<span>Quest</span></h2>
+  <div id="${styles['navbar']}">
+  <nav>
+  <ul>
+    <li><a href="/dashboard">Home</a></li>
+    <li><a href="/dashboard/forum">Forum</a></li>
+    <li><a href="/dashboard/challenges">Challenges</a></li>
+  </ul>
+  </nav>
+  <img src="${lightlogo}">
   </div>
+  </div>  
   `;
 }

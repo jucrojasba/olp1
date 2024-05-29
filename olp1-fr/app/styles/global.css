@@ -1,77 +1,73 @@
 :root {
+  /* Colors */
+  --purple-dark-color: #472e7c;
+  --orange-color: #dd7d5b;
+  --black-color: #160528;
+  --purple-light-color: #7748cd;
+  --blue-color: #53afde;
+  --owner-purple: #b48aea;
 
-    /* Colors */
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --info-color: #17a2b8;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --white-color: #fff;
-    --black-color: #000;
-    --gray-color: #6c757d;
-    --gray-dark-color: #343a40;
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 1rem;
+  --spacing-4: 1.5rem;
+  --spacing-5: 3rem;
+  --spacing-xl: 6rem;
 
-    /* Spacing */
-    --spacing-1: 0.25rem;
-    --spacing-2: 0.5rem;
-    --spacing-3: 1rem;
-    --spacing-4: 1.5rem;
-    --spacing-5: 3rem;
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
 
-    /* Breakpoints */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
+  /* Typography */
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
 
-    /* Typography */
-    --font-size-base: 1rem;
-    --font-size-lg: 1.25rem;
-    --font-size-md: 1rem;
-    --font-size-sm: 0.875rem;
-    --font-size-xs: 0.75rem;
+  /* Font weight */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
-    /* Font weight */
-    --font-weight-normal: 400;
-    --font-weight-bold: 700;
+  /* Line height */
+  --line-height-base: 1.5;
 
-    /* Line height */
-    --line-height-base: 1.5;
+  /* Border radius */
+  --border-radius: 0.25rem;
 
-    /* Border radius */
-    --border-radius: 0.25rem;
+  /* Transition */
+  --transition: all 0.3s ease;
 
-    /* Transition */
-    --transition: all 0.3s ease;
+  /*navbar height*/
+  --navbar-height: auto;
 
-    /*navbar height*/
-    --navbar-height: auto;
-
-    /*sidebar width*/
-    --sidebar-width: 200px;
-
+  /*sidebar width*/
+  --sidebar-width: 200px;
 }
 
-
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
-
+/*Estilos al body de todas las escenas de la pagina web*/
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f0f0;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+  background: url(//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Facegif.com%2Fwp-content%2Fuploads%2Fgif%2Fouterspace-70.gif&f=1&nofb=1&ipt=36e9907271cc7ee30a55a22744165645ce64e5ffeeec50755ae984c5846838b8&ipo=images)
+      no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 h1,
@@ -81,28 +77,28 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .loader {
-    color: yellow;
+  color: yellow;
 }

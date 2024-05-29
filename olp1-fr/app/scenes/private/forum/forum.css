@@ -1,12 +1,211 @@
 .container {
-    max-width: 1200px;
-    padding: 0 15px;
+  max-width: 1200px;
+  padding: 0 15px;
 }
 
-.bg-red {
-    background-color: red;
+.title-forum {
+  color: var(--owner-purple);
+  text-align: center;
 }
 
-.bg-green {
-    background-color: green;
+.hidden {
+  display: none;
+}
+
+.flexWrapper {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 135px;
+}
+
+.postUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  margin-left: 300px;
+  gap: 25px;
+  border: 2px solid var(--owner-purple);
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.336);
+  height: 700px;
+  overflow: scroll;
+}
+
+.tableForum {
+  border-collapse: collapse;
+  background-color: #b48aea50;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tdUser {
+  border-bottom: 1px solid gray;
+}
+
+.imageTable {
+  width: 35px;
+  border-radius: 25px;
+}
+
+.publish {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 300px;
+  padding: 0.5rem;
+  width: 1000px;
+  background-color: white;
+  border-radius: 12.5px;
+  border: 2px solid gray;
+}
+
+.publish button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 100px;
+  height: 32.5px;
+}
+
+.discussions h2 {
+  color: black;
+}
+
+.publish span {
+  color: gray;
+}
+
+.discussions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  width: 300px;
+  height: 400px;
+  top: 240px;
+  left: 1520px;
+  border-radius: 45px;
+  background-color: #b48aea68;
+}
+
+.imgDiscussion {
+  width: 35px;
+  height: 35px;
+  border-radius: 25px;
+}
+
+.discussionsFlex {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.filaTable {
+  border-radius: 11px;
+  
+}
+.filaTable:hover {
+  transform: scale(1.02);
+  transition: 0.5s;
+  
+}
+.postBody {
+  background-color: var(--owner-purple);
+  height: 70px;
+}
+.postAnswers {
+  background-color: var(--owner-purple);
+}
+
+.postHeader {
+  display: flex;
+}
+
+.imageUserPost {
+  width: 65px;
+  border-radius: 25px;
+}
+
+.postUserImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #d3d3d3;
+  width: 200px;
+  padding: 10px;
+}
+
+.eachPost {
+  border: 3px solid black;
+}
+
+.titlePost {
+  color: black;
+}
+
+.boxTitle {
+  padding: 25px;
+  background-color: white;
+  width: 100%;
+}
+
+.largeButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+}
+
+.tableWrapper {
+  position: relative;
+
+}
+
+.tableScroll {
+  overflow: auto;
+  height: 500px;
+  border-radius: 11px;
+}
+
+.tableWrapper table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #472e7c;
+  height: 50px;
+  border-radius: 11px;
+}
+
+.tableWrapper table tfoot tr {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tableRankings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding: 5px;
+  width: 300px;
+  height: 400px;
+  top: 150px;
+  left: 1590px;
+  border-radius: 45px;
+  background-color: var(--owner-purple);
+}
+
+.tableRankings h2 {
+  color: black;
 }
