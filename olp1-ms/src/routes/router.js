@@ -10,6 +10,6 @@ const router = express.Router();
 router.use('/auth', authRoutes);
 
 // Private routes
-router.use('/', authMiddleware, privateRouter);  // Middleware to ensure authentication is applied to private routes
+router.use('/', privateRouter); 
 
 module.exports = router;
