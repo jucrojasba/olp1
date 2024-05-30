@@ -145,7 +145,8 @@ export function ProfileScene() {
       console.log(welcomeUser);
       if($name){
           const updateUserName = {
-            name: $name
+            key: "name",
+            newValue: $name
           } 
           try{
             await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
@@ -171,15 +172,13 @@ export function ProfileScene() {
       const $email = document.getElementById('email').value;
       if($email){
         const updateUserEmail = {
-          name: document.getElementById("name").value,
-          password: 'password123',
-          email: $email,
-          points: 15
+          key: "email",
+          newValue: $email
         }
         
         try{
           await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
-              method: 'PUT',
+              method: 'PATCH',
               body: JSON.stringify(updateUserEmail),
               headers: {
                   'Content-Type':'application/json'
