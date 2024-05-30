@@ -1,10 +1,19 @@
+@keyframes spinsun {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
 .container{
     position: relative;
     display: flex;
     padding: 30px;
     justify-content: flex-start;
     height: 100%;
-    border: solid white;
+    
 }
 
 .title {
@@ -17,7 +26,7 @@
 }
 
 .forms_container{
-    border: solid white;
+    
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.493);
     padding: 40px;
@@ -69,21 +78,48 @@
     align-items: center;
 }
 
+.challengeFinish > button{ 
+    border: none;
+    border-radius: 10px;
+    background-color: var(--purple-light-color);
+    width: 50px;
+    height: 30px;
+    color: black;
+}
+
+.challengeFinish > button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.titleTime{
+    position: absolute;
+    color: red;
+    width: 300px;
+    right: 230px;
+    top: 120px;
+    font-size: 30px;
+    border-radius: 15px;
+    background-color: black;
+}
+
 #asteroid {
     width: 150px;
     position: absolute;
     top: 20%; 
     right: 10%;
+    
     z-index: 5;    
 }
 
 
 
 #planetLife {
-    width: 200px;
+    width: 250px;
     position: absolute;
     bottom: 20%;
     right: 20%;
+    animation: spinsun 40s infinite linear;;
   }
 
   
@@ -94,8 +130,17 @@
 }
 100% {
     top: 450px; /* Punto final en la parte inferior */
-    right: 250px; /* Punto final en el centro */
+    right: 300px; /* Punto final en el centro */
 }
+}
+
+.asteroidAnimation {
+    animation: moverImagen 30s forwards;
+    
+}
+
+.byeAsteroid{
+    display: none;
 }
 
 /* modal */
