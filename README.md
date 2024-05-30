@@ -35,7 +35,7 @@ CodeQuest is an online learning platform designed to teach programming languages
 CodeQuest's future vision includes the addition of more programming languages and the implementation of advanced gamification techniques to further enhance user engagement and learning outcomes. The platform's ultimate goal is to make coding education accessible, enjoyable, and effective for learners of all levels.
 
 # User Stories Dashboard
-![Diagrama Entidad-Relación](olp1-fr/app/assets/imagenes/project_documentation/diagrama-entidad-relacion.jpeg)
+![UserStories](olp1-fr/app/assets/imagenes/project_documentation/Dashboard User Stories.JPG)
 
 ## Epics
 
