@@ -49,7 +49,7 @@ export function CreateChallengesScene() {
         const $whiteButton = document.getElementById("/dashboard/challenges");
         $whiteButton.style = "background-color:white";
         
-        /*Crear modulo*/
+        /*Crear REto*/
         // Listener para enviar info a base de datos
         document.getElementById('create-challenges-form').addEventListener('submit', async(e)=>{
             e.preventDefault();

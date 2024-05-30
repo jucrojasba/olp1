@@ -1,6 +1,5 @@
 import { navigateTo } from "../../../Router";
 import planet1 from "../../../assets/imagenes/challenges/asteroide_central.png";
-import logohtml from "../../../assets/imagenes/Home/w3_html5-icon.svg";
 import asteroid1 from "../../../assets/imagenes/challenges/asteroide1.png";
 import asteroid2 from "../../../assets/imagenes/challenges/asteroide2.png";
 import styles from "../challenges/challenges.css";
@@ -9,7 +8,7 @@ export function ChallengesScene() {
   let pageContent = `
     <div class=${styles.title}>
       <div>
-        <h2>Challenges</h2>
+        <h2>CHALLENGES</h2>
       </div>
       <div class="${styles.crearReto}">
         <button id="crearReto">Create</button>
@@ -104,11 +103,12 @@ export function ChallengesScene() {
               <h4>${retoSeleccionado.points_to_give}</h4>
               <hr>
               <p>${retoSeleccionado.content}</p>
+              <button id="reto" type="button">Reto</button>
               <button id="cerrar" type="button">Cerrar</button>
             </div>
           `;
         } else {
-          $retosModales.innerHTML = `<p>No se encontró información para el módulo seleccionado.</p>`;
+          $retosModales.innerHTML = `<p>No se encontró información para el reto seleccionado.</p>`;
         }
       });
     });    
@@ -119,6 +119,15 @@ export function ChallengesScene() {
         $retosModales.innerHTML = '';
       }
     });
+
+    //Reto
+    document.addEventListener("click", (event) => {
+      if (event.target && event.target.id === "reto"){
+        navigateTo("/dashboard/challenge/display_challenge")
+      }
+    })
+
+
   };
 
   return {
