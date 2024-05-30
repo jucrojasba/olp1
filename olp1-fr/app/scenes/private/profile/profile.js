@@ -29,7 +29,7 @@ export function ProfileScene() {
          </tr>
         </table>
 
-        <button type="button" class="${styles.cambiarPassword}">Cambiar contraseña</button>
+        <button type="button" class="${styles.cambiarPassword}" id="mostrar" >Cambiar contraseña</button>
       </div>
       
       <div class="${styles.challenges}">
@@ -127,6 +127,21 @@ export function ProfileScene() {
       </form>
       
     </dialog>
+
+    <dialog id="modal" class="${styles.modal}">
+      <form class="${styles.form}" id="form3">
+        <div class="${styles.nuevaPass}">
+          <label for="contraseña">Nueva contraseña </label>
+          <input type="password" id="contraseña" name="contraseña">
+          <label for="contraseña-repeat">Repite la contraseña</label>
+          <input type="password" id="contraseña-repeat" name="contraseña-repeat">
+          <div>
+            <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
+            <button id="cerrarModal">Cerrar</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
   `;
 
 
@@ -137,14 +152,25 @@ export function ProfileScene() {
     const $valuesCerrar = Object.values(document.querySelectorAll('#cerrarModal'));
     const $form1 = document.getElementById("form1");
     const $form2 = document.getElementById("form2");
+    const $form3 =  document.getElementById("form3");
     const $buttonCambiarRol = document.getElementById("cambiarRol");
     const $updateTextRol = document.getElementById("tagUpdateRol");
    
 
+    for (let i = 0; i < $valuesModal.length; i++) {
+      $valuesMostrar[i].addEventListener('click', (e) =>{
+        e.preventDefault();
+        $valuesModal[i].showModal()
+      })
+      $valuesCerrar[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        $valuesModal[i].close()
+      })
+    }
+
     $form1.addEventListener('submit', async (e) => {
       e.preventDefault();
       const $name = document.getElementById("name").value;
-      console.log(welcomeUser);
       if($name){
           const updateUserName = {
             key: "name",
@@ -196,7 +222,38 @@ export function ProfileScene() {
         alert('Tienes que rellenar el campo');
       }
     });  
-      
+    
+    $form3.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const $password = document.getElementById('contraseña').value;
+        const $passwordConfirm = document.getElementById('contraseña-repeat').value;
+        if($password && $passwordConfirm){
+          if($password == $passwordConfirm){
+             const updatePassword = {
+                key:"password",
+                newValue: $password
+             }
+             try {
+              await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
+                method: 'PATCH',
+                body: JSON.stringify(updatePassword),
+                headers: {
+                    'Content-Type':'application/json'
+                }
+              })
+              alert('Los cambios se hicieron correctamente');
+             } catch (error) {
+              alert('Ha ocurrido un error al tratar de cambiar tu email en el servidor');
+              console.error('Error al tratar de actualizar el email del usuario:', error);
+             }
+          } else{
+            alert('Las contraseñas tiene que ser iguales')
+          }
+        } else {
+          alert('Tienes que llenar todos los campos')
+        }
+    });
+
     $buttonCambiarRol.addEventListener('click', (e) => {
       e.preventDefault();
       if(document.getElementById('radio1').checked){
@@ -206,17 +263,7 @@ export function ProfileScene() {
       }
     })
 
-    for (let i = 0; i < $valuesModal.length; i++) {
-      $valuesMostrar[i].addEventListener('click', (e) =>{
-        e.preventDefault();
-        $valuesModal[i].showModal()
-      })
-      $valuesCerrar[i].addEventListener('click', (e) => {
-        e.preventDefault();
-        $valuesModal[i].close()
-      })
-    }
-
+  
     
     /*Traer el nombre del usuario de la base de datos */
     const response = await fetch(
