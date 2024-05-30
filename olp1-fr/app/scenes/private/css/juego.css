@@ -33,9 +33,9 @@
 }
 
 #planetLife {
-  width: 500px;
+  width: 400px;
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 30%;
   animation: spinplanet 120s infinite linear;
 }

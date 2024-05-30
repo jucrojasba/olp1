@@ -14,14 +14,18 @@
 
 .flexWrapper {
   display: flex;
-  gap: 85px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 0 var(--spacing-4);
 }
 
 .postUsers {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1000px;
+  width: 800px;
   margin-left: 300px;
   gap: 25px;
   border: 2px solid var(--owner-purple);
@@ -31,19 +35,17 @@
   overflow: scroll;
 }
 
-.posts {
-  margin-left: 280px;
-}
-
 .tableForum {
   border-collapse: collapse;
   background-color: #b48aea50;
-  width: 100%;
+  width: 60vw;
   overflow: hidden;
 }
 
 .tdUser {
   border-bottom: 1px solid gray;
+  padding: 0.5rem;
+  color: white;
 }
 
 .imageTable {
@@ -58,19 +60,27 @@
   margin-top: 15px;
   margin-left: 300px;
   padding: 0.5rem;
-  width: 1000px;
+  width: 800px;
+  height: 50px;
   background-color: white;
   border-radius: 12.5px;
   border: 2px solid gray;
 }
 
-.publish button {
+.buttonPublish {
   background-color: black;
   color: white;
   border-radius: 5px;
   border: 1px solid black;
   width: 100px;
   height: 32.5px;
+}
+
+.buttonPublish:hover {
+  background-color: var(--owner-purple);
+  color: white;
+  transform: scale(1.02);
+  transition: 0.5s;
 }
 
 .discussions h2 {
@@ -82,10 +92,6 @@
 }
 
 .discussions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
   padding: 5px;
   width: 300px;
   height: 400px;
@@ -115,18 +121,27 @@
 .filaTable:hover {
   transform: scale(1.02);
   transition: 0.5s;
-  
 }
 .postBody {
   background-color: var(--owner-purple);
-  height: 70px;
+  height: 85px;
+  overflow: auto;
+  word-wrap: break-word;
+  border-radius: 0px 0px 25px 25px;
 }
+
 .postAnswers {
   background-color: var(--owner-purple);
+  width:700px;
+  overflow: auto;
+  word-wrap: break-word;
+  border-radius: 0px 25px 25px 0px;
 }
 
 .postHeader {
   display: flex;
+  width: 100%;
+  border-radius: inherit;
 }
 
 .imageUserPost {
@@ -143,10 +158,25 @@
   background-color: #d3d3d3;
   width: 200px;
   padding: 10px;
+  border-radius: 25px 0px 0px 0px;
+}
+
+.postUserImageResponses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #d3d3d3;
+  width: 200px;
+  padding: 10px;
+  border-radius: 25px 0px 0px 25px;
 }
 
 .eachPost {
-  border: 3px solid black;
+  width: 750px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .titlePost {
@@ -157,25 +187,17 @@
   padding: 25px;
   background-color: white;
   width: 100%;
-}
-
-.largeButton {
-  width: 100px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid black;
-  background-color: black;
-  color: white;
+  border-radius: 0px 25px 0px 0px;
 }
 
 .tableWrapper {
   position: relative;
+
 }
 
 .tableScroll {
   overflow: auto;
   height: 500px;
-  margin-top: 100px;
   border-radius: 11px;
 }
 
@@ -200,7 +222,7 @@
   align-items: center;
   position: absolute;
   padding: 5px;
-  width: 300px;
+  width: 200px;
   height: 400px;
   top: 150px;
   left: 1590px;
@@ -211,3 +233,64 @@
 .tableRankings h2 {
   color: black;
 }
+
+.inputPost{
+  display: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+
+.divPublishPost{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 89.5%;
+  height: 100%;
+}
+
+.allPost{
+  display: flex;
+  gap: 1px;
+}
+
+.publishInForum {
+  background-color: var(--purple-light-color);
+  color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: fit-content;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+.publishInForum:hover{
+  background-color: var(--owner-purple);
+  color: white;
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+.tituloPost {
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.closer, .publisher{
+  background-color: var(--purple-light-color);
+  color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100px;
+  height: 32.5px;
+  margin-top: 25px;
+}
+
+.modalPost {
+  background-color: #b48aea;
+}
+

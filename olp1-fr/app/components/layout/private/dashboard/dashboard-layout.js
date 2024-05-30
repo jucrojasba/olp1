@@ -26,12 +26,8 @@ export function DashboardLayout(
     { href: "/dashboard/javascript", name: "Javascript" },
     { href: "/dashboard/challenges", name: "Challenges" },
     { href: "/dashboard/users", name: "Users" },
+    { href: "/dashboard/rank", name: "Rank" }
   ];
-
-  navbarData = {
-    user: "Nicolas Picon",
-    userImage: "https://randomuser.me/api/portraits/men/75.jpg",
-  };
 
   root.innerHTML = `
   <div class="${styles.container}">
@@ -39,7 +35,7 @@ export function DashboardLayout(
       ${SidebarMenu(sidebarData)}
     </div>
     <div class="${styles.navbar}">
-      ${NavigationBar(navbarData)}
+      ${NavigationBar()}
     </div>
     <div class="${styles.main}">
       ${pageContent}

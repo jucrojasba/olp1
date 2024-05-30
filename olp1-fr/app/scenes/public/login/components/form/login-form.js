@@ -6,14 +6,18 @@ export async function LoginFormComponent() {
   const root = document.getElementById("root");
 
   root.innerHTML = `
+      
       <div class="${style.container}">
         <form id="loginForm" class="${style.form}">
-        <h2>Login</h2>
-        <label for="email" class="${style.label}">Email:</label>
-        <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
-        <label for="password" class="${style.label}">Password:</label>
-        <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
-        <button type="submit" class="${style["button-send"]}">Login</button>
+          <h2>Login</h2>
+          <label for="email" class="${style.label}">Email:</label>
+          <input type="text" id="email" name="email" autocomplete="email" class="${style["input-email"]}">
+          <label for="password" class="${style.label}">Password:</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" class="${style["input-password"]}">
+          <div class="${style.flexButtons}">
+            <button type="submit" class="${style["button-send"]}">Login</button>
+            <button type="button" class="${style["register-button"]}" id="registerButton">Register</button>
+          </div>
         </form>
       </div>
     `;
@@ -28,16 +32,23 @@ export async function LoginFormComponent() {
       alert("Please fill in all fields");
       return;
     }
-    const data = await login(email, password);
-    const token = data.token;
-    const welcomeUser = data.user.id;
-    if (token) {
-      localStorage.setItem("token", token);
-      localStorage.setItem("welcomeUser", welcomeUser);
-      navigateTo("/dashboard");
-    } else {
+    try{
+      const data = await login(email, password);
+      const token = data.token;
+      if (token) {   
+        const welcomeUser = data.user.id;
+        localStorage.setItem("token", token);
+        localStorage.setItem("welcomeUser", welcomeUser);
+        navigateTo("/dashboard");
+      };
+    }catch(error){
       alert("Invalid credentials");
     }
+  });
+  /*Acceder a la escena de registro de usuario */
+  const registerButton = document.getElementById("registerButton");
+  registerButton.addEventListener("click", () => {
+    navigateTo("/register");
   });
 }
 

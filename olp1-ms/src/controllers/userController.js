@@ -1,10 +1,6 @@
-const {
-  findById,
-  update,
-  deleteUser,
-  getAll,
-  save,
-} = require("../models/userModel");
+
+const { findById, update, deleteUser, getAll, updateSome } = require("../models/userModel");
+const bcrypt = require('bcryptjs');
 
 exports.getAll = async (req, res) => {
   try {
@@ -31,9 +27,9 @@ exports.getById = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { username, email, password } = req.body;
+    try {
+        const { id } = req.params;
+        const { name, email, password, points } = req.body;
 
     // Verificar si el usuario existe
     const user = await findById(id);
@@ -45,12 +41,8 @@ exports.update = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Actualizar usuario
-    const updatedUser = await update(id, {
-      username,
-      email,
-      password: hashedPassword,
-    });
+        // Actualizar usuario
+        const updatedUser = await update(id, { name, password: hashedPassword, email, points });
 
     res
       .status(200)
@@ -81,18 +73,18 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-// exports.save = async (req, res) => {
-//     try {
-//         const { username, email, password, points } = req.body;
-//         if(!username || !email || !password) {
-//             return res.status(400).json({message: 'Todos los campos son requeridos'});
-//         }
-
-//         const hashedPassword = await generateHashedPassword(password);
-//         await save(username, hashedPassword, email, points);
-//         return res.status(200).json({message: 'Usuario creado con éxito'});
-//     } catch (err) {
-//         console.error('Error en save user: ', err);
-//         return res.status(500).json({message: 'Hubo un error en el servidor'});
-//     }
-// }
+exports.updateSome = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { key, newValue } = req.body;
+        const user = await findById(id);
+        if (!user) {
+            return res.status(400).json({ message: 'Ese Usuario no existe' });
+        }
+        await updateSome(id, key, newValue);
+        res.status(200).json({ message: 'Usuario actualizado exitosamente' });
+    } catch (err){
+        console.error('Error en updateSome:', err);
+        res.status(500).json({ message: 'Error en el servidor' });
+    }
+}

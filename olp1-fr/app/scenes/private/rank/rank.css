@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.Titulo {
+    color: var(--owner-purple);
+}
+.tableRanking {
+    border: none;
+    color: white;
+    border-collapse: collapse;
+    width: 60vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.th {
+    border: 1px solid var(--purple-light-color);
+    background-color: var(--purple-dark-color);
+    padding: 0.5rem;
+}
+
+.td{
+    border: 1px solid var(--purple-light-color);
+    padding: 0.5rem;
+    background-color: rgb(1,11,28);
+}
+
+.imgRanking {
+    width: 35px;
+    border-radius: 25px;
+}
+
+.progress {
+    background-color: white;
+    border-radius: 50px;
+    height: 1.5rem;
+}
+
+.complete1{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 50%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.progressSpace {
+    margin-left: 15px;
+}
+
+.percentageSpace{
+    margin-right: 5px;
+}
+
+.userHeader {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    
+}

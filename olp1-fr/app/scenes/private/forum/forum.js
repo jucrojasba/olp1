@@ -9,12 +9,7 @@ export function ForumScene() {
     <h1 class="${styles["title-forum"]}">FORUM</h1>
     <div class="${styles.flexWrapper}">
 
-      <div id="posts" class="${styles.posts}"></div>
-
-      <div id="rankingTable" class="${styles.discussions}">
-        
-      </div>
-      
+      <div id="posts" class="${styles.posts}"></div>      
     </div>
     `;
 
@@ -31,11 +26,12 @@ export function ForumScene() {
     const usersImages = await respImages.json();
     const posts = document.getElementById("posts");
     const tableRanking = document.getElementById("rankingTable");
-    const ranking = users.sort((a,b) => b.points -a.points);
+    const ranking = users.sort((a,b) => b.points - a.points);
     const podium = ranking.slice(0, 4);
     
 
     posts.innerHTML = `
+                <div class="${styles.allTable}">
                   <div class="${styles.tableWrapper}">
                     <div class="${styles.tableScroll}">
                       <table class="${styles.tableForum}">
@@ -46,11 +42,12 @@ export function ForumScene() {
                               <th>Last Answer</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="cuerpoTabla">
                             ${users
                               .map((user) => {
                                 const $userFound = usersImages.find((image) => user.id === image.id);
                                 const $postFound = usersPosts.find((post) => user.id === post.id);
+                                
                 
                                 return `<tr class="${styles.filaTable}" id="${user.id}"> 
                                             <td class="${styles.tdUser}" text-align="left">
@@ -67,10 +64,56 @@ export function ForumScene() {
                               .join("")}
                           </tbody>
                       </table>
+                      
                     </div>
+                    <div>
+                        <button id="publicarPost" class="${styles.publishInForum}">Publica tu post</button>
+                    </div>
+                </div>
+                    <dialog id="modal" class="${styles.modalPost}">
+                      <form id="mandarForoNuevo">
+                           <div class="${styles.tituloPost}">
+                            <label for="titlePost">Ingresa el titulo de tu post</label>
+                            <input id="titlePost" name="titlePost"></input> 
+                           </div>
+                           <div class="${styles.content}">
+                            <label for="contentPost">Ingresa el contenido de tu post</label>
+                            <textarea name="contentPost" id="contentPost" cols="25" rows="10"></textarea> 
+                           </div>
+                           <button type="button" id="closeArea" class="${styles.closer}">Salir</button>
+                           <button type="submit" id="publicarPost" name="publicarPost" class="${styles.publisher}">Publicar</button>
+                      </form>
+                    </dialog>
                   </div>
       `;
+    document.getElementById('publicarPost').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('modal').showModal();
+    });    
+    
+    document.getElementById('closeArea').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('modal').close();
+    })
 
+    document.getElementById('mandarForoNuevo').addEventListener('submit', async (e) => {
+      const tableBody = document.getElementById('cuerpoTabla');
+      const welcomeUser = localStorage.getItem("welcomeUser");
+      const user = users.find((us) => us.id === welcomeUser);
+      tableBody.innerHTML = `
+            <tr>
+                <td class="" text-align="left">
+                  <img src="${$userFound.url}" class="${styles.imageTable}">
+                  <div>${user.name}</div>
+                </td>
+                <td class="${styles.tdUser}" text-align="left">
+                  <h4>${$postFound.title}</h4><div>Publicado el 30 de marzo de 2023</div>
+                </td>  
+                <td class="${styles.tdUser}" text-align="center">2</td>
+                <td class="${styles.tdUser}">3 de marzo de 2024</td>
+            </tr>
+      `
+    })
     document.querySelectorAll(`.${styles["filaTable"]}`).forEach((tr) => {
       tr.addEventListener(
         "click",
@@ -82,41 +125,12 @@ export function ForumScene() {
         true
       );
     });
-
-    tableRanking.innerHTML = `<h2>Ranking Table</h2>
-                              <br><br>
-                              
-                              <table>
-                                ${podium.map((user,index) => {
-                                  const $userFound = usersImages.find((image) => user.id === image.id);
-                                  if(index == 0){
-                                      return `<tr class="${styles.discussionsFlex}">
-                                                <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
-                                                <td><img src="${crown_icon}" class="${styles.imageTable}"></td>
-                                                <td><strong>${user.name}</strong></td>
-                                                <td><span>${user.points} points</span></td>
-                                              </tr>`
-                                  } else {
-                                    return `<tr class="${styles.discussionsFlex}">
-                                              <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
-                                              <td><img src="${medal_icon}" class="${styles.imageTable}"></td>
-                                              <td><strong>${user.name}</strong></td>
-                                              <td><span>${user.points} points</span></td>
-                                            </tr>`
-                        }
-                                  }
-                                 
-                                ).join('')}
-                              </table>
-
-    `;
 };
 
- 
 
   if (params.get("id")) {
     const idUser = params.get("id");
-    console.log(idUser);
+
     function getRandomUser1(idUser) {
       let randomNumber;
       do {
@@ -134,9 +148,8 @@ export function ForumScene() {
     }
 
     const randomUser1 = getRandomUser1(idUser);
-    console.log(randomUser1);
     const randomUser2 = getRandomUser2(idUser, randomUser1);
-    console.log(randomUser2);
+    console.log(idUser, randomUser1, randomUser2);
     
     pageContent = `
         <div class="${styles.postUser}" id="userPost"></div>
@@ -146,7 +159,8 @@ export function ForumScene() {
       const $whiteButton = document.getElementById("/dashboard/forum");
       $whiteButton.style = "background-color:white";
 
-      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
+
+      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser1 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser2 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser2}`);
       const respPosts = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -156,113 +170,120 @@ export function ForumScene() {
       const user2 = await respUser2.json();
       const usersPosts = await respPosts.json();
       const usersImages = await respImages.json();
-      const postFound = usersPosts.find((e) => idUser == e.userId);
+      const postFound = usersPosts.find((e) => randomUser1 == e.userId);
       const imageFound = usersImages.find((e) => idUser == e.id);
+
 
       const postUser = document.getElementById("userPost");
 
       postUser.innerHTML = `
-      <div class="${styles.postUsers}">
-          <h1>POSTS</h1>
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user.name}</p>
-              </div>
-              <div class = "${styles.boxTitle}">
-                <h2 class="${styles.titlePost}">${postFound.title}</h2>
-              </div>
-            </div>
-            <div class="${styles.postBody}">
-              ${postFound.body}
-            </div>
-          </div>
-          <h2>Answers</h2>
-          <br>
+          <div class="${styles.allPost}">
+                <div>
+                  <div class="${styles.postUsers}" id="usersPosts">
+                  <h1>POSTS</h1>
 
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user1.name}</p>
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImage}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user.name}</p>
+                      </div>
+                      <div class = "${styles.boxTitle}">
+                        <h2 class="${styles.titlePost}">${postFound.title}</h2>
+                      </div>
+                    </div>
+
+                    <div class="${styles.postBody}">
+                      ${postFound.body}
+                    </div>
+                  </div>
+                  
+                  <h2>Answers</h2>
+                  <br>
+
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user1.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user2.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div> 
+                  </div>
+
+
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user2.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+
+              <div class="${styles.publish}">
+                  <div class="${styles.divPublishPost}" id="divpublish">
+                    <input type="text" class="${styles.inputPost}" id="inputMessage">
+                    <span id="spanPublish">Publish Discussion</span>
+                  </div>
+                  <button class="${styles.buttonPublish}" id="publishButton">Publish</button>
               </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
+
             </div>
           </div>
-        
-
-          <br><br>
-
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user2.name}</p>
-              </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
-            </div>
-            
-          </div>
-
-          <br><br>
-
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user2.name}</p>
-              </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
-            </div>
-            
-          </div> 
-      </div>
-      <div class="${styles.publish}">
-          <span>Publish Discussion</span><button>Publish</button>
-      </div>
-            
-      <aside class="${styles.tableRankings}">
-        <div class="">
-          <h2>Discussions</h2>
-          <br><br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-        </div>
-      </aside>
+          
         `;
+        document.getElementById('divpublish').addEventListener('click',() => {
+          document.getElementById('spanPublish').style.display = 'none';
+          const inputPublicar = document.getElementById('inputMessage');
+          inputPublicar.style.display = 'block';
+          inputPublicar.focus();
+        });
+
+        document.getElementById('publishButton').addEventListener('click',() => {
+          if(document.getElementById('inputMessage').value){
+            const currentPosts = document.getElementById('usersPosts');
+            const morePosts = document.getElementById('inputMessage').value;
+            currentPosts.innerHTML +=  `
+                <div class="${styles.eachPost}">
+                  <div class="${styles.postHeader}">
+                    <div class="${styles.postUserImageResponses}">
+                      <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                      <p>${user2.name}</p>
+                    </div>
+                    <div class="${styles.postAnswers}">
+                      ${morePosts}
+                    </div>
+                  </div>
+                </div>
+            `
+          } else {
+            alert("Llena todos los campos");
+          }
+        });
     };
   }
 
   return {
     pageContent,
-    logic,
+    logic
   };
 }

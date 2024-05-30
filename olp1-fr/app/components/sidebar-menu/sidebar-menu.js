@@ -5,6 +5,8 @@ import challenges_icon from "../../assets/imagenes/Home/icon_challenge.png";
 import html_icon from "../../assets/imagenes/Home/w3_html5-icon.svg";
 import css_icon from "../../assets/imagenes/Home/w3_css-icon.svg";
 import javascript_icon from "../../assets/imagenes/Home/javascript-vertical.svg";
+import crown_icon from "../../assets/logos/crown.png";
+
 
 export function SidebarMenu(data = []) {
   const path = window.location.pathname;
@@ -27,6 +29,7 @@ export function SidebarMenu(data = []) {
       throw new Error(`Error ${response.status}: ${errorMessage}`);
     }
     const data = await response.json();
+    console.log(data)
     const user = document.getElementById("username");
     user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
       .substr(1)
@@ -36,7 +39,7 @@ export function SidebarMenu(data = []) {
   return `
     <aside class="${styles["sidebar-menu"]}">
     <div id="${styles["usuario"]}">
-    <a href="/dashboard/profile"><img src="https://randomuser.me/api/portraits/men/75.jpg"></a>
+    <a href="/dashboard/profile"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></a>
     <h3 id="username">${logic()}</h3>
     </div>
     <div id="${styles["discover"]}">
@@ -44,7 +47,9 @@ export function SidebarMenu(data = []) {
     <div class="${styles["container"]}">
     <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
     <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
-    <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button></div>
+    <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button>
+    <button id="${"/dashboard/rank"}" type="button"><img src="${crown_icon}">Ranking</button>
+    </div>
     </div>
     <div id="${styles["courses"]}">
     <h3>My Courses</h3>

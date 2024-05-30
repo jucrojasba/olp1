@@ -9,15 +9,17 @@ export function HtmlScene() {
   let pageContent = `
     <div class=${styles.title}>
       <h2>HTML</h2>
+      <!-- Boton para crear modulos, redirige a la escena de crear modulos en HTML -->
       <div class = ${styles["crear-modulo"]}>
         <img id="crearModulo" src="${logohtml}">
       </div>
     </div>
     <div class="${styles.contenido}">
     <div class="${styles.planet}">
-    <div class="${styles["luna-lenguaje"]}"> <img src="${logohtml}"></div>
     <img src="${planet1}"></div>
+    <!-- Seccion donde se insertan todos los modulos de HTML de la base de datos  -->
     <section class="${styles.container}" id="modulos"></section>
+    <!-- Seccion donde se muestra la ventana modal asociada al modulo al cual se le da click  -->
     <section class="${styles.containerModal}" id="modulosModales"></section>
     </div>
     `;
@@ -96,7 +98,7 @@ export function HtmlScene() {
           (modulo) => modulo.id === parseInt(id)
         );
 
-        // Actualizar el contenido de modulosModales con la información del modulo seleccionado
+        // Actualizar el contenido de las ventanas modales con la información del modulo seleccionado
         if (moduloSeleccionado) {
           $modulosModales.innerHTML = `
             <div class="${styles["show-module-window"]}">

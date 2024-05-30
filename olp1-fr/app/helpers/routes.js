@@ -15,6 +15,9 @@ import { ProfileScene } from "../scenes/private/profile";
 import { UserScene } from "../scenes/private/users";
 import { LoginPage } from "../scenes/public/login";
 import { RegisterPage } from "../scenes/public/register";
+import { RankingTableScene } from "../scenes/private/rank";
+
+console.log(RankingTableScene )
 
 export const routes = {
   private: [

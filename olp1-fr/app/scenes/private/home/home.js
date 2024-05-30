@@ -10,8 +10,9 @@ import styles from "./home.css";
 export function HomeScene() {
   const pageContent = `
     <div class="${styles["container"]}">
+    <!-- Lista desordenada de planetas del sistema solar -->
       <ul class="${styles["wrapper"]}">
-        <div class="${styles["sun"]}">
+        <div class="${styles["sun"]}"> 
           <div class="${styles["star"]}">
             <img src="${sun}">
           </div>
@@ -42,6 +43,8 @@ export function HomeScene() {
         </div>
       </ul>
     </div>
+    <!-- Ventanas Modales con informacion de cada planeta lenguaje -->
+    <!-- Ventan Modal con informacion del lenguaje HTML -->
     <div class="${styles["modal"]}" id="modalHtml" style="display:none;">
       <div class="${styles["imageContainer"]}">
         <img src="${planet1}">
@@ -64,6 +67,7 @@ export function HomeScene() {
         </div>
       </div>
     </div>
+    <!-- Ventan Modal con informacion del lenguaje CSS -->
     <div class="${styles["modal"]}" id="modalCss" style="display:none;">
       <div class="${styles["imageContainer"]}">
         <img src="${planet2}">
@@ -86,6 +90,7 @@ export function HomeScene() {
         </div>
       </div>
     </div>
+    <!-- Ventan Modal con informacion del lenguaje Javascript -->
     <div class="${styles["modal"]}" id="modalJavascript" style="display:none;">
       <div class="${styles["imageContainer"]}">
         <img src="${planet3}" id="${styles["exceptionJavascript"]}">
@@ -126,11 +131,12 @@ export function HomeScene() {
     }
     const data = await response.json();
     const $user = document.getElementById("userNameWelcome");
+    /*Insertar el nombre de usuario de la base de datos a la etiqueta con id = userNameWelcome*/
     $user.textContent = `${data.name.charAt(0).toUpperCase()}${data.name
       .substr(1)
       .toLowerCase()}`;
 
-    /* Boton Blanco en el sideBar */
+    /* Boton Blanco en el sideBar Home*/
     const $whiteButton = document.getElementById("/dashboard");
     $whiteButton.style = "background-color:white";
 
@@ -138,13 +144,15 @@ export function HomeScene() {
     const $htmlPlanet = document.querySelector(`.${styles["htmlPlanet"]}`);
     const $modalHtml = document.getElementById("modalHtml");
     const $cerrarHtml = document.getElementById("cerrarHtml");
+    /*Abrir ventana modal al hacer click sobre el planeta HTML*/
     $htmlPlanet.addEventListener("click", () => {
       $modalHtml.style.display = "flex";
     });
-
+    /*Cerrar ventana modal al hacer click sobre el boton cerrar*/
     $cerrarHtml.addEventListener("click", () => {
       $modalHtml.style.display = "none";
     });
+    /*Cerrar ventana modal al hacer click fuera de la ventana modal*/
     document.addEventListener("click", (event) => {
       if (
         $modalHtml.style.display === "flex" &&
@@ -154,17 +162,20 @@ export function HomeScene() {
         $modalHtml.style.display = "none";
       }
     });
+
     /* Ventana Modal CSS*/
     const $cssPlanet = document.querySelector(`.${styles["css"]}`);
     const $modalCss = document.getElementById("modalCss");
     const $cerrarCss = document.getElementById("cerrarCss");
+    /*Abrir ventana modal al hacer click sobre el planeta CSS*/
     $cssPlanet.addEventListener("click", () => {
       $modalCss.style.display = "flex";
     });
-
+    /*Cerrar ventana modal al hacer click sobre el boton cerrar*/
     $cerrarCss.addEventListener("click", () => {
       $modalCss.style.display = "none";
     });
+    /*Cerrar ventana modal al hacer click fuera de la ventana modal*/
     document.addEventListener("click", (event) => {
       if (
         $modalCss.style.display === "flex" &&
@@ -180,13 +191,15 @@ export function HomeScene() {
     );
     const $modalJavascript = document.getElementById("modalJavascript");
     const $cerrarJavascript = document.getElementById("cerrarJavascript");
+    /*Abrir ventana modal al hacer click sobre el planeta Javascript*/
     $javascriptPlanet.addEventListener("click", () => {
       $modalJavascript.style.display = "flex";
     });
-
+    /*Cerrar ventana modal al hacer click sobre el boton cerrar*/
     $cerrarJavascript.addEventListener("click", () => {
       $modalJavascript.style.display = "none";
     });
+    /*Cerrar ventana modal al hacer click fuera de la ventana modal*/
     document.addEventListener("click", (event) => {
       if (
         $modalJavascript.style.display === "flex" &&
