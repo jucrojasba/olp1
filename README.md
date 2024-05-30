@@ -72,7 +72,31 @@ CodeQuest's future vision includes the addition of more programming languages an
   - The forum view should include a post and allow responses to the post.
   - The forum view should have a leaderboard of users based on their progress on the platform.
 
+# User Stories
 
+## User Story 1: Generate Website Layout
+**Description**: Generate a layout for the website with a sidebar, navbar, footer, and main scene using the SPA architecture proposed for the OLP project by the Ritchie clan. The layout should cover the entire viewport of the website and be responsive.
+
+## User Story 2: Home Scene
+**Description**: Generate a main view of the page based on the solar system. The view should include animations, information related to the page's content, and links that lead to each of the learning sites on the platform.
+
+## User Story 3: User Profile Scene
+**Description**: The scene should contain user information such as name, email, role, progress, and photo. Additionally, the scene should allow updating this information with the database.
+
+## User Story 4: Forum Scene
+**Description**: Generate a forum scene connected to the database in real-time, storing comments and responses. Additionally, it should display a leaderboard of users based on their progress.
+
+## User Story 5: Challenges Scene
+**Description**: Generate a challenges scene. The admin user should be able to add challenges to the scene in real-time. The scene should be interactive and animated. Challenges should display a name, points earned, and description.
+
+## User Story 6: Generate Course Scenes (Languages)
+**Description**: Generate interactive scenes for HTML, CSS, and JavaScript courses. The admin user should be able to add new learning modules. Each module should display a title, description, content, and a game related to the module's topic.
+
+## User Story 7: Generate Public Login/Register Scenes
+**Description**: Add two public scenes to the platform: login and register. The scenes should allow users to register in the database and log in with their credentials to the platform. User information should be sent encrypted to the server.
+
+## User Story 8: Generate the Database
+**Description**: The database should have entities such as users, languages, modules, comments, and challenges. Use the CRUD method.
 
 ## Protype
 
