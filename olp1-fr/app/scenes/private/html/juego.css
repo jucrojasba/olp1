@@ -1,0 +1,188 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex; /* Inicializamos el display en flex */
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  position: relative;
+}
+
+.target-image {
+  width: 200px;
+  height: 200px;
+  z-index: 100;
+  animation: spinplanet 30s infinite linear;
+}
+#spaceBase {
+  width: 250px;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  animation: vibrateSpace 15s infinite;
+  z-index: 2;
+}
+
+#planetLife {
+  width: 500px;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  animation: spinplanet 120s infinite linear;
+}
+
+#spaceShip {
+  width: 100px;
+  position: absolute;
+  top: 45%;
+  left: 2%;
+  animation: vibrate 10s infinite;
+  scale: 2;
+}
+.modal {
+  z-index: 110;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+/*Animaciones*/
+.vibrate {
+  animation: vibrate 0.5s infinite !important;
+}
+.vibrate-asteroide {
+  animation: explode 0.5s ease forwards !important;
+  animation-iteration-count: 1 !important;
+}
+.fly-away{
+  animation: fly 4s ease forwards !important;
+  animation-iteration-count: 1 !important;
+}
+@keyframes fly {
+  0% {
+    transform: translateX(0);
+    scale: 2;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px);
+    scale: 2;
+    opacity: 0;
+  }
+}
+@keyframes explode {
+  0% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes spinplanet {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes vibrate {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  60% {
+    transform: translate(-2px, 2px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(2px, -2px) rotate(2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes vibrateSpace {
+  0% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+  20% {
+    transform: translate(-10px, -10px) rotate(-10deg);
+  }
+  40% {
+    transform: translate(10px, 10px) rotate(10deg);
+  }
+  60% {
+    transform: translate(-10px, 10px) rotate(-10deg);
+  }
+  80% {
+    transform: translate(10px, -10px) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+}
+/* Estilos de los controles */
+.panel-control{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--spacing-3);
+}
+.panel-control > h3{
+  color: var(--owner-purple);
+}
+.panel-control > .controls{
+  display: flex;
+  gap: var(--spacing-4);
+  color: white;
+}
+.panel-control > .controls select{
+  color: var(--owner-purple);
+}
+
+.panel-control > .controls> .info-game{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* Estilos titulo del juego */
+.game-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+}
+.game-title >p> span{
+  color: var(--owner-purple);
+}
+/*Estilos upper bar info game*/
+.upper-info{
+  display: flex;
+  justify-content: space-between;
+}

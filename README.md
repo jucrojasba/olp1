@@ -1,90 +1,43 @@
-# Basic Node.js API users CRUD
+# CodeQuest Project Documentation
 
-## Descripción
+## General Objective
 
-API básica de Node.js con Express y PostgreSQL para realizar operaciones CRUD en una tabla de usuarios y autenticación de usuarios con JWT. Este proyecto tiene como propósito servir de base para proyectos más complejos.
+The primary objective of CodeQuest is to create an engaging online learning platform that teaches HTML, CSS, and JavaScript through gamification. By incorporating interactive games and hands-on coding exercises, CodeQuest aims to make learning programming languages an enjoyable and effective experience. The platform also aims to expand its offerings by adding more programming languages in the future.
 
-## Pre-requisitos
+## Project Statement
 
-Los requisitos para ejecutar este proyecto son:
+CodeQuest addresses the challenge of making learning programming languages accessible, engaging, and effective for beginners. Traditional methods of learning to code can be dry and overwhelming, especially for those new to the field. CodeQuest seeks to transform the learning experience by incorporating gamification techniques, which increase motivation and retention by turning the learning process into an enjoyable and interactive journey. Through a series of coding games and practical exercises, users can learn by doing, which helps reinforce their understanding and builds practical skills.
 
-```bash
-npm install npm@latest -g
-```
+## Project Scope
 
-## Instalación
+### Short-Term (Demo Version)
 
-1. Clonar el repositorio:
+- Develop a demo version of CodeQuest focusing on HTML, CSS, and JavaScript.
+- Implement basic gamification elements such as points, badges, and levels.
+- Include a few sample games and coding exercises to demonstrate the learning approach.
 
-```bash
-git clone
-```
+### Medium-Term
 
-2. Instalar las dependencias:
+- Integrate database connectivity to support user accounts, progress tracking, and personalized learning paths.
+- Expand the platform to include additional modules and more programming languages.
+- Enhance the range of interactive games and exercises available for each programming language.
 
-```bash
-npm install
-```
+### Long-Term
 
-3. Crear un archivo `.env` en la raíz del proyecto con las siguientes variables de entorno:
+- Develop advanced gamification features to increase user engagement, such as leaderboards, competitions, and collaborative challenges.
+- Improve the interactivity of the platform by incorporating real-time feedback, peer reviews, and community features.
+- Continuously update and expand the curriculum to cover new programming languages and emerging technologies.
 
-```env
-PORT = 4000
-DATABASE_URL=postgres://default:pMGZQUc0h1vt@ep-polished-term-a4mniado-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
-JWT_SECRET=mySecretKey
-```
+## Project Description
 
-Nota: No hay necesidad de crear la base de datos pues ya esta creada en vercel.
+CodeQuest is an online learning platform designed to teach programming languages like HTML, CSS, and JavaScript through gamification. The platform provides users with a series of games and hands-on coding exercises that allow them to learn by developing small programs directly within the web interface. Each programming language module is structured to progressively build the user's skills, starting from basic concepts and moving to more advanced topics. By completing challenges and earning rewards, users stay motivated and can track their progress throughout their learning journey.
 
-4. Ejecutar el proyecto:
+CodeQuest's future vision includes the addition of more programming languages and the implementation of advanced gamification techniques to further enhance user engagement and learning outcomes. The platform's ultimate goal is to make coding education accessible, enjoyable, and effective for learners of all levels.
 
-```bash
-npm start
-```
+##Dashboard
 
-## Dependencias
+Know more about our user stories in Azure Devops requires to be adding to the daskboard in: jucrojasba@gmail.com
 
-- [Express](https://expressjs.com/es/): Framework de Node.js para crear aplicaciones web y APIs.
-- [pg](https://node-postgres.com/): Cliente de PostgreSQL para Node.js.
-- [dotenv](https://www.npmjs.com/package/dotenv): Módulo que carga variables de entorno desde un archivo `.env`.
-- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken): Implementación de JSON Web Tokens (JWT) para Node.js.
-- [bcrypt](https://www.npmjs.com/package/bcrypt): Librería para encriptar contraseñas.
-- [cors](https://www.npmjs.com/package/cors): Middleware para habilitar CORS en Express.
+## Protype
 
-## Tecnologías
-
-- Node.js - Entorno de ejecución para JavaScript
-- Express - Infraestructura web rápida, minimalista y flexible para Node.js
-- PostgreSQL - Sistema de gestión de bases de datos relacional objeto
-
-## Estructura de directorios
-
-```txt
-project-root/
-│
-|── learning-tips/            # Dependencias del proyecto
-    ├── mvc.md/               # Explicacion de la arquitectura MVC(MODEL-VIEW-CONTROLLER)
-    |── postgresql-commands.md/ # Comandos CRUD de PostgreSQL
-    |── status.md/            # Explicacion de los codigos de estado HTTP y casos de uso
-├── src/                      # Código fuente
-│   ├── config/               # Configuración general (Base de datos, variables de entorno)
-│   │   └── database.js       # Conexión a la base de datos
-│   ├── controllers/          # Controladores
-│   │   └── authController.js # Controlador de autenticación
-│   ├── middlewares/          # Middlewares personalizados
-│   │   └── authMiddleware.js # Middleware de autenticación
-│   ├── models/               # Modelos de base de datos
-│   │   └── userModel.js      # Modelo de usuario
-│   ├── routes/               # Definición de rutas
-│   |   ├── router.js         # Punto de entrada de rutas
-│   │   └── authRoutes.js     # Rutas de autenticación
-│   ├── services/             # Lógica adicional (Servicios externos, utilidades)
-│   │   └── deportesCRUDApi.js # Ejemplo de servicio externo
-│   ├── app.js                # Configuración y rutas de la aplicación
-│   └── server.js             # Inicio del servidor
-│
-├── .env                      # Variables de entorno (como la URL de la base de datos, puerto del servidor, etc.)
-├── .gitignore                # Archivos a ignorar por git
-├── package.json              # Dependencias del proyecto
-└── README.md                 # Documentación del proyecto
-```
+Know more about our mockup version in: https://www.figma.com/design/ZaxjkfUiaNcFyQGUS0p5HV/UntitlVista-Home-proyecto-(Copy)?node-id=0-1&t=o41pRJZc43CNJnyk-0

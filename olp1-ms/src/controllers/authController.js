@@ -9,8 +9,7 @@ exports.register = async (req, res) => {
     // Extract user data from request body
     const { name, email, password, points } = req.body;
     
-    // Check if all required fields are present
-    if(!username || !email || !password) {
+    if(!name || !email || !password) {
         return res.status(400).json({message: 'Todos los campos son requeridos'});
     }
 

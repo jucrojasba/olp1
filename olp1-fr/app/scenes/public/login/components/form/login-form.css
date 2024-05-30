@@ -1,35 +1,65 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2);
 }
 
 .label {
-    margin-bottom: 5px;
-    color: black;
+  margin-bottom: 5px;
+  color: white;
 }
 
 .input-email,
 .input-password {
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid var(--owner-purple);
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.342);
+  color: white;
 }
 
 .button-send {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--owner-purple);
+  color: white;
+  cursor: pointer;
+}
+
+.register-button{
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--owner-purple);
+  color: white;
+  cursor: pointer;
 }
 
 .button-send:hover {
-    background-color: #45a049;
+  background-color: var(--purple-dark-color);
+}
+h2 {
+  color: var(--owner-purple);
+}
+
+.flexButtons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
