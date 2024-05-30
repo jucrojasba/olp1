@@ -1,32 +1,37 @@
+// Import required libraries and models
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { save, findByEmail } = require("../models/userModel");
 
+// Register a new user
 exports.register = async (req, res) => {
   try {
+    // Extract user data from request body
     const { name, email, password, points } = req.body;
     
+    // Check if all required fields are present
     if(!username || !email || !password) {
         return res.status(400).json({message: 'Todos los campos son requeridos'});
     }
 
-    // Verificar si el usuario ya existe
+    // Check if user already exists
     let user = await findByEmail(email);
     if (user) {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
 
-    // Encriptar contraseña
+    // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Crear nuevo usuario
+    // Save the new user in database
     user = await save( name, hashedPassword, email, points );
-
+ 
     if (!user) {
       return res.status(404).json({ message: "Error al crear el usuario" });
     }
-
+ 
+    // Return success message and user data
     res.status(201).json({ message: "Usuario creado exitosamente", user });
   } catch (err) {
     console.error("Error en register:", err);
@@ -34,11 +39,13 @@ exports.register = async (req, res) => {
   }
 };
 
+// Log in an existing user
 exports.login = async (req, res) => {
   try {
+    // Extract user data from request body
     const { email, password } = req.body;
 
-    // Verificar si el usuario existe
+    // Check if user exists
     const user = await findByEmail(email);
     console.log(email, user);
     if (!user) {
@@ -46,7 +53,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Ese Usuario no existe" });
     }
 
-    // Comparar contraseñas
+    // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res
@@ -54,11 +61,12 @@ exports.login = async (req, res) => {
         .json({ message: "Usuario o contraseña incorrectos" });
     }
 
-    // Generar token JWT
+    // Generate JWT token
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "12h",
     });
 
+    // Return token and user data
     res.json({
       token,
       user: { id: user.id, username: user.username, email: user.email },
@@ -69,6 +77,7 @@ exports.login = async (req, res) => {
   }
 };
 
+// Verify JWT token
 exports.verifyToken = (req, res) => {
   const token = req.header("Authorization").split(" ")[1];
 
