@@ -15,6 +15,9 @@ import { ProfileScene } from "../scenes/private/profile";
 import { UserScene } from "../scenes/private/users";
 import { LoginPage } from "../scenes/public/login";
 import { RegisterPage } from "../scenes/public/register";
+import { RankingTableScene } from "../scenes/private/rank";
+
+console.log(RankingTableScene )
 
 export const routes = {
   private: [
@@ -36,6 +39,8 @@ export const routes = {
     { path: "/dashboard/javascript/juego", component: juegoSceneJS },
     { path: "/dashboard/challenges", component: ChallengesScene },
     { path: "/dashboard/challenges/create", component: CreateChallengesScene },
+    { path: "/dashboard/rank", component: RankingTableScene }
+    
   ],
   public: [
     { path: "/login", component: LoginPage },

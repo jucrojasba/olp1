@@ -45,6 +45,7 @@ export function SidebarMenu(data = []) {
     <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
     <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
     <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button></div>
+    <button id="${"/dashboard/rank"}" type="button">Ranking</button>
     </div>
     <div id="${styles["courses"]}">
     <h3>My Courses</h3>
