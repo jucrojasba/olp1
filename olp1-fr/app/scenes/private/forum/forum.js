@@ -114,7 +114,6 @@ export function ForumScene() {
 
   if (params.get("id")) {
     const idUser = params.get("id");
-    console.log(idUser);
 
     function getRandomUser1(idUser) {
       let randomNumber;
@@ -160,7 +159,7 @@ export function ForumScene() {
       const postUser = document.getElementById("userPost");
 
       postUser.innerHTML = `
-      <div class="${styles.postUsers}">
+      <div class="${styles.postUsers}" id="usersPosts">
           <h1>POSTS</h1>
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
@@ -190,10 +189,7 @@ export function ForumScene() {
               </div>
             </div>
           </div>
-        
-
-          <br><br>
-
+  
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
               <div class="${styles.postUserImage}">
@@ -203,11 +199,9 @@ export function ForumScene() {
               <div class="${styles.postAnswers}">
                 ${postFound.body}
               </div>
-            </div>
-            
+            </div> 
           </div>
 
-          <br><br>
 
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
@@ -219,7 +213,6 @@ export function ForumScene() {
                 ${postFound.body}
               </div>
             </div>
-            
           </div> 
       </div>
       <div class="${styles.publish}">
@@ -227,7 +220,7 @@ export function ForumScene() {
             <input type="text" class="${styles.inputPost}" id="inputMessage">
             <span id="spanPublish">Publish Discussion</span>
           </div>
-          <button class="${styles.buttonPublish}">Publish</button>
+          <button class="${styles.buttonPublish}" id="publishButton">Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">
@@ -265,6 +258,28 @@ export function ForumScene() {
           const inputPublicar = document.getElementById('inputMessage');
           inputPublicar.style.display = 'block';
           inputPublicar.focus();
+        });
+
+        document.getElementById('publishButton').addEventListener('click',() => {
+          if(document.getElementById('inputMessage').value){
+            const currentPosts = document.getElementById('usersPosts');
+            const morePosts = document.getElementById('inputMessage').value;
+            currentPosts.innerHTML +=  `
+                <div class="${styles.eachPost}">
+                  <div class="${styles.postHeader}">
+                    <div class="${styles.postUserImage}">
+                      <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                      <p>${user2.name}</p>
+                    </div>
+                    <div class="${styles.postAnswers}">
+                      ${morePosts}
+                    </div>
+                  </div>
+                </div>
+            `
+          } else {
+            alert("Llena todos los campos");
+          }
         });
     };
   }

@@ -14,19 +14,19 @@ export function ProfileScene() {
          <tr id="mostrar">
           <td>Name:</td>
           <td id="usernameprofile" class="tagUpdateName"></td>
-          <td class="${styles.expand}">></td>
+          <td style="text-align: center;" class="${styles.expand}">></td>
          </tr>
 
-         <tr id="mostrar">
+         <tr id="mostrar" text-align="center">
           <td>Email:</td>
           <td id ="useremail" class="tagUpdateEmail"></td>
-          <td class="${styles.expand}">></td>
+          <td style="text-align: center;" class="${styles.expand}">></td>
          </tr>
 
          <tr id="mostrar">
           <td>Rol:</td>
           <td id="tagUpdateRol">Frontend</td>
-          <td class="${styles.expand}">></td>
+          <td style="text-align: center;" class="${styles.expand}">></td>
          </tr>
         </table>
       </div>

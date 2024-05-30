@@ -121,22 +121,5 @@
 }
 
 .modal {
-    width: 350px;
     background-color: var(--purple-dark-color);
-    border-radius: 12px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form button {
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid black;
-  width: 100px;
-  height: 32.5px;
 }

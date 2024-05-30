@@ -128,10 +128,15 @@
 }
 .postAnswers {
   background-color: var(--owner-purple);
+  width:700px;
+  overflow: auto;
+  word-wrap: break-word;
 }
 
 .postHeader {
   display: flex;
+  width: 100%;
+  border-radius: inherit;
 }
 
 .imageUserPost {
@@ -148,10 +153,13 @@
   background-color: #d3d3d3;
   width: 200px;
   padding: 10px;
+  border-radius: 25px 0px 0px 0px;
 }
 
 .eachPost {
   border: 3px solid black;
+  width: 900px;
+  border-radius: 25px;
 }
 
 .titlePost {
