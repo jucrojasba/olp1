@@ -142,17 +142,14 @@ export function ProfileScene() {
     $form1.addEventListener('submit', async (e) => {
       e.preventDefault();
       const $name = document.getElementById("name").value;
+      console.log(welcomeUser);
       if($name){
           const updateUserName = {
-            name: $name,
-            password: 'password123',
-            email: 'julian@gmail.com',
-            points: 15
-          }
-          
+            name: $name
+          } 
           try{
             await fetch(`http://localhost:4000/api/users/${welcomeUser}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 body: JSON.stringify(updateUserName),
                 headers: {
                     'Content-Type':'application/json'

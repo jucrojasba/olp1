@@ -51,6 +51,7 @@ export function ForumScene() {
                               .map((user) => {
                                 const $userFound = usersImages.find((image) => user.id === image.id);
                                 const $postFound = usersPosts.find((post) => user.id === post.id);
+                                
                 
                                 return `<tr class="${styles.filaTable}" id="${user.id}"> 
                                             <td class="${styles.tdUser}" text-align="left">
@@ -133,6 +134,7 @@ export function ForumScene() {
 
     const randomUser1 = getRandomUser1(idUser);
     const randomUser2 = getRandomUser2(idUser, randomUser1);
+    console.log(idUser, randomUser1, randomUser2);
     
     pageContent = `
         <div class="${styles.postUser}" id="userPost"></div>
@@ -143,7 +145,7 @@ export function ForumScene() {
       $whiteButton.style = "background-color:white";
 
 
-      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
+      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser1 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser2 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser2}`);
       const respPosts = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -153,8 +155,9 @@ export function ForumScene() {
       const user2 = await respUser2.json();
       const usersPosts = await respPosts.json();
       const usersImages = await respImages.json();
-      const postFound = usersPosts.find((e) => idUser == e.userId);
+      const postFound = usersPosts.find((e) => randomUser1 == e.userId);
       const imageFound = usersImages.find((e) => idUser == e.id);
+
 
       const postUser = document.getElementById("userPost");
 
