@@ -17,11 +17,16 @@
 
 
 .profile-picture {
-  margin-left: 5rem;
+  margin-right: 5rem;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   text-align: center;
+}
+
+.profile-picture img {
+    border-radius: inherit;
+    object-fit: fill;
 }
 
 .planets {
@@ -87,9 +92,12 @@
 }
 
 .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 55px;
     margin-left: 95px;
-   
+    gap: 25px;
 }
 
 .challenges {
@@ -139,4 +147,28 @@
   border: 1px solid black;
   width: 100px;
   height: 32.5px;
+}
+
+.cambiarPassword{
+    margin-right: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--purple-dark-color);
+    color: white;
+    cursor: pointer;
+}
+
+.cambiarPassword:hover{
+    background-color: var(--owner-purple);
+    color: white;
+    transform: scale(1.02);
+    transition: 0.5s;
+}
+
+.nuevaPass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }

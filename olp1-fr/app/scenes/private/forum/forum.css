@@ -124,14 +124,24 @@
 }
 .postBody {
   background-color: var(--owner-purple);
-  height: 70px;
+  height: 85px;
+  overflow: auto;
+  word-wrap: break-word;
+  border-radius: 0px 0px 25px 25px;
 }
+
 .postAnswers {
   background-color: var(--owner-purple);
+  width:700px;
+  overflow: auto;
+  word-wrap: break-word;
+  border-radius: 0px 25px 25px 0px;
 }
 
 .postHeader {
   display: flex;
+  width: 100%;
+  border-radius: inherit;
 }
 
 .imageUserPost {
@@ -148,10 +158,25 @@
   background-color: #d3d3d3;
   width: 200px;
   padding: 10px;
+  border-radius: 25px 0px 0px 0px;
+}
+
+.postUserImageResponses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #d3d3d3;
+  width: 200px;
+  padding: 10px;
+  border-radius: 25px 0px 0px 25px;
 }
 
 .eachPost {
-  border: 3px solid black;
+  width: 900px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .titlePost {
@@ -162,6 +187,7 @@
   padding: 25px;
   background-color: white;
   width: 100%;
+  border-radius: 0px 25px 0px 0px;
 }
 
 .tableWrapper {
