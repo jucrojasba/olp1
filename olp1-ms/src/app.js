@@ -1,18 +1,17 @@
-require('dotenv').config(); // Import dotenv to load environment variables from .env file
-const express = require('express'); // Import Express framework
-const cors = require('cors'); // Import CORS middleware
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 const { unleashHTMLWelcome } = require('./helpers/unleash-welcome-a-la-nico');
-const router = require('./routes/router'); // Import the router module
+const router = require('./routes/router');
 
-const app = express(); // Create an instance of the Express app
+const app = express();
 
 // Middlewares
-app.use(cors()); // Distinguish the origin of requests
-app.use(express.json()); // Parse the body of requests as JSON
+app.use(cors()); // Distinguir el origen de las peticiones
+app.use(express.json()); // Parsear el body de las peticiones
 
-// Routes
+// Rutas
 app.get('/', unleashHTMLWelcome);
-app.use('/api', router); //Definte the route at /api url
+app.use('/api', router);
 
-// Export the Express app instance
 module.exports = app;

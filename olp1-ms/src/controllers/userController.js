@@ -29,7 +29,7 @@ exports.getById = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, email, password, points, profile_picture_url } = req.body;
+        const { name, email, password, points } = req.body;
 
     // Verificar si el usuario existe
     const user = await findById(id);
@@ -42,7 +42,7 @@ exports.update = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
         // Actualizar usuario
-        const updatedUser = await update(id, { name, password: hashedPassword, email, points, profile_picture_url });
+        const updatedUser = await update(id, { name, password: hashedPassword, email, points });
 
     res
       .status(200)
@@ -76,17 +76,11 @@ exports.deleteUser = async (req, res) => {
 exports.updateSome = async (req, res) => {
     try {
         const { id } = req.params;
-        let { key, newValue } = req.body;
-        const user = await findById(id);        
+        const { key, newValue } = req.body;
+        const user = await findById(id);
         if (!user) {
             return res.status(400).json({ message: 'Ese Usuario no existe' });
         }
-
-        if (key === "password") { //If the user wants to change their password, encrypt the password
-          const salt = await bcrypt.genSalt(10);
-          newValue = await bcrypt.hash(newValue, salt);
-        }
-
         await updateSome(id, key, newValue);
         res.status(200).json({ message: 'Usuario actualizado exitosamente' });
     } catch (err){
