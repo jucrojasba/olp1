@@ -9,7 +9,6 @@ export function ProfileScene() {
     <div class="${styles.container}">
       <div class="${styles.profile}">
         <img class="${styles["profile-picture"]}" src="https://randomuser.me/api/portraits/men/75.jpg">
-        <br><br><br><br>
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
@@ -29,7 +28,10 @@ export function ProfileScene() {
           <td style="text-align: center;" class="${styles.expand}">></td>
          </tr>
         </table>
+
+        <button type="button" class="${styles.cambiarPassword}">Cambiar contraseña</button>
       </div>
+      
       <div class="${styles.challenges}">
         <div>
          <div class="${styles.planetAndInformation}">
