@@ -5,6 +5,7 @@ import challenges_icon from "../../assets/imagenes/Home/icon_challenge.png";
 import html_icon from "../../assets/imagenes/Home/w3_html5-icon.svg";
 import css_icon from "../../assets/imagenes/Home/w3_css-icon.svg";
 import javascript_icon from "../../assets/imagenes/Home/javascript-vertical.svg";
+import crown_icon from "../../assets/logos/crown.png";
 
 export function SidebarMenu(data = []) {
   const path = window.location.pathname;
@@ -42,10 +43,10 @@ export function SidebarMenu(data = []) {
     <div id="${styles["discover"]}">
     <h3>Discover</h3>
     <div class="${styles["container"]}">
-    <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
-    <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
-    <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button></div>
-    <button id="${"/dashboard/rank"}" type="button">Ranking</button>
+      <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
+      <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
+      <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button></div>
+      <button id="${"/dashboard/rank"}" type="button" class="${styles.rankButton}"><img src="${crown_icon}" class="${styles.crown}">Ranking</button>
     </div>
     <div id="${styles["courses"]}">
     <h3>My Courses</h3>
