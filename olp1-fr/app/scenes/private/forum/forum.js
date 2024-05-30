@@ -183,7 +183,7 @@ export function ForumScene() {
 
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user1.name}</p>
               </div>
@@ -195,7 +195,7 @@ export function ForumScene() {
   
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user2.name}</p>
               </div>
@@ -208,7 +208,7 @@ export function ForumScene() {
 
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user2.name}</p>
               </div>
@@ -270,7 +270,7 @@ export function ForumScene() {
             currentPosts.innerHTML +=  `
                 <div class="${styles.eachPost}">
                   <div class="${styles.postHeader}">
-                    <div class="${styles.postUserImage}">
+                    <div class="${styles.postUserImageResponses}">
                       <img src="${imageFound.url}" class="${styles.imageUserPost}">
                       <p>${user2.name}</p>
                     </div>
