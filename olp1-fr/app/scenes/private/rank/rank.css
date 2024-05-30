@@ -1,3 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
 .Titulo {
     color: blue;
+}
+.tableRanking {
+    border: 1px solid white;
+    color: white;
+    border-collapse: collapse;
+    width: 1200px;
+}
+
+.td{
+    border: 1px solid white;
+}
+
+.imgRanking {
+    width: 35px;
+    border-radius: 25px;
+}
+
+.progress {
+    background-color: white;
+    border-radius: 50px;
+    height: 1.5rem;
+}
+
+.complete1{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 50%;
+    height: inherit;
+    background-color: var(--purple-dark-color);
+    border-radius: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.progressSpace {
+    margin-left: 15px;
+}
+
+.percentageSpace{
+    margin-right: 5px;
+}
+
+.userHeader {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }

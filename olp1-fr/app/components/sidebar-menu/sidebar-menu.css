@@ -49,11 +49,30 @@ aside.sidebar-menu > #discover > div.container > button {
   display: flex;
   align-items: center;
 }
+
+.rankButton{
+  margin-top: 4.5px;
+  margin-left: 15px;
+  background-color: var(--owner-purple);
+  border: none;
+  border-radius: var(--spacing-1);
+  width: 170px;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+}
+
 aside.sidebar-menu > #discover > div.container > button > img {
   width: 40px;
   padding: var(--spacing-1) var(--spacing-2);
   display: flex;
 }
+.crown{
+  width: 40px;
+  padding: var(--spacing-1) var(--spacing-2);
+  display: flex;
+}
+
 aside.sidebar-menu > #discover > div.container > button:hover {
   background-color: white;
   cursor: pointer;

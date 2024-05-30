@@ -5,7 +5,8 @@ import challenges_icon from "../../assets/imagenes/Home/icon_challenge.png";
 import html_icon from "../../assets/imagenes/Home/w3_html5-icon.svg";
 import css_icon from "../../assets/imagenes/Home/w3_css-icon.svg";
 import javascript_icon from "../../assets/imagenes/Home/javascript-vertical.svg";
-import medals from "../../assets/logos/medals.png"
+import crown_icon from "../../assets/logos/crown.png";
+
 
 export function SidebarMenu(data = []) {
   const path = window.location.pathname;
@@ -47,7 +48,7 @@ export function SidebarMenu(data = []) {
     <button id="${"/dashboard"}" type="button"><img src="${home_icon}">Home</button>
     <button id="${"/dashboard/forum"}" type="button"><img src="${forum_icon}">Forum</button>
     <button id="${"/dashboard/challenges"}" type="button"><img src="${challenges_icon}">Challenges</button>
-    <button id="${"/dashboard/rank"}" type="button"><img src="${medals}">Ranking</button>
+    <button id="${"/dashboard/rank"}" type="button"><img src="${crown_icon}">Ranking</button>
     </div>
     </div>
     <div id="${styles["courses"]}">

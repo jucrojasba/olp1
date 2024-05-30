@@ -26,6 +26,7 @@ export function DashboardLayout(
     { href: "/dashboard/javascript", name: "Javascript" },
     { href: "/dashboard/challenges", name: "Challenges" },
     { href: "/dashboard/users", name: "Users" },
+    { href: "/dashboard/rank", name: "Rank" }
   ];
 
   root.innerHTML = `
