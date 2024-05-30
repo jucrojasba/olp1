@@ -8,7 +8,7 @@ export function ProfileScene() {
   const pageContent = `
     <div class="${styles.container}">
       <div class="${styles.profile}">
-        <img class="${styles["profile-picture"]}" src="https://randomuser.me/api/portraits/men/75.jpg">
+        <img class="${styles["profile-picture"]}" src="https://randomuser.me/api/portraits/men/75.jpg" id="mostrar" >
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
@@ -30,6 +30,7 @@ export function ProfileScene() {
         </table>
 
         <button type="button" class="${styles.cambiarPassword}" id="mostrar" >Cambiar contraseña</button>
+        
       </div>
       
       <div class="${styles.challenges}">
@@ -86,6 +87,16 @@ export function ProfileScene() {
       </div>
     </div>
     
+    <dialog id="modal" class="${styles.modal}">
+      <form class="${styles.form}" id="form4">
+        <input type="file" id="inputFile" accept="image/*">
+        <div>
+          <button type="submit" id="cambiar" name="cambiar">Cambiar</button>
+          <button id="cerrarModal">Cerrar</button>
+        </div>
+      </form>
+    </dialog>
+
     <dialog id="modal" class="${styles.modal}">
       <form class="${styles.form}" id="form1">
         <div>
@@ -153,10 +164,15 @@ export function ProfileScene() {
     const $form1 = document.getElementById("form1");
     const $form2 = document.getElementById("form2");
     const $form3 =  document.getElementById("form3");
+    const $form4 = document.getElementById("form4");
     const $buttonCambiarRol = document.getElementById("cambiarRol");
     const $updateTextRol = document.getElementById("tagUpdateRol");
+    const $inputFile = document.getElementById("inputFile");
    
-
+    $inputFile.addEventListener("change", (e)=> {
+      let $image = e.target.files[0];
+    });
+  
     for (let i = 0; i < $valuesModal.length; i++) {
       $valuesMostrar[i].addEventListener('click', (e) =>{
         e.preventDefault();
@@ -254,6 +270,10 @@ export function ProfileScene() {
         }
     });
 
+
+    $form4.addEventListener('submit', async (e) => {
+
+    });
     $buttonCambiarRol.addEventListener('click', (e) => {
       e.preventDefault();
       if(document.getElementById('radio1').checked){
