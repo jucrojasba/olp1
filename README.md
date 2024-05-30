@@ -44,4 +44,4 @@ Know more about our mockup version in: https://www.figma.com/design/ZaxjkfUiaNcF
 
 ## Entity-Relationship Diagram
 
-![Diagrama Entidad-Relación](\olp1-fr\app\assets\imagenes\project_documentation\diagrama-entidad-relacion.jpeg)
+![Diagrama Entidad-Relación](olp1-fr/app/assets/imagenes/project_documentation/diagrama-entidad-relacion.jpeg)
