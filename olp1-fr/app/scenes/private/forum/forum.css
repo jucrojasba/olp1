@@ -15,23 +15,22 @@
 .flexWrapper {
   display: flex;
   margin-top: 50px;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  gap: var(--spacing-1);
-  padding: var(--spacing-3);
+  gap: 135px;
 }
 
 .postUsers {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 700px;
-  margin-left: 80px;
+  width: 1000px;
+  margin-left: 300px;
   gap: 25px;
   border: 2px solid var(--owner-purple);
   padding: 25px;
   background-color: rgba(255, 255, 255, 0.336);
-  height: auto;
+  height: 700px;
   overflow: scroll;
 }
 
@@ -40,10 +39,6 @@
   background-color: #b48aea50;
   width: 100%;
   overflow: hidden;
-}
-
-.tableScroll{
-  width: 90%;
 }
 
 .tdUser {
@@ -60,9 +55,9 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
-  margin-left: 80px;
+  margin-left: 300px;
   padding: 0.5rem;
-  width: 700px;
+  width: 1000px;
   height: 50px;
   background-color: white;
   border-radius: 12.5px;
@@ -259,3 +254,43 @@
   display: flex;
   gap: 1px;
 }
+
+.publishInForum {
+  background-color: var(--purple-light-color);
+  color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100px;
+  height: 32.5px;
+  margin-top: 25px;
+}
+.publishInForum:hover{
+  background-color: var(--owner-purple);
+  color: white;
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+.tituloPost {
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.closer, .publisher{
+  background-color: var(--purple-light-color);
+  color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100px;
+  height: 32.5px;
+  margin-top: 25px;
+}
+
+.modalPost {
+  background-color: #b48aea;
+}
+

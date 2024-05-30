@@ -36,6 +36,7 @@ export function ForumScene() {
     
 
     posts.innerHTML = `
+                <div class="${styles.allTable}">
                   <div class="${styles.tableWrapper}">
                     <div class="${styles.tableScroll}">
                       <table class="${styles.tableForum}">
@@ -46,7 +47,7 @@ export function ForumScene() {
                               <th>Last Answer</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="cuerpoTabla">
                             ${users
                               .map((user) => {
                                 const $userFound = usersImages.find((image) => user.id === image.id);
@@ -68,10 +69,56 @@ export function ForumScene() {
                               .join("")}
                           </tbody>
                       </table>
+                      
                     </div>
+                    <div>
+                        <button id="publicarPost" class="${styles.publishInForum}">Publica tu post</button>
+                    </div>
+                </div>
+                    <dialog id="modal" class="${styles.modalPost}">
+                      <form id="mandarForoNuevo">
+                           <div class="${styles.tituloPost}">
+                            <label for="titlePost">Ingresa el titulo de tu post</label>
+                            <input id="titlePost" name="titlePost"></input> 
+                           </div>
+                           <div class="${styles.content}">
+                            <label for="contentPost">Ingresa el contenido de tu post</label>
+                            <textarea name="contentPost" id="contentPost" cols="25" rows="10"></textarea> 
+                           </div>
+                           <button type="button" id="closeArea" class="${styles.closer}">Salir</button>
+                           <button type="submit" id="publicarPost" name="publicarPost" class="${styles.publisher}">Publicar</button>
+                      </form>
+                    </dialog>
                   </div>
       `;
+    document.getElementById('publicarPost').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('modal').showModal();
+    });    
+    
+    document.getElementById('closeArea').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('modal').close();
+    })
 
+    document.getElementById('mandarForoNuevo').addEventListener('submit', async (e) => {
+      const tableBody = document.getElementById('cuerpoTabla');
+      const welcomeUser = localStorage.getItem("welcomeUser");
+      const user = users.find((us) => us.id === welcomeUser);
+      tableBody.innerHTML = `
+            <tr>
+                <td class="" text-align="left">
+                  <img src="${$userFound.url}" class="${styles.imageTable}">
+                  <div>${user.name}</div>
+                </td>
+                <td class="${styles.tdUser}" text-align="left">
+                  <h4>${$postFound.title}</h4><div>Publicado el 30 de marzo de 2023</div>
+                </td>  
+                <td class="${styles.tdUser}" text-align="center">2</td>
+                <td class="${styles.tdUser}">3 de marzo de 2024</td>
+            </tr>
+      `
+    })
     document.querySelectorAll(`.${styles["filaTable"]}`).forEach((tr) => {
       tr.addEventListener(
         "click",
