@@ -57,6 +57,22 @@ CodeQuest's future vision includes the addition of more programming languages an
       - Award points for completed activities.
       - Create a system of medals and trophies.
 
+### Epic 2: Challenges
+- **Description**:
+  - Create a challenge page focused on HTML, CSS, and JavaScript.
+  - The challenges should be daily, weekly, and monthly.
+  - Challenges should have points associated with them.
+  - An admin user should be able to create new challenges.
+  - Challenges should be displayed randomly.
+ 
+### Epic 3: Forum
+- **Description**:
+  - Add a page to display a forum.
+  - Comments should be stored in a database and displayed in real-time.
+  - The forum view should include a post and allow responses to the post.
+  - The forum view should have a leaderboard of users based on their progress on the platform.
+
+
 
 ## Protype
 
