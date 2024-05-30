@@ -280,37 +280,6 @@ export function ForumScene() {
               </div>
 
             </div>
-            
-                  
-            <div class="${styles.tableRankings}">
-
-                <h2>Discussions</h2>
-                <br><br>
-                <div class="${styles.discussionsFlex}">
-                  <div class="${styles.imgDiscussion}"></div>
-                  <strong>Lorem ipsum?</strong>
-                  <span>04/03/2024</span>
-                </div>
-                <br>
-                <div class="${styles.discussionsFlex}">
-                  <div class="${styles.imgDiscussion}"></div>
-                  <strong>Lorem ipsum?</strong>
-                  <span>04/03/2024</span>
-                </div>
-                <br>
-                <div class="${styles.discussionsFlex}">
-                  <div class="${styles.imgDiscussion}"></div>
-                  <strong>Lorem ipsum?</strong>
-                  <span>04/03/2024</span>
-                </div>
-                <br>
-                <div class="${styles.discussionsFlex}">
-                  <div class="${styles.imgDiscussion}"></div>
-                  <strong>Lorem ipsum?</strong>
-                  <span>04/03/2024</span>
-                </div>
-
-            </div>
           </div>
           
         `;
