@@ -34,9 +34,29 @@ CodeQuest is an online learning platform designed to teach programming languages
 
 CodeQuest's future vision includes the addition of more programming languages and the implementation of advanced gamification techniques to further enhance user engagement and learning outcomes. The platform's ultimate goal is to make coding education accessible, enjoyable, and effective for learners of all levels.
 
-## Dashboard
+# User Stories Dashboard
+![Diagrama Entidad-Relación](olp1-fr/app/assets/imagenes/project_documentation/diagrama-entidad-relacion.jpeg)
 
-Know more about our user stories in Azure Devops requires to be adding to the daskboard in: jucrojasba@gmail.com
+## Epics
+
+### Epic 1: Basic Game Systems
+- **Description**:
+  - **User Profile**:
+    - **General Information**: View basic information and progress in their profile.
+    - **Profile Path**: Display the user's path, language, and level.
+  - **Learning Paths**:
+    - **Create Entities**: Path > Language > Module > Topic.
+    - Relate paths to programming languages.
+  - **Interactive Games**:
+    - **Types of Games**: 
+      - Quiz Games.
+      - Practical and Collaborative Challenges.
+    - **Scoring**: Award points for each completed activity.
+  - **Gamification and Points System**:
+    - **Points and Medals System**:
+      - Award points for completed activities.
+      - Create a system of medals and trophies.
+
 
 ## Protype
 
