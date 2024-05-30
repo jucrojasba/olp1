@@ -28,18 +28,13 @@ export function DashboardLayout(
     { href: "/dashboard/users", name: "Users" },
   ];
 
-  navbarData = {
-    user: "Nicolas Picon",
-    userImage: "https://randomuser.me/api/portraits/men/75.jpg",
-  };
-
   root.innerHTML = `
   <div class="${styles.container}">
     <div class="${styles.sidebar}">
       ${SidebarMenu(sidebarData)}
     </div>
     <div class="${styles.navbar}">
-      ${NavigationBar(navbarData)}
+      ${NavigationBar()}
     </div>
     <div class="${styles.main}">
       ${pageContent}
