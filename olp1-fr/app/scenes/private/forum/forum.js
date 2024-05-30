@@ -51,6 +51,7 @@ export function ForumScene() {
                               .map((user) => {
                                 const $userFound = usersImages.find((image) => user.id === image.id);
                                 const $postFound = usersPosts.find((post) => user.id === post.id);
+                                
                 
                                 return `<tr class="${styles.filaTable}" id="${user.id}"> 
                                             <td class="${styles.tdUser}" text-align="left">
@@ -114,7 +115,6 @@ export function ForumScene() {
 
   if (params.get("id")) {
     const idUser = params.get("id");
-    console.log(idUser);
 
     function getRandomUser1(idUser) {
       let randomNumber;
@@ -134,6 +134,7 @@ export function ForumScene() {
 
     const randomUser1 = getRandomUser1(idUser);
     const randomUser2 = getRandomUser2(idUser, randomUser1);
+    console.log(idUser, randomUser1, randomUser2);
     
     pageContent = `
         <div class="${styles.postUser}" id="userPost"></div>
@@ -144,7 +145,7 @@ export function ForumScene() {
       $whiteButton.style = "background-color:white";
 
 
-      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
+      const respUser = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser1 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser1}`);
       const respUser2 = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUser2}`);
       const respPosts = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -154,13 +155,14 @@ export function ForumScene() {
       const user2 = await respUser2.json();
       const usersPosts = await respPosts.json();
       const usersImages = await respImages.json();
-      const postFound = usersPosts.find((e) => idUser == e.userId);
+      const postFound = usersPosts.find((e) => randomUser1 == e.userId);
       const imageFound = usersImages.find((e) => idUser == e.id);
+
 
       const postUser = document.getElementById("userPost");
 
       postUser.innerHTML = `
-      <div class="${styles.postUsers}">
+      <div class="${styles.postUsers}" id="usersPosts">
           <h1>POSTS</h1>
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
@@ -181,7 +183,7 @@ export function ForumScene() {
 
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user1.name}</p>
               </div>
@@ -190,28 +192,23 @@ export function ForumScene() {
               </div>
             </div>
           </div>
-        
-
-          <br><br>
-
+  
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user2.name}</p>
               </div>
               <div class="${styles.postAnswers}">
                 ${postFound.body}
               </div>
-            </div>
-            
+            </div> 
           </div>
 
-          <br><br>
 
           <div class="${styles.eachPost}">
             <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
+              <div class="${styles.postUserImageResponses}">
                 <img src="${imageFound.url}" class="${styles.imageUserPost}">
                 <p>${user2.name}</p>
               </div>
@@ -219,7 +216,6 @@ export function ForumScene() {
                 ${postFound.body}
               </div>
             </div>
-            
           </div> 
       </div>
       <div class="${styles.publish}">
@@ -227,7 +223,7 @@ export function ForumScene() {
             <input type="text" class="${styles.inputPost}" id="inputMessage">
             <span id="spanPublish">Publish Discussion</span>
           </div>
-          <button class="${styles.buttonPublish}">Publish</button>
+          <button class="${styles.buttonPublish}" id="publishButton">Publish</button>
       </div>
             
       <aside class="${styles.tableRankings}">
@@ -265,6 +261,28 @@ export function ForumScene() {
           const inputPublicar = document.getElementById('inputMessage');
           inputPublicar.style.display = 'block';
           inputPublicar.focus();
+        });
+
+        document.getElementById('publishButton').addEventListener('click',() => {
+          if(document.getElementById('inputMessage').value){
+            const currentPosts = document.getElementById('usersPosts');
+            const morePosts = document.getElementById('inputMessage').value;
+            currentPosts.innerHTML +=  `
+                <div class="${styles.eachPost}">
+                  <div class="${styles.postHeader}">
+                    <div class="${styles.postUserImageResponses}">
+                      <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                      <p>${user2.name}</p>
+                    </div>
+                    <div class="${styles.postAnswers}">
+                      ${morePosts}
+                    </div>
+                  </div>
+                </div>
+            `
+          } else {
+            alert("Llena todos los campos");
+          }
         });
     };
   }
