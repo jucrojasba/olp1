@@ -162,99 +162,110 @@ export function ForumScene() {
       const postUser = document.getElementById("userPost");
 
       postUser.innerHTML = `
-      <div class="${styles.postUsers}" id="usersPosts">
-          <h1>POSTS</h1>
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImage}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user.name}</p>
-              </div>
-              <div class = "${styles.boxTitle}">
-                <h2 class="${styles.titlePost}">${postFound.title}</h2>
-              </div>
-            </div>
-            <div class="${styles.postBody}">
-              ${postFound.body}
-            </div>
-          </div>
-          <h2>Answers</h2>
-          <br>
+          <div class="${styles.allPost}">
+                <div>
+                  <div class="${styles.postUsers}" id="usersPosts">
+                  <h1>POSTS</h1>
 
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImageResponses}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user1.name}</p>
-              </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
-            </div>
-          </div>
-  
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImageResponses}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user2.name}</p>
-              </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
-            </div> 
-          </div>
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImage}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user.name}</p>
+                      </div>
+                      <div class = "${styles.boxTitle}">
+                        <h2 class="${styles.titlePost}">${postFound.title}</h2>
+                      </div>
+                    </div>
+
+                    <div class="${styles.postBody}">
+                      ${postFound.body}
+                    </div>
+                  </div>
+                  
+                  <h2>Answers</h2>
+                  <br>
+
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user1.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user2.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div> 
+                  </div>
 
 
-          <div class="${styles.eachPost}">
-            <div class="${styles.postHeader}">
-              <div class="${styles.postUserImageResponses}">
-                <img src="${imageFound.url}" class="${styles.imageUserPost}">
-                <p>${user2.name}</p>
+                  <div class="${styles.eachPost}">
+                    <div class="${styles.postHeader}">
+                      <div class="${styles.postUserImageResponses}">
+                        <img src="${imageFound.url}" class="${styles.imageUserPost}">
+                        <p>${user2.name}</p>
+                      </div>
+                      <div class="${styles.postAnswers}">
+                        ${postFound.body}
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+
+              <div class="${styles.publish}">
+                  <div class="${styles.divPublishPost}" id="divpublish">
+                    <input type="text" class="${styles.inputPost}" id="inputMessage">
+                    <span id="spanPublish">Publish Discussion</span>
+                  </div>
+                  <button class="${styles.buttonPublish}" id="publishButton">Publish</button>
               </div>
-              <div class="${styles.postAnswers}">
-                ${postFound.body}
-              </div>
+
             </div>
-          </div> 
-      </div>
-      <div class="${styles.publish}">
-          <div class="${styles.divPublishPost}" id="divpublish">
-            <input type="text" class="${styles.inputPost}" id="inputMessage">
-            <span id="spanPublish">Publish Discussion</span>
-          </div>
-          <button class="${styles.buttonPublish}" id="publishButton">Publish</button>
-      </div>
             
-      <aside class="${styles.tableRankings}">
-        <div class="">
-          <h2>Discussions</h2>
-          <br><br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
+                  
+            <div class="${styles.tableRankings}">
+
+                <h2>Discussions</h2>
+                <br><br>
+                <div class="${styles.discussionsFlex}">
+                  <div class="${styles.imgDiscussion}"></div>
+                  <strong>Lorem ipsum?</strong>
+                  <span>04/03/2024</span>
+                </div>
+                <br>
+                <div class="${styles.discussionsFlex}">
+                  <div class="${styles.imgDiscussion}"></div>
+                  <strong>Lorem ipsum?</strong>
+                  <span>04/03/2024</span>
+                </div>
+                <br>
+                <div class="${styles.discussionsFlex}">
+                  <div class="${styles.imgDiscussion}"></div>
+                  <strong>Lorem ipsum?</strong>
+                  <span>04/03/2024</span>
+                </div>
+                <br>
+                <div class="${styles.discussionsFlex}">
+                  <div class="${styles.imgDiscussion}"></div>
+                  <strong>Lorem ipsum?</strong>
+                  <span>04/03/2024</span>
+                </div>
+
+            </div>
           </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-          <br>
-          <div class="${styles.discussionsFlex}">
-            <div class="${styles.imgDiscussion}"></div>
-            <strong>Lorem ipsum?</strong>
-            <span>04/03/2024</span>
-          </div>
-        </div>
-      </aside>
+          
         `;
         document.getElementById('divpublish').addEventListener('click',() => {
           document.getElementById('spanPublish').style.display = 'none';

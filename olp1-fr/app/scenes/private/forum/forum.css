@@ -222,7 +222,7 @@
   align-items: center;
   position: absolute;
   padding: 5px;
-  width: 300px;
+  width: 200px;
   height: 400px;
   top: 150px;
   left: 1590px;
@@ -248,4 +248,9 @@
   align-items: center;
   width: 89.5%;
   height: 100%;
+}
+
+.allPost{
+  display: flex;
+  gap: 1px;
 }
