@@ -29,7 +29,7 @@ exports.getById = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, email, password, points } = req.body;
+        const { name, email, password, points, profile_picture_url } = req.body;
 
     // Verificar si el usuario existe
     const user = await findById(id);
@@ -42,7 +42,7 @@ exports.update = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
         // Actualizar usuario
-        const updatedUser = await update(id, { name, password: hashedPassword, email, points });
+        const updatedUser = await update(id, { name, password: hashedPassword, email, points, profile_picture_url });
 
     res
       .status(200)

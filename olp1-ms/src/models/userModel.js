@@ -9,11 +9,11 @@ exports.getAll = async () => {
 
 // Function to save a new user to the database
 exports.save = async (name, hashedPassword, email, points) => {
-  const query = `INSERT INTO users (name, password, email, points)
-                 VALUES ($1, $2, $3, $4)
+  const query = `INSERT INTO users (name, password, email, points, profile_picture_url)
+                 VALUES ($1, $2, $3, $4, $5)
                  RETURNING *`;
   // Define the values to be inserted               
-  const values = [name, hashedPassword, email, points];
+  const values = [name, hashedPassword, email, points, profile_picture_url];
   const { rows } = await pool.query(query, values);
   return rows[0];
 };
@@ -21,10 +21,10 @@ exports.save = async (name, hashedPassword, email, points) => {
 // Function to update an existing user in the database
 exports.update = async (id, data) => {
   const query = `UPDATE users
-                 SET name = $1, password = $2, email = $3, points = $4
-                 WHERE id = $5
+                 SET name = $1, password = $2, email = $3, points = $4, profile_picture_url = $5
+                 WHERE id = $6
                  RETURNING *`;
-  const values = [data.name, data.password, data.email, data.points, id];
+  const values = [data.name, data.password, data.email, data.points, data.profile_picture_url, id];
   const { rows } = await pool.query(query, values);
   return rows[0];
 };
@@ -52,7 +52,7 @@ exports.findById = async (id) => {
 // Function to update a specific column of a user in the database
 exports.updateSome = async (id, key, newValue) => {
     // Define the valid columns that can be updated
-  const validColumns = ['name', 'email', 'password', 'points']; 
+  const validColumns = ['name', 'email', 'password', 'points', 'profile_picture_url']; 
     // Check if the key is a valid column
   if (!validColumns.includes(key)) {
     throw new Error('Nombre de columna no válido');

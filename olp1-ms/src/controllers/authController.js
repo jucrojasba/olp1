@@ -7,7 +7,7 @@ const { save, findByEmail } = require("../models/userModel");
 exports.register = async (req, res) => {
   try {
     // Extract user data from request body
-    const { name, email, password, points } = req.body;
+    const { name, email, password, points, profile_picture_url } = req.body;
     
     if(!name || !email || !password) {
         return res.status(400).json({message: 'Todos los campos son requeridos'});
@@ -24,7 +24,7 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Save the new user in database
-    user = await save( name, hashedPassword, email, points );
+    user = await save( name, hashedPassword, email, points, profile_picture_url );
  
     if (!user) {
       return res.status(404).json({ message: "Error al crear el usuario" });
