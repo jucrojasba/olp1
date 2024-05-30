@@ -1,3 +1,4 @@
+/*Estilos sobre el contenedor principal*/
 .contenido {
   position: relative;
   display: flex;
@@ -6,9 +7,13 @@
   justify-content: center;
   height: 100%;
 }
+
+/*Estilo inicial para la ventana modal*/
 .moduloModal {
   display: none;
 }
+
+/*Animaciones del planeta central y las naves espaciales (modulos)*/
 @keyframes spinsun {
   0% {
     transform: rotate(0);
@@ -31,6 +36,8 @@
     top: var(--start-y); /* volver a la coordenada inicial */
   }
 }
+
+/* Estilos sobre el planeta principal */
 .contenido > .planet {
   display: flex;
   justify-content: center;
@@ -50,6 +57,7 @@
   scale: 1.7;
 }
 
+/* Estilos sobre las naves espaciales (modulos) */
 .modulo {
   position: absolute;
   left: var(--start-x);
@@ -72,6 +80,7 @@
   height: 120px;
 }
 
+/* Estilos sobre el titulo principal de la escena */
 .title {
   display: flex;
   gap: var(--spacing-3);
@@ -119,6 +128,8 @@
 .containerModal > .show-module-window > hr {
   width: 350px;
 }
+
+/* Estilos sobre los botones Cerrar y Jugar en la ventana modal de ver modulos */
 .containerModal > .show-module-window > .action-buttons-info > button {
   width: fit-content;
   color: white;

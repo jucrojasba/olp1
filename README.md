@@ -34,10 +34,74 @@ CodeQuest is an online learning platform designed to teach programming languages
 
 CodeQuest's future vision includes the addition of more programming languages and the implementation of advanced gamification techniques to further enhance user engagement and learning outcomes. The platform's ultimate goal is to make coding education accessible, enjoyable, and effective for learners of all levels.
 
-##Dashboard
+# User Stories Dashboard
+![UserStories](olp1-fr/app/assets/imagenes/project_documentation/dashboard-user-stories.JPG)
 
-Know more about our user stories in Azure Devops requires to be adding to the daskboard in: jucrojasba@gmail.com
+## Epics
+
+### Epic 1: Basic Game Systems
+- **Description**:
+  - **User Profile**:
+    - **General Information**: View basic information and progress in their profile.
+    - **Profile Path**: Display the user's path, language, and level.
+  - **Learning Paths**:
+    - **Create Entities**: Path > Language > Module > Topic.
+    - Relate paths to programming languages.
+  - **Interactive Games**:
+    - **Types of Games**: 
+      - Quiz Games.
+      - Practical and Collaborative Challenges.
+    - **Scoring**: Award points for each completed activity.
+  - **Gamification and Points System**:
+    - **Points and Medals System**:
+      - Award points for completed activities.
+      - Create a system of medals and trophies.
+
+### Epic 2: Challenges
+- **Description**:
+  - Create a challenge page focused on HTML, CSS, and JavaScript.
+  - The challenges should be daily, weekly, and monthly.
+  - Challenges should have points associated with them.
+  - An admin user should be able to create new challenges.
+  - Challenges should be displayed randomly.
+ 
+### Epic 3: Forum
+- **Description**:
+  - Add a page to display a forum.
+  - Comments should be stored in a database and displayed in real-time.
+  - The forum view should include a post and allow responses to the post.
+  - The forum view should have a leaderboard of users based on their progress on the platform.
+
+# User Stories
+
+## User Story 1: Generate Website Layout
+**Description**: Generate a layout for the website with a sidebar, navbar, footer, and main scene using the SPA architecture proposed for the OLP project by the Ritchie clan. The layout should cover the entire viewport of the website and be responsive.
+
+## User Story 2: Home Scene
+**Description**: Generate a main view of the page based on the solar system. The view should include animations, information related to the page's content, and links that lead to each of the learning sites on the platform.
+
+## User Story 3: User Profile Scene
+**Description**: The scene should contain user information such as name, email, role, progress, and photo. Additionally, the scene should allow updating this information with the database.
+
+## User Story 4: Forum Scene
+**Description**: Generate a forum scene connected to the database in real-time, storing comments and responses. Additionally, it should display a leaderboard of users based on their progress.
+
+## User Story 5: Challenges Scene
+**Description**: Generate a challenges scene. The admin user should be able to add challenges to the scene in real-time. The scene should be interactive and animated. Challenges should display a name, points earned, and description.
+
+## User Story 6: Generate Course Scenes (Languages)
+**Description**: Generate interactive scenes for HTML, CSS, and JavaScript courses. The admin user should be able to add new learning modules. Each module should display a title, description, content, and a game related to the module's topic.
+
+## User Story 7: Generate Public Login/Register Scenes
+**Description**: Add two public scenes to the platform: login and register. The scenes should allow users to register in the database and log in with their credentials to the platform. User information should be sent encrypted to the server.
+
+## User Story 8: Generate the Database
+**Description**: The database should have entities such as users, languages, modules, comments, and challenges. Use the CRUD method.
 
 ## Protype
 
 Know more about our mockup version in: https://www.figma.com/design/ZaxjkfUiaNcFyQGUS0p5HV/UntitlVista-Home-proyecto-(Copy)?node-id=0-1&t=o41pRJZc43CNJnyk-0
+
+## Entity-Relationship Diagram
+
+![Diagrama Entidad-Relación](olp1-fr/app/assets/imagenes/project_documentation/diagrama-entidad-relacion.jpeg)
