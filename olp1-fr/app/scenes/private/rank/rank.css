@@ -7,17 +7,27 @@
 
 
 .Titulo {
-    color: blue;
+    color: var(--owner-purple);
 }
 .tableRanking {
-    border: 1px solid white;
+    border: none;
     color: white;
     border-collapse: collapse;
-    width: 1200px;
+    width: 60vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.th {
+    border: 1px solid var(--purple-light-color);
+    background-color: var(--purple-dark-color);
+    padding: 0.5rem;
 }
 
 .td{
-    border: 1px solid white;
+    border: 1px solid var(--purple-light-color);
+    padding: 0.5rem;
+    background-color: rgb(1,11,28);
 }
 
 .imgRanking {
@@ -55,4 +65,5 @@
     display: flex;
     align-items: center;
     gap: 25px;
+    
 }

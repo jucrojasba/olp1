@@ -9,12 +9,7 @@ export function ForumScene() {
     <h1 class="${styles["title-forum"]}">FORUM</h1>
     <div class="${styles.flexWrapper}">
 
-      <div id="posts" class="${styles.posts}"></div>
-
-      <div id="rankingTable" class="${styles.discussions}">
-        
-      </div>
-      
+      <div id="posts" class="${styles.posts}"></div>      
     </div>
     `;
 
@@ -130,33 +125,6 @@ export function ForumScene() {
         true
       );
     });
-
-    tableRanking.innerHTML = `<h2>Ranking Table</h2>
-                              <br><br>
-                              
-                              <table>
-                                ${podium.map((user,index) => {
-                                  const $userFound = usersImages.find((image) => user.id === image.id);
-                                  if(index == 0){
-                                      return `<tr class="${styles.discussionsFlex}">
-                                                <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
-                                                <td><img src="${crown_icon}" class="${styles.imageTable}"></td>
-                                                <td><strong>${user.name}</strong></td>
-                                                <td><span>${user.points} points</span></td>
-                                              </tr>`
-                                  } else {
-                                    return `<tr class="${styles.discussionsFlex}">
-                                              <td><img class="${styles.imgDiscussion}" url="${$userFound.url}"></td>
-                                              <td><img src="${medal_icon}" class="${styles.imageTable}"></td>
-                                              <td><strong>${user.name}</strong></td>
-                                              <td><span>${user.points} points</span></td>
-                                            </tr>`
-                        }
-                                  }
-                                ).join('')}
-                              </table>
-
-    `;
 };
 
 

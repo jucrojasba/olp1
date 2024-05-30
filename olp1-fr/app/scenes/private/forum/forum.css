@@ -17,7 +17,8 @@
   margin-top: 50px;
   justify-content: center;
   align-items: center;
-  gap: 135px;
+  gap: 30px;
+  padding: 0 var(--spacing-4);
 }
 
 .postUsers {
@@ -43,6 +44,8 @@
 
 .tdUser {
   border-bottom: 1px solid gray;
+  padding: 0.5rem;
+  color: white;
 }
 
 .imageTable {
@@ -89,9 +92,6 @@
 }
 
 .discussions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 5px;
   width: 300px;
   height: 400px;
@@ -257,12 +257,12 @@
 
 .publishInForum {
   background-color: var(--purple-light-color);
-  color: black;
+  color: white;
   border-radius: 10px;
   border: 1px solid black;
-  width: 100px;
-  height: 32.5px;
-  margin-top: 25px;
+  width: fit-content;
+  padding: 0.8rem;
+  margin-top: 1rem;
 }
 .publishInForum:hover{
   background-color: var(--owner-purple);

@@ -21,10 +21,10 @@ export function RankingTableScene() {
         <table class="${styles.tableRanking}">
             <thead>
                 <tr>
-                    <th class="${styles.td}">User</th>
-                    <th class="${styles.td}">Points</th>
-                    <th class="${styles.td}">Position</th>
-                    <th class="${styles.td}">Progress</th>
+                    <th class="${styles.th}">User</th>
+                    <th class="${styles.th}">Points</th>
+                    <th class="${styles.th}">Position</th>
+                    <th class="${styles.th}">Progress</th>
                 </tr>
             </thead>
             <tbody>
