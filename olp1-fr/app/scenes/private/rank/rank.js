@@ -33,7 +33,7 @@ export function RankingTableScene() {
                         <tr class="${styles.eachPerson}">
                             <td class="${styles.td}">
                                 <div class="${styles.userHeader}">
-                                    <img class="${styles.imgRanking}" src="https://randomuser.me/api/portraits/men/75.jpg">
+                                    <img class="${styles.imgRanking}" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
                                     <span>${ranking[index].name}</span>
                                 </div>
                             </td>

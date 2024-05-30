@@ -39,7 +39,7 @@ export function SidebarMenu(data = []) {
   return `
     <aside class="${styles["sidebar-menu"]}">
     <div id="${styles["usuario"]}">
-    <a href="/dashboard/profile"><img src="https://randomuser.me/api/portraits/men/75.jpg"></a>
+    <a href="/dashboard/profile"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></a>
     <h3 id="username">${logic()}</h3>
     </div>
     <div id="${styles["discover"]}">

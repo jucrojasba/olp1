@@ -8,7 +8,7 @@ export function ProfileScene() {
   const pageContent = `
     <div class="${styles.container}">
       <div class="${styles.profile}">
-        <img class="${styles["profile-picture"]}" src="https://randomuser.me/api/portraits/men/75.jpg" id="mostrar" >
+        <img class="${styles["profile-picture"]}" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" id="mostrar" >
         <table class="${styles.tableProfile}">
          <tr id="mostrar">
           <td>Name:</td>
