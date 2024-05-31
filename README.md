@@ -1,5 +1,6 @@
 # CodeQuest Project Documentation
 
+Authors: Juan Camilo Rojas, Ana Isabel Alzate, Julian Sneider Alvarez, Deybison Sepulveda
 To install this project, navigate to the curd.md file.
 
 ## General Objective
