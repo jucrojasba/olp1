@@ -40,6 +40,7 @@ export const routes = {
     { path: "/dashboard/challenges", component: ChallengesScene },
     { path: "/dashboard/challenges/create", component: CreateChallengesScene },
     { path: "/dashboard/challenge/display_challenge", component: ChallengeDisplayScene },
+    { path: "/dashboard/rank", component: RankingTableScene },
   ],
   public: [
     { path: "/login", component: LoginPage },
