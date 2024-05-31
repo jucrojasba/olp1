@@ -17,16 +17,21 @@ npm install npm@latest -g
 1. Clonar el repositorio:
 
 ```bash
-git clone
+git clone https://github.com/jucrojasba/olp1.git
+```
+2. Cambiarse a la carpeta olp1/olp1-ms:
+
+```bash
+cd olp1/olp1-ms
 ```
 
-2. Instalar las dependencias:
+3. Instalar las dependencias:
 
 ```bash
 npm install
 ```
 
-3. Crear un archivo `.env` en la raíz del proyecto con las siguientes variables de entorno:
+4. Crear un archivo `.env` en la carpeta olp1/olp1-ms:
 
 ```env
 PORT = 4000
@@ -36,7 +41,25 @@ JWT_SECRET=mySecretKey
 
 Nota: No hay necesidad de crear la base de datos pues ya esta creada en vercel.
 
-4. Ejecutar el proyecto:
+5. Encender backend:
+
+```bash
+npm run dev
+```
+
+6. Abrir otra terminal y cambiarse a la carpeta olp1/olp1-fr:
+
+```bash
+cd olp1/olp1-fr
+```
+
+7. Instalar las dependencias:
+
+```bash
+npm install
+```
+
+8. Ejecutar el proyecto:
 
 ```bash
 npm start
