@@ -2,7 +2,7 @@
 
 Authors: Juan Camilo Rojas, Ana Isabel Alzate, Julian Sneider Alvarez, Deybison Sepulveda
 
-To install this project, navigate to the (curd.md) file.
+To install this project, navigate to the !(CRUD.md) file.
 
 ## General Objective
 
