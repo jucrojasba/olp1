@@ -1,5 +1,7 @@
 # CodeQuest Project Documentation
 
+To install this project, navigate to the curd.md file.
+
 ## General Objective
 
 The primary objective of CodeQuest is to create an engaging online learning platform that teaches HTML, CSS, and JavaScript through gamification. By incorporating interactive games and hands-on coding exercises, CodeQuest aims to make learning programming languages an enjoyable and effective experience. The platform also aims to expand its offerings by adding more programming languages in the future.
